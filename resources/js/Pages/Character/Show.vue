@@ -1,0 +1,111 @@
+<script setup>
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import { onBeforeMount, onMounted} from "vue";
+import { Head } from '@inertiajs/vue3';
+
+import Attributes from "@/Pages/Character/Partials/Attributes.vue";
+import Skills from "@/Pages/Character/Partials/Skills.vue";
+import Status from "@/Pages/Character/Partials/Status.vue";
+import BottomRightMenu from "@/Pages/Character/Menus/BottomRightMenu.vue";
+
+import { useCharacterStore } from "@/Stores/characterStore.js";
+import { useRightMenuStore } from "@/Stores/BottomMenuStore.js";
+
+import Disciplines from "@/Pages/Character/Partials/Disciplines.vue";
+import Concepts from "@/Pages/Character/Partials/Concepts.vue";
+import Descriptions from "@/Pages/Character/Partials/Descriptions.vue";
+
+const rightMenustore = useRightMenuStore();
+const characterStore = useCharacterStore();
+
+const props = defineProps({
+    character: Object,
+    disciplines: Object,
+});
+
+onBeforeMount( async () => {
+    await characterStore.setCurrentCharacter(props.character)
+})
+
+onMounted(async () => {
+    // await characterStore.setCurrentCharacter(props.character)
+})
+</script>
+
+<template>
+    <Head :title="character.name" />
+
+    <AuthenticatedLayout>
+        <template #header>
+            <div class="flex justify-between">
+                <div class="flex flex-col">
+                    <h2 class="title text-xl text-gray-800 leading-tight">{{ character.name }}</h2>
+                    <p class="title text-sm">{{ character.clan.name }}</p>
+                </div>
+                <div class="flex flex-col">
+                    <h2 class="title text-xl">{{ character.experience_points }} / {{ character.experience_total }} xp</h2>
+                    <p class="title text-sm">{{ character.generation }}ème génération</p>
+                </div>
+            </div>
+        </template>
+
+        <div>
+            <div
+                class="w-full border-b border-red-500 p-4 flex justify-between"
+                v-if="rightMenustore.category == 'attributes'"
+            >
+                <div>
+                    <h2 class="title">Fléau de clan</h2>
+                    <h2 class="text-red-500">{{ character.clan.bane }}</h2>
+                </div>
+                <div>
+                    <h2 class="title">Compulsion</h2>
+                    <h2 class="text-red-500">{{ character.compulsion ? character.compulsion.name : 'Aucune'}}</h2>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div
+                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    v-if="rightMenustore.category == 'attributes'"
+                >
+                    <Attributes :character="character" />
+
+                    <Skills :character="character"/>
+                </div>
+
+                <div
+                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    v-if="rightMenustore.category == 'status'"
+                >
+                    <Status :character="character"/>
+                </div>
+
+                <div
+                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    v-if="rightMenustore.category == 'disciplines'"
+                >
+                    <Disciplines
+                        :character="character"
+                        :disciplines="disciplines"
+                    />
+                </div>
+
+                <div
+                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    v-if="rightMenustore.category == 'concepts'"
+                >
+                    <Concepts :character="character" />
+                </div>
+
+                <div
+                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    v-if="rightMenustore.category == 'descriptions'"
+                >
+                    <Descriptions :character="character" />
+                </div>
+
+                <BottomRightMenu />
+            </div>
+        </div>
+    </AuthenticatedLayout>
+</template>

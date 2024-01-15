@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.title {
+    font-family: 'Vampiro One', system-ui;
+    @apply text-red-500;
+}
+.attribute_category_title{
+    @apply title text-2xl text-red-500 mb-2;
+}
+.attribute_title{
+    @apply text-gray-400 font-bold text-lg;
+}
+
+.bottom_right_menu{
+    background: url('https://content.demiplane.com/nexus/vampire/vtm-marble-red.jpg') !important;
+    opacity: 0;
+    animation: fadeUp 300ms forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+    }
+}
+
+.menu_text{
+    font-family: 'Vampiro One', system-ui;
+    @apply text-white text-2xl my-4;
+}
+
+.detail_text{
+    @apply text-white text-lg text-justify;
+}
+
+.character_header{
+    background: url('https://content.demiplane.com/nexus/vampire/vtm-marble-red.jpg') !important;
+    @apply bg-slate-900;
+}
