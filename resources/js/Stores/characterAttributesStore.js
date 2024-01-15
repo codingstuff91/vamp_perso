@@ -7,7 +7,6 @@ export const useCharacterAttributesStore = defineStore('attributes',{
     },
     actions: {
         async getAttributes(character) {
-            console.log('character received', character)
             await axios.get(`/character/${character.id}/attributes`).then((response) => {
                 this.attributes = response.data;
             });
@@ -15,6 +14,9 @@ export const useCharacterAttributesStore = defineStore('attributes',{
     },
     getters: {
         willPowerAttributes: (state) => state.attributes.filter(element => {
+            return element.category == 'willpower';
+        }),
+        healthAttributes: (state) => state.attributes.filter(element => {
             return element.category == 'willpower';
         }),
     },

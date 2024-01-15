@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import {onBeforeMount, onMounted, ref} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
 import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
@@ -11,7 +11,7 @@ const characterStore = useCharacterStore();
 const characterAttributes = ref([]);
 const willPowerAttributes = ref([]);
 
-onMounted(async () => {
+onBeforeMount(async () => {
     await attributesStore.getAttributes(characterStore.character);
     characterAttributes.value = attributesStore.attributes;
 

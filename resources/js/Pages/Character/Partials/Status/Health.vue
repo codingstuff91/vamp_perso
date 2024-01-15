@@ -1,15 +1,21 @@
 <script setup>
-import { computed } from "vue";
+import { onBeforeMount, ref} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
-const props = defineProps({
-    character: Object,
-});
+import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
+import { useCharacterStore } from "@/Stores/characterStore.js";
 
-const health_attributes = computed(() => {
-    return props.character.attributes.filter(attribute => {
-        return attribute.category == 'health'
-    });
+const attributesStore = useCharacterAttributesStore();
+const characterStore = useCharacterStore();
+
+const characterAttributes = ref([]);
+const healthAttributes = ref([]);
+
+onBeforeMount(async () => {
+    await attributesStore.getAttributes(characterStore.character);
+    characterAttributes.value = attributesStore.attributes;
+
+    healthAttributes.value = attributesStore.healthAttributes;
 });
 
 </script>
@@ -19,22 +25,7 @@ const health_attributes = computed(() => {
         <h2 class="attribute_category_title text-2xl text-center">Santé</h2>
         <div class="px-2 pb-4 w-full">
             <div class="flex flex-col items-center">
-                <p class="attribute_title">{{ health_attributes[0].name }}</p>
-                <DynamicGauge
-                    :value="health_attributes[0].pivot.attribute_value"
-                    icon="fa-solid fa-hand-fist"
-                    color="text-blue-500"
-                    :max="10"
-                />
-            </div>
-            <div class="flex flex-col items-center">
-                <p class="attribute_title">{{ health_attributes[1].name }}</p>
-                <DynamicGauge
-                    :value="health_attributes[1].pivot.attribute_value"
-                    icon="fa-solid fa-fire"
-                    color="text-orange-500"
-                    :max="10"
-                />
+                <p class="attribute_title">{{ healthAttributes }}</p>
             </div>
         </div>
     </div>
