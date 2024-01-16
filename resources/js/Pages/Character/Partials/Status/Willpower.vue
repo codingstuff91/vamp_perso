@@ -2,7 +2,6 @@
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
 import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
-
 const attributesStore = useCharacterAttributesStore();
 </script>
 
