@@ -14,7 +14,7 @@ const attributesStore = useCharacterAttributesStore();
             <DynamicGauge
                 :attribute="attributesStore.willPowerAttributes[0].pivot.attribute_id"
                 :value="attributesStore.willPowerAttributes[0].pivot.attribute_value"
-                icon="fa-solid fa-shield text-2xl"
+                icon="fa-solid fa-shield"
                 color="text-red-500"
                 :max="6"
             />
@@ -24,7 +24,7 @@ const attributesStore = useCharacterAttributesStore();
             <DynamicGauge
                 :attribute="attributesStore.willPowerAttributes[1].pivot.attribute_id"
                 :value="attributesStore.willPowerAttributes[1].pivot.attribute_value"
-                icon="fa-solid fa-skull text-2xl"
+                icon="fa-solid fa-skull"
                 color="text-red-500"
                 :max="6"
             />
