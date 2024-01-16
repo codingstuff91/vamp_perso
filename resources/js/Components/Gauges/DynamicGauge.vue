@@ -13,6 +13,11 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
+import {useCharacterStore} from "@/Stores/characterStore.js";
+import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore.js";
+
+const characterStore = useCharacterStore();
+const attributesStore = useCharacterAttributesStore();
 
 let remainingPoints = ref(0);
 let selectedPoints = ref(0);
@@ -24,7 +29,6 @@ onMounted(() => {
 const props = defineProps({
     value: Number,
     max: Number,
-    character : Object,
     attribute: Number,
     icon : String,
     color: {
@@ -38,10 +42,10 @@ const setValue = (index) => {
 
     let newValue = parseInt(index + 1);
 
-    axios.patch(`/character/${props.character.id}/attribute/${props.attribute}`, {
+    axios.patch(`/character/${characterStore.character.id}/attribute/${props.attribute}`, {
         newScore: newValue,
-    }).then((response) => {
-        console.log(response.data);
+    }).then( async(response) => {
+        await attributesStore.getAttributes(characterStore.character);
     }).catch(error => console.log(error));
 }
 
