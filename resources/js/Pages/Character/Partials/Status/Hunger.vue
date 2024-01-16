@@ -1,29 +1,23 @@
 <script setup>
-import { computed } from "vue";
+import { ref } from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
-const props = defineProps({
-    character: Object,
-});
+import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
+const attributesStore = useCharacterAttributesStore();
 
-const hunger_attributes = computed(() => {
-    return props.character.attributes.filter(attribute => {
-        return attribute.category == 'hunger'
-    });
-});
-
+const maxHungerLevel = ref(5)
 </script>
 
 <template>
-    <div>
+    <div class="mt-4">
         <h2 class="attribute_category_title text-2xl text-center">Soif / Sang</h2>
         <div class="flex flex-col justify-center items-center px-2 w-full">
             <div class="flex flex-col items-center">
                 <DynamicGauge
-                    :value="hunger_attributes[0].pivot.attribute_value"
+                    :value="attributesStore.hungerAttributes[0].pivot.attribute_value"
                     icon="fa-solid fa-droplet text-2xl"
                     color="text-red-500"
-                    :max="5"
+                    :max="maxHungerLevel"
                 />
             </div>
             <div class="flex flex-col items-center">
