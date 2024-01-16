@@ -1,32 +1,32 @@
 <script setup>
-import { onBeforeMount, ref} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
-
 import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
-import { useCharacterStore } from "@/Stores/characterStore.js";
-
 const attributesStore = useCharacterAttributesStore();
-const characterStore = useCharacterStore();
-
-const characterAttributes = ref([]);
-const healthAttributes = ref([]);
-
-onBeforeMount(async () => {
-    await attributesStore.getAttributes(characterStore.character);
-    characterAttributes.value = attributesStore.attributes;
-
-    healthAttributes.value = attributesStore.healthAttributes;
-});
-
 </script>
 
 <template>
-    <div>
-        <h2 class="attribute_category_title text-2xl text-center">Santé</h2>
-        <div class="px-2 pb-4 w-full">
-            <div class="flex flex-col items-center">
-                <p class="attribute_title">{{ healthAttributes }}</p>
-            </div>
-        </div>
+    <div class="border-b border-gray-500">
+
+    </div>
+    <h2 class="attribute_category_title mt-4 text-2xl text-center">Santé</h2>
+    <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
+        <h2 class="attribute_title">{{ attributesStore.healthAttributes[0].name }}</h2>
+        <DynamicGauge
+            :attribute="attributesStore.healthAttributes[0].pivot.attribute_id"
+            :value="attributesStore.healthAttributes[0].pivot.attribute_value"
+            icon="fa-solid fa-heart"
+            color="text-red-500"
+            :max="8"
+        />
+    </div>
+    <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
+        <h2 class="attribute_title">{{ attributesStore.healthAttributes[1].name }}</h2>
+        <DynamicGauge
+            :attribute="attributesStore.healthAttributes[1].pivot.attribute_id"
+            :value="attributesStore.healthAttributes[1].pivot.attribute_value"
+            icon="fa-solid fa-fire"
+            color="text-orange-500"
+            :max="8"
+        />
     </div>
 </template>
