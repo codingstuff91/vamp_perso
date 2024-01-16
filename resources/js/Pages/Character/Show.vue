@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { onBeforeMount, onMounted} from "vue";
+import { onMounted } from "vue";
 import { Head } from '@inertiajs/vue3';
 
 import Attributes from "@/Pages/Character/Partials/Attributes.vue";
@@ -10,6 +10,7 @@ import BottomRightMenu from "@/Pages/Character/Menus/BottomRightMenu.vue";
 
 import { useCharacterStore } from "@/Stores/characterStore.js";
 import { useRightMenuStore } from "@/Stores/BottomMenuStore.js";
+import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
 
 import Disciplines from "@/Pages/Character/Partials/Disciplines.vue";
 import Concepts from "@/Pages/Character/Partials/Concepts.vue";
@@ -17,18 +18,16 @@ import Descriptions from "@/Pages/Character/Partials/Descriptions.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
+const attributesStore = useCharacterAttributesStore();
 
 const props = defineProps({
     character: Object,
     disciplines: Object,
 });
 
-onBeforeMount( async () => {
-    await characterStore.setCurrentCharacter(props.character)
-})
-
 onMounted(async () => {
-    // await characterStore.setCurrentCharacter(props.character)
+    await characterStore.setCurrentCharacter(props.character)
+    await attributesStore.getAttributes(props.character)
 })
 </script>
 
@@ -77,7 +76,7 @@ onMounted(async () => {
                     class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'status'"
                 >
-                    <Status :character="character"/>
+                    <Status />
                 </div>
 
                 <div

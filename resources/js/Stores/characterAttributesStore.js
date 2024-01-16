@@ -7,9 +7,8 @@ export const useCharacterAttributesStore = defineStore('attributes',{
     },
     actions: {
         async getAttributes(character) {
-            await axios.get(`/character/${character.id}/attributes`).then((response) => {
-                this.attributes = response.data;
-            });
+            const response = await axios.get(`/character/${character.id}/attributes`)
+            this.attributes = response.data;
         },
     },
     getters: {
