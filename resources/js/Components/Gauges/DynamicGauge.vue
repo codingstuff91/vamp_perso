@@ -27,6 +27,10 @@ onMounted(() => {
 });
 
 const props = defineProps({
+    editable: {
+      type: Boolean,
+      default: true,
+    },
     value: Number,
     max: Number,
     attribute: Number,
@@ -37,6 +41,10 @@ const props = defineProps({
     },
 });
 const setValue = (index) => {
+    if (! props.editable) {
+        return false;
+    }
+
     remainingPoints.value = calculateRemainingPoints(index);
     selectedPoints.value = index;
 
