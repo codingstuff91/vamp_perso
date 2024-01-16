@@ -1,14 +1,9 @@
 <script setup>
 import { useRightMenuStore } from "@/Stores/BottomMenuStore.js";
-const store = useRightMenuStore();
+const menuStore = useRightMenuStore();
 
-const toggleMenu = () => {
-    store.toggle();
-}
-
-const setPanelMenu = (category) => {
-    store.setPanelMenu(category);
-    store.close();
+const toggleMenu = async () => {
+    await menuStore.toggle();
 }
 </script>
 
@@ -20,37 +15,37 @@ const setPanelMenu = (category) => {
 
     <!-- Foldable menu-->
     <div
-        v-if="store.open"
+        v-if="menuStore.open"
         class="bottom_right_menu fixed h-auto w-[70%] bottom-14 right-0 border border-red-500 flex flex-col items-center"
     >
         <button
             class="menu_text"
-            @click="setPanelMenu('attributes')"
+            @click="menuStore.setPanelMenu('attributes')"
         >
             Attributs & Compétences
         </button>
         <button
             class="menu_text"
-            @click="setPanelMenu('status')"
+            @click="menuStore.setPanelMenu('status')"
         >
             Statut
         </button>
         <button
             class="menu_text"
-            @click="setPanelMenu('disciplines')"
+            @click="menuStore.setPanelMenu('disciplines')"
         >
             Disciplines
         </button>
         <button
             class="menu_text"
-            @click="setPanelMenu('concepts')"
+            @click="menuStore.setPanelMenu('concepts')"
         >
             Concepts
         </button>
 
         <button
             class="menu_text"
-            @click="setPanelMenu('descriptions')"
+            @click="menuStore.setPanelMenu('descriptions')"
         >
             Descriptions
         </button>
