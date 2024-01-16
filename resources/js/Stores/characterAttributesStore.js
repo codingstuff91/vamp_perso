@@ -16,7 +16,7 @@ export const useCharacterAttributesStore = defineStore('attributes',{
             return element.category == 'willpower';
         }),
         healthAttributes: (state) => state.attributes.filter(element => {
-            return element.category == 'willpower';
+            return element.category == 'health';
         }),
         hungerAttributes: (state) => state.attributes.filter(element => {
             return element.category == 'hunger';
