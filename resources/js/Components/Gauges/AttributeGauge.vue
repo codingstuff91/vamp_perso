@@ -21,13 +21,16 @@ const color = "text-red-500";
 const icon = "fa-solid fa-droplet"
 
 onMounted(() => {
-
     setGaugeValue(props.value, props.max);
 });
 
 const props = defineProps({
     value: Number,
     max: Number,
+    editable: {
+        type: Boolean,
+        default: false,
+    },
     attribute: Number,
     character_id: Number,
     color: {
@@ -36,6 +39,10 @@ const props = defineProps({
     },
 });
 const setValue = (index) => {
+    if (! props.editable) {
+        return false;
+    }
+
     remainingPoints.value = calculateRemainingPoints(index);
     selectedPoints.value = index;
 
