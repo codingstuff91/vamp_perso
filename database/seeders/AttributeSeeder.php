@@ -17,7 +17,7 @@ class AttributeSeeder extends Seeder
         'social_skills' => 9,
         'mental_skills' => 9,
         'health' => 3,
-        'willpower' => 2,
+        'willpower' => 3,
         'hunger' => 1,
         'humanity' => 2,
     ];
