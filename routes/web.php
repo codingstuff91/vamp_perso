@@ -28,7 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/chronicles', [ChronicleController::class, 'index']);
+    Route::get('/chronicles', [ChronicleController::class, 'index'])->name('chronicle.index');
+    Route::get('/chronicles/create', [ChronicleController::class, 'create']);
+    Route::post('/chronicles', [ChronicleController::class, 'store'])->name('chronicle.store');
 });
 
 Route::get('/character/{character}/attributes', [AttributeController::class, "index"]);
