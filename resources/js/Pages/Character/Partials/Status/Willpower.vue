@@ -6,7 +6,7 @@ const attributesStore = useCharacterAttributesStore();
 </script>
 
 <template>
-    <div>
+    <div class="border-b border-gray-500">
         <h2 class="attribute_category_title text-2xl text-center">Volonté</h2>
         <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
             <h2 class="attribute_title">{{ attributesStore.willPowerAttributes[0].name }}</h2>

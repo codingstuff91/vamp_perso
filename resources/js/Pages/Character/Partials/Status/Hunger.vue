@@ -9,7 +9,7 @@ const maxHungerLevel = ref(5)
 </script>
 
 <template>
-    <div class="mt-4">
+    <div class="mt-4 border-b border-gray-500">
         <h2 class="attribute_category_title text-2xl text-center">Soif / Sang</h2>
         <div class="flex flex-col justify-center items-center px-2 w-full">
             <div class="flex flex-col items-center">

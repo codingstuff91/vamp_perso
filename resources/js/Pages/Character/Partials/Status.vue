@@ -12,6 +12,7 @@ import Hunger from "@/Pages/Character/Partials/Status/Hunger.vue";
         <Health />
 
         <Hunger />
-<!--        <Humanity :character="character"/>-->
+
+        <Humanity />
     </div>
 </template>
