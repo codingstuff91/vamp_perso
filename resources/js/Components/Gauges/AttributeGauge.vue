@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-start mt-2 flex-wrap">
+    <div class="flex justify-start flex-wrap">
         <div v-for="(item, index) in max" :key="index">
             <template v-if="index <= selectedPoints">
                 <i :class="`mx-1 text-md ${icon} ${color}`" @click="setValue(index)"></i>

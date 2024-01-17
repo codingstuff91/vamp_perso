@@ -35,7 +35,7 @@ const mental_skills = computed(() => {
             <div class="flex flex-col">
                 <h2 class="attribute_category_title">Physiques</h2>
                 <div class="flex flex-col items-start" v-for="(attribute, index) in physical_skills" :key="index">
-                    <p class="attribute_title">{{ attribute.name }}</p>
+                    <p class="mt-4 attribute_title">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
@@ -43,9 +43,9 @@ const mental_skills = computed(() => {
                 </div>
             </div>
             <div class="flex flex-col items-center">
-                <h2 class="attribute_category_title">Sociaux</h2>
+                <h2 class="attribute_category_title">Sociales</h2>
                 <div class="flex flex-col items-center" v-for="(attribute, index) in social_skills" :key="index">
-                    <p class="attribute_title">{{ attribute.name }}</p>
+                    <p class="mt-4 attribute_title">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
@@ -53,9 +53,9 @@ const mental_skills = computed(() => {
                 </div>
             </div>
             <div class="flex flex-col items-end">
-                <h2 class="attribute_category_title">Mentaux</h2>
+                <h2 class="attribute_category_title">Mentales</h2>
                 <div class="flex flex-col items-end" v-for="(attribute, index) in mental_skills" :key="index">
-                    <p class="attribute_title">{{ attribute.name }}</p>
+                    <p class="mt-4 attribute_title">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
