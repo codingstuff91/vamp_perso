@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/chronicles', [ChronicleController::class, 'index'])->name('chronicle.index');
     Route::get('/chronicles/create', [ChronicleController::class, 'create']);
+    Route::post('/chronicles/{user}/select', [ChronicleController::class, 'select'])->name('chronicle.select');
     Route::post('/chronicles', [ChronicleController::class, 'store'])->name('chronicle.store');
 });
 

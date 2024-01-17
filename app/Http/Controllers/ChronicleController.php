@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreChronicle;
 use App\Models\Chronicle;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ChronicleController extends Controller
 {
     public function index()
     {
+        $chronicles = Auth::user()->chronicle ?? Chronicle::all();
+
         return Inertia::render('Chronicle/Index', [
-            'chronicles' => Chronicle::all(),
+            'chronicles' => $chronicles,
         ]);
     }
 
@@ -31,5 +35,11 @@ class ChronicleController extends Controller
         ]);
 
         return to_route('chronicle.index');
+    }
+
+    public function select(Request $request, User $user)
+    {
+        $user->chronicle_id = $request->chronicle_id;
+        $user->save();
     }
 }

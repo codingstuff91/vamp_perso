@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Chronicle;
 use App\Models\User;
 
 it('Display the chronicles index page correctly', function () {
@@ -32,4 +33,19 @@ it('can store a new chronicle', function () {
 
     $response->assertRedirect('/chronicles');
     $this->assertDatabaseCount('chronicles', 1);
+});
+
+it('can select a chronicle', function () {
+    $this->withoutExceptionHandling();
+
+    $chronicle = Chronicle::factory()->create();
+
+    $user = User::factory()->create();
+    $this->actingAs($user);
+
+    $this->post(route('chronicle.select', $user), [
+        'chronicle_id' => $chronicle->id,
+    ]);
+
+    expect($user->refresh()->chronicle_id)->toBe($chronicle->id);
 });
