@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Chronicle;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -9,7 +10,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-         User::factory()->create([
+         User::factory()
+             ->for(Chronicle::factory()->create())
+             ->create([
              'name' => 'mattou',
              'email' => 'mattou2812@gmail.com',
          ]);

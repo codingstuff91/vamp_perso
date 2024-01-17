@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedInteger('chronicle_id')->nullable();
+            $table->foreign('chronicle_id')->references('id')->on('chronicles');
             $table->rememberToken();
             $table->timestamps();
         });

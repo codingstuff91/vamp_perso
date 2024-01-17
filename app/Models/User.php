@@ -33,4 +33,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Character::class);
     }
+
+    public function chronicle()
+    {
+        return $this->belongsTo(Chronicle::class);
+    }
 }
