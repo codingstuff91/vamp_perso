@@ -4,7 +4,7 @@
 
 .main_title{
     font-family: 'Vampiro One', system-ui;
-    @apply text-blood-500;
+    @apply text-blood-500 text-4xl;
 }
 
 .subtitle{
@@ -13,9 +13,25 @@
     @apply text-gray-400 text-lg;
 }
 
+.section_title{
+    font-family: 'Vampiro One', system-ui;
+    @apply text-blood-500 text-4xl;
+}
+
+.column_title{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: italic;
+    @apply text-gray-400 font-bold text-2xl;
+}
+
+.header_attribute_title{
+    font-family: 'Ubuntu', sans-serif;
+    @apply text-skin-50 font-bold text-xl;
+}
+
 .attribute_category_title{
     font-family: 'Vampiro One', system-ui;
-    @apply text-blood-500;
+    @apply text-blood-500 text-2xl;
 }
 .attribute_title{
     font-family: 'Ubuntu', sans-serif;

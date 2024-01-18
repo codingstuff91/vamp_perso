@@ -2,10 +2,10 @@
     <div class="flex justify-start flex-wrap">
         <div v-for="(item, index) in max" :key="index">
             <template v-if="index <= selectedPoints">
-                <i :class="`mx-1 text-md ${icon} ${color}`" @click="setValue(index)"></i>
+                <i :class="`mx-1 text-lg ${icon} ${color}`" @click="setValue(index)"></i>
             </template>
             <template v-else>
-                <i :class="`mx-1 text-md ${icon} text-gray-400`" @click="setValue(index)"></i>
+                <i :class="`mx-1 text-lg ${icon} text-gray-400`" @click="setValue(index)"></i>
             </template>
         </div>
     </div>
@@ -17,7 +17,7 @@ import { onMounted, ref } from "vue";
 let remainingPoints = ref(0);
 let selectedPoints = ref(0);
 
-const color = "text-red-500";
+const color = "text-blood-500";
 const icon = "fa-solid fa-droplet"
 
 onMounted(() => {

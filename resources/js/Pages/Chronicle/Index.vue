@@ -4,7 +4,8 @@ import { Head } from '@inertiajs/vue3';
 import Card from "@/Pages/Chronicle/Partials/Card.vue";
 
 const props = defineProps({
-    chronicles: Array,
+    chronicles: [Array, Object],
+    user: Object,
 });
 </script>
 
@@ -22,9 +23,13 @@ const props = defineProps({
 
         <div class="py-4">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <h2 class="attribute_title">Cliquez sur la chronique souhaitée</h2>
+<!--                <h2 class="attribute_title">Cliquez sur la chronique souhaitée</h2>-->
                 <div class="grid grid-cols-2 gap-2 overflow-hidden shadow-sm sm:rounded-lg">
-                    <Card v-for="chronicle in props.chronicles" :chronicle="chronicle"/>
+                    <Card
+                        v-for="chronicle in props.chronicles"
+                        :chronicle="chronicle"
+                        :user="props.user"
+                    />
                 </div>
             </div>
         </div>

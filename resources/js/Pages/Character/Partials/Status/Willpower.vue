@@ -7,14 +7,14 @@ const attributesStore = useCharacterAttributesStore();
 
 <template>
     <div class="border-b border-gray-500">
-        <h2 class="attribute_category_title text-2xl text-center">Volonté</h2>
-        <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
+        <h2 class="section_title text-center mt-4">Volonté</h2>
+        <div class="flex flex-col justify-center items-center px-2 py-4 w-full">
             <h2 class="attribute_title">{{ attributesStore.willPowerAttributes[0].name }}</h2>
             <DynamicGauge
                 :attribute="attributesStore.willPowerAttributes[0].pivot.attribute_id"
                 :value="attributesStore.willPowerAttributes[0].pivot.attribute_value"
                 icon="fa-solid fa-shield"
-                color="text-red-500"
+                color="text-blood-500"
                 :max="6"
             />
         </div>
@@ -24,7 +24,7 @@ const attributesStore = useCharacterAttributesStore();
                 :attribute="attributesStore.willPowerAttributes[1].pivot.attribute_id"
                 :value="attributesStore.willPowerAttributes[1].pivot.attribute_value"
                 icon="fa-solid fa-skull"
-                color="text-red-500"
+                color="text-blood-500"
                 :max="6"
             />
         </div>

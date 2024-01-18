@@ -54,12 +54,12 @@ onMounted(async () => {
                 v-if="rightMenustore.category == 'attributes'"
             >
                 <div>
-                    <h2 class="attribute_category_title text-2xl">Fléau de clan</h2>
-                    <h2 class="attribute_title">{{ character.clan.bane }}</h2>
+                    <h2 class="header_attribute_title">Fléau de clan</h2>
+                    <h2 class="subtitle">{{ character.clan.bane }}</h2>
                 </div>
                 <div>
-                    <h2 class="attribute_category_title text-2xl">Compulsion</h2>
-                    <h2 class="attribute_title">{{ character.compulsion ? character.compulsion.name : 'Aucune'}}</h2>
+                    <h2 class="header_attribute_title">Compulsion</h2>
+                    <h2 class="subtitle">{{ character.compulsion ? character.compulsion.name : 'Aucune'}}</h2>
                 </div>
             </div>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
