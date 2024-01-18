@@ -38,12 +38,12 @@ onMounted(async () => {
         <template #header>
             <div class="flex justify-between">
                 <div class="flex flex-col">
-                    <h2 class="title text-xl text-gray-800 leading-tight">{{ character.name }}</h2>
-                    <p class="title text-sm">{{ character.clan.name }}</p>
+                    <h2 class="attribute_title text-2xl leading-tight">{{ character.name }}</h2>
+                    <p class="subtitle">{{ character.clan.name }}</p>
                 </div>
                 <div class="flex flex-col">
-                    <h2 class="title text-xl">{{ character.experience_points }} / {{ character.experience_total }} xp</h2>
-                    <p class="title text-sm">{{ character.generation }}ème génération</p>
+                    <h2 class="attribute_title text-2xl">{{ character.experience_points }} / {{ character.experience_total }} xp</h2>
+                    <p class="subtitle">{{ character.generation }}ème génération</p>
                 </div>
             </div>
         </template>
@@ -54,12 +54,12 @@ onMounted(async () => {
                 v-if="rightMenustore.category == 'attributes'"
             >
                 <div>
-                    <h2 class="title">Fléau de clan</h2>
-                    <h2 class="text-red-500">{{ character.clan.bane }}</h2>
+                    <h2 class="attribute_category_title text-2xl">Fléau de clan</h2>
+                    <h2 class="attribute_title">{{ character.clan.bane }}</h2>
                 </div>
                 <div>
-                    <h2 class="title">Compulsion</h2>
-                    <h2 class="text-red-500">{{ character.compulsion ? character.compulsion.name : 'Aucune'}}</h2>
+                    <h2 class="attribute_category_title text-2xl">Compulsion</h2>
+                    <h2 class="attribute_title">{{ character.compulsion ? character.compulsion.name : 'Aucune'}}</h2>
                 </div>
             </div>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

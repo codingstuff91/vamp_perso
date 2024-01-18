@@ -14,6 +14,10 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Vampiro+One&display=swap" rel="stylesheet">
 
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+
         <!-- Scripts -->
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])

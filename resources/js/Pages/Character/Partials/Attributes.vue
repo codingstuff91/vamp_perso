@@ -31,13 +31,13 @@ const mental_attributes = computed(() => {
 <template>
     <div class="py-2">
         <div class="flex justify-center">
-            <h1 class="title text-2xl text-red-500 mt-2 mb-4">Attributs</h1>
+            <h1 class="attribute_category_title text-3xl mt-2 mb-4">Attributs</h1>
         </div>
         <div class="grid grid-cols-3 gap-2 flex justify-center px-2 pb-4 w-full">
             <div class="flex flex-col">
-                <h2 class="attribute_category_title">Physiques</h2>
+                <h2 class="attribute_category_title text-2xl">Physiques</h2>
                 <div class="flex flex-col items-start" v-for="(attribute, index) in physical_attributes" :key="index">
-                    <p class="mt-4 attribute_title">{{ attribute.name }}</p>
+                    <p class="mt-4 mb-2 attribute_title">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
@@ -45,9 +45,9 @@ const mental_attributes = computed(() => {
                 </div>
             </div>
             <div class="flex flex-col items-center">
-                <h2 class="attribute_category_title">Sociaux</h2>
+                <h2 class="attribute_category_title text-2xl">Sociaux</h2>
                 <div class="flex flex-col items-center" v-for="(attribute, index) in social_attributes" :key="index">
-                    <p class="mt-4 attribute_title">{{ attribute.name }}</p>
+                    <p class="mt-4 mb-2 attribute_title">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
@@ -55,9 +55,9 @@ const mental_attributes = computed(() => {
                 </div>
             </div>
             <div class="flex flex-col items-end">
-                <h2 class="attribute_category_title">Mentaux</h2>
+                <h2 class="attribute_category_title text-2xl">Mentaux</h2>
                 <div class="flex flex-col items-end" v-for="(attribute, index) in mental_attributes" :key="index">
-                    <p class="mt-4 attribute_title">{{ attribute.name }}</p>
+                    <p class="mt-4 mb-2 attribute_title">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"

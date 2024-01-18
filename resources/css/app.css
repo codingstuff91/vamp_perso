@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+.main_title{
+    font-family: 'Vampiro One', system-ui;
+    @apply text-blood-500;
+}
+
+.subtitle{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: italic;
+    @apply text-gray-400 text-lg;
+}
+
 .attribute_category_title{
     font-family: 'Vampiro One', system-ui;
     @apply text-blood-500;
 }
 .attribute_title{
-    @apply text-skin-50 font-bold text-lg;
+    font-family: 'Ubuntu', sans-serif;
+    @apply text-skin-50 font-bold text-xl;
 }
 
 .bottom_right_menu{

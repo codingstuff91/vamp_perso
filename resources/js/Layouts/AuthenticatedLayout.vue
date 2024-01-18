@@ -13,7 +13,7 @@ const showingNavigationDropdown = ref(false);
 <template>
     <div>
         <div class="min-h-screen bg-slate-900">
-            <nav class="bg-slate-800 border-b border-gray-700">
+            <nav class="bg-slate-900 border-b border-gray-700">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
@@ -21,7 +21,7 @@ const showingNavigationDropdown = ref(false);
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
-                                    <h1 class="title text-xl">Vamp Perso</h1>
+                                    <h1 class="main_title text-2xl">Vamp Perso</h1>
                                 </Link>
                             </div>
 
