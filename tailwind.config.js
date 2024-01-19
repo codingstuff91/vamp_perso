@@ -11,6 +11,16 @@ export default {
     ],
 
     theme: {
+        screens: {
+            'sm': '576px',
+            // => @media (min-width: 576px) { ... }
+
+            'md': '960px',
+            // => @media (min-width: 960px) { ... }
+
+            'lg': '1440px',
+            // => @media (min-width: 1440px) { ... }
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
@@ -20,7 +30,7 @@ export default {
                     50: '#EEE2DE',
                 },
                 darkness: {
-                    900: '#2B2A4C',
+                    900: '#0f172a',
                 },
                 skin: {
                     50: '#EA906C'
