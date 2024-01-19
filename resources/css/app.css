@@ -44,6 +44,21 @@
     animation: fadeUp 300ms forwards;
 }
 
+.character_card{
+    background: url('https://content.demiplane.com/nexus/vampire/vtm-marble-red.jpg') !important;
+    @apply mx-4 px-4 py-2 rounded-lg border border-red-900;
+
+    h2{
+        font-family: 'Ubuntu', sans-serif;
+        @apply text-blood-500 font-bold text-2xl my-2;
+    }
+
+    h3{
+        font-family: 'Ubuntu', sans-serif;
+        @apply text-skin-50 text-xl my-2;
+    }
+}
+
 @keyframes fadeUp {
     to {
         opacity: 1;
