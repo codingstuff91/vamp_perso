@@ -14,6 +14,7 @@ const maxHungerLevel = ref(5)
         <div class="flex flex-col justify-center items-center px-2 py-4 w-full">
             <div class="flex flex-col items-center">
                 <DynamicGauge
+                    :attribute="attributesStore.hungerAttributes[0].pivot.attribute_id"
                     :value="attributesStore.hungerAttributes[0].pivot.attribute_value"
                     icon="fa-solid fa-droplet text-2xl"
                     color="text-blood-500"
