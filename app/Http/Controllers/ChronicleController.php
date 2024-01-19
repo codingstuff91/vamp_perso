@@ -13,10 +13,12 @@ class ChronicleController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $chronicles = Auth::user()->chronicle ?? Chronicle::all();
 
         return Inertia::render('Chronicle/Index', [
             'chronicles' => $chronicles,
+            'user' => $user,
         ]);
     }
 
