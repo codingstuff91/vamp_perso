@@ -1,6 +1,12 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import Character from "@/Components/Character.vue";
+
+defineProps({
+    characters: Array,
+});
+
 </script>
 
 <template>
@@ -8,14 +14,20 @@ import { Head } from '@inertiajs/vue3';
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Personnages disponibles</h2>
+            <div class="flex justify-between">
+                <div class="flex flex-col">
+                    <h1 class="attribute_title text-2xl leading-tight">Personnages disponibles</h1>
+                </div>
+            </div>
         </template>
 
-        <div class="py-12">
+        <div class="py-8">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <h1>Liste des personnages disponibles</h1>
-                </div>
+                <Character
+                    v-for="character in characters"
+                    :key="character.id"
+                    :character="character"
+                />
             </div>
         </div>
     </AuthenticatedLayout>

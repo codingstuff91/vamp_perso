@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Character;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CharacterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $characters = Character::all();
+        $characters = Auth::user()->characters;
+        $characters->load('clan');
 
         return Inertia::render('Character/Index', [
             'characters' => $characters
