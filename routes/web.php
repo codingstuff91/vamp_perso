@@ -4,6 +4,7 @@ use App\Http\Controllers\AttributeCharacterUpdateController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\ChronicleController;
+use App\Http\Controllers\DescriptionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/chronicles/create', [ChronicleController::class, 'create']);
     Route::post('/chronicles/{user}/select', [ChronicleController::class, 'select'])->name('chronicle.select');
     Route::post('/chronicles', [ChronicleController::class, 'store'])->name('chronicle.store');
+
+    Route::post('descriptions/show', [DescriptionController::class, 'show']);
 });
 
 Route::get('/character/{character}/attributes', [AttributeController::class, "index"]);
