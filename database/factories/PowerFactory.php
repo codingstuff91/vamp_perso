@@ -13,6 +13,7 @@ class PowerFactory extends Factory
     {
         return [
             'name' => fake()->word(),
+            'level' => 1,
             'cost' => fake()->word(),
             'dice_pool' => "Wits + resolution",
             'system' => fake()->paragraph(2),
