@@ -10,7 +10,13 @@ const maxHungerLevel = ref(5)
 
 <template>
     <div class="mt-4 border-b border-gray-500">
-        <h2 class="section_title text-center">Soif / Sang</h2>
+        <h2
+            class="section_title text-center"
+            @click="$emit('getDescription', 'attribute', attributesStore.hungerAttributes[0].id)"
+        >
+            Soif / Sang
+        </h2>
+
         <div class="flex flex-col justify-center items-center px-2 py-4 w-full">
             <div class="flex flex-col items-center">
                 <DynamicGauge

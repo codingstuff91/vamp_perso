@@ -8,7 +8,12 @@ const attributesStore = useCharacterAttributesStore();
     <div class="border-b border-gray-500">
         <h2 class="section_title mt-4 text-center">Santé</h2>
         <div class="flex flex-col justify-center items-center px-2 py-4 w-full">
-            <h2 class="attribute_title">{{ attributesStore.healthAttributes[0].name }}</h2>
+            <h2
+                class="attribute_title"
+                @click="$emit('getDescription', 'attribute', attributesStore.healthAttributes[0].id)"
+            >
+                {{ attributesStore.healthAttributes[0].name }}
+            </h2>
             <DynamicGauge
                 :attribute="attributesStore.healthAttributes[0].pivot.attribute_id"
                 :value="attributesStore.healthAttributes[0].pivot.attribute_value"
@@ -18,7 +23,12 @@ const attributesStore = useCharacterAttributesStore();
             />
         </div>
         <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
-            <h2 class="attribute_title">{{ attributesStore.healthAttributes[1].name }}</h2>
+            <h2
+                class="attribute_title"
+                @click="$emit('getDescription', 'attribute', attributesStore.healthAttributes[1].id)"
+            >
+                {{ attributesStore.healthAttributes[1].name }}
+            </h2>
             <DynamicGauge
                 :attribute="attributesStore.healthAttributes[1].pivot.attribute_id"
                 :value="attributesStore.healthAttributes[1].pivot.attribute_value"

@@ -10,7 +10,12 @@ const maxHumanityLevel = ref(10)
 
 <template>
     <div class="mt-4 pb-10">
-        <h2 class="section_title text-center">Humanité</h2>
+        <h2
+            class="section_title text-center"
+            @click="$emit('getDescription', 'attribute', attributesStore.humanityAttributes[0].id)"
+        >
+            Humanité
+        </h2>
         <div class="flex justify-center px-2 py-4 w-full">
             <div class="flex flex-col items-center">
                 <DynamicGauge

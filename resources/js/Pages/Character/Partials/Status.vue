@@ -17,16 +17,16 @@ const showDescription = async (entity, id) => {
 <template>
     <div class="py-2">
         <transition name="fade">
-            <DescriptionModal v-if="modalStore.open"/>
+            <DescriptionModal v-if="modalStore.open" />
         </transition>
 
-        <Willpower @get-description="showDescription"/>
+        <Willpower @get-description="showDescription" />
 
-        <Health />
+        <Health @get-description="showDescription" />
 
-        <Hunger />
+        <Hunger @get-description="showDescription" />
 
-        <Humanity />
+        <Humanity @get-description="showDescription" />
     </div>
 </template>
 
