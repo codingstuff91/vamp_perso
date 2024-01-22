@@ -9,7 +9,12 @@ const attributesStore = useCharacterAttributesStore();
     <div class="border-b border-gray-500">
         <h2 class="section_title text-center mt-4">Volonté</h2>
         <div class="flex flex-col justify-center items-center px-2 py-4 w-full">
-            <h2 class="attribute_title">{{ attributesStore.willPowerAttributes[0].name }}</h2>
+            <h2
+                class="attribute_title"
+                @click="$emit('getDescription', 'attribute', attributesStore.willPowerAttributes[0].id)"
+            >
+                {{ attributesStore.willPowerAttributes[0].name }}
+            </h2>
             <DynamicGauge
                 :attribute="attributesStore.willPowerAttributes[0].pivot.attribute_id"
                 :value="attributesStore.willPowerAttributes[0].pivot.attribute_value"
@@ -19,7 +24,12 @@ const attributesStore = useCharacterAttributesStore();
             />
         </div>
         <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
-            <h2 class="attribute_title">{{ attributesStore.willPowerAttributes[1].name }}</h2>
+            <h2
+                class="attribute_title"
+                @click="$emit('getDescription', 'attribute', attributesStore.willPowerAttributes[1].id)"
+            >
+                {{ attributesStore.willPowerAttributes[1].name }}
+            </h2>
             <DynamicGauge
                 :attribute="attributesStore.willPowerAttributes[1].pivot.attribute_id"
                 :value="attributesStore.willPowerAttributes[1].pivot.attribute_value"
