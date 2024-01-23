@@ -1,10 +1,10 @@
 <template>
     <div
-        class="bg-darkness-900 absolute left-0 top-[170px] w-full h-full overflow-y-auto opacity-100 transition-opacity z-50	"
+        class="bg-darkness-900 absolute left-0 top-[64px] w-full h-full overflow-y-auto opacity-100 transition-opacity z-50 border-t border-blood-500"
         v-if="modalStore.open"
     >
         <button
-            class="fixed right-2 top-[180px] rounded-full w-10 h-10"
+            class="fixed right-4 top-[77px] rounded-full border-2 border-blood-500 w-10 h-10"
             @click="modalStore.setModalStatus"
         >
             <i class="text-blood-500 text-2xl fa-solid fa-xmark"></i>
