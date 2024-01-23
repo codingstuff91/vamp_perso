@@ -48,4 +48,9 @@ class Character extends Model
     {
         return $this->belongsTo(Clan::class);
     }
+
+    public function concepts()
+    {
+        return $this->belongsToMany(Concept::class, 'concept_character', 'character_id');
+    }
 }
