@@ -15,8 +15,8 @@ const formatTitle = (title) => {
         <h1 class="section_title text-center mt-4">Concepts</h1>
         <div class="flex flex-col items-center">
             <div v-for="concept in conceptsStore.concepts">
-                <h2 class="attribute_title mt-4 text-center">{{ formatTitle(concept.name) }}</h2>
-                <p class="subtitle">{{ concept.pivot.concept_value }}</p>
+                <h2 class="attribute_title mt-6 text-center">{{ formatTitle(concept.name) }}</h2>
+                <p class="subtitle mt-2">{{ concept.pivot.concept_value }}</p>
             </div>
         </div>
     </div>
