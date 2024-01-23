@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedInteger('character_id');
             $table->foreign('character_id')->references('id')->on('characters');
             $table->unsignedInteger('concept_id');
-            $table->foreign('concept_id')->references('id')->on('attributes');
-            $table->unsignedTinyInteger('concept_value');
+            $table->foreign('concept_id')->references('id')->on('concepts');
+            $table->string('concept_value', 100);
         });
     }
 

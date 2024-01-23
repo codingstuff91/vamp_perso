@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Character;
 use App\Models\Concept;
 use App\Models\ConceptCharacter;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ConceptCharacterSeeder extends Seeder
