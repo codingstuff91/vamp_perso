@@ -21,7 +21,7 @@ const showDescription = async (entity, id) => {
             <DescriptionModal v-if="modalStore.open"/>
         </transition>
         <div class="flex justify-center">
-            <h1 class="title text-2xl text-red-500 mt-2 mb-4">Disciplines</h1>
+            <h1 class="section_title text-2xl text-red-500 mt-2 mb-4">Disciplines</h1>
         </div>
         <div v-for="(discipline, index) in disciplines" :key="index">
             <h1
