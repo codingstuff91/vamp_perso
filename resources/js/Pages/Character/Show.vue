@@ -11,6 +11,7 @@ import BottomRightMenu from "@/Pages/Character/Menus/BottomRightMenu.vue";
 import { useCharacterStore } from "@/Stores/characterStore.js";
 import { useRightMenuStore } from "@/Stores/BottomMenuStore.js";
 import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
+import { useCharacterConceptsStore } from "@/Stores/characterConceptsStore";
 
 import Disciplines from "@/Pages/Character/Partials/Disciplines.vue";
 import Concepts from "@/Pages/Character/Partials/Concepts.vue";
@@ -19,6 +20,7 @@ import Descriptions from "@/Pages/Character/Partials/Descriptions.vue";
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
 const attributesStore = useCharacterAttributesStore();
+const conceptsStore = useCharacterConceptsStore();
 
 const props = defineProps({
     character: Object,
@@ -28,6 +30,7 @@ const props = defineProps({
 onMounted(async () => {
     await characterStore.setCurrentCharacter(props.character)
     await attributesStore.getAttributes(props.character)
+    await conceptsStore.getConcepts(props.character)
 })
 </script>
 
@@ -93,7 +96,7 @@ onMounted(async () => {
                     class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'concepts'"
                 >
-                    <Concepts :character="character" />
+                    <Concepts />
                 </div>
 
                 <div

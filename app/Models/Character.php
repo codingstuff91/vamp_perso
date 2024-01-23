@@ -51,6 +51,7 @@ class Character extends Model
 
     public function concepts()
     {
-        return $this->belongsToMany(Concept::class, 'concept_character', 'character_id');
+        return $this->belongsToMany(Concept::class, 'concept_character', 'character_id')
+            ->withPivot('concept_value');
     }
 }

@@ -11,7 +11,7 @@ class ConceptSeeder extends Seeder
 {
     public function run(): void
     {
-        $names = ['sire', 'ambition', 'conviction', 'desire', 'predation'];
+        $names = ['sire', 'ambition', 'conviction', 'desire'];
 
         foreach($names as $name) {
             Concept::factory()
