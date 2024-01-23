@@ -3,7 +3,10 @@ import { ref } from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
 import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
+import { useCharacterStore } from "@/Stores/characterStore.js";
+
 const attributesStore = useCharacterAttributesStore();
+const characterStore = useCharacterStore();
 
 const maxHungerLevel = ref(5)
 </script>
@@ -26,6 +29,10 @@ const maxHungerLevel = ref(5)
                     color="text-blood-500"
                     :max="maxHungerLevel"
                 />
+            </div>
+            <div class="text-center px-2">
+                <h3 class="text-blood-500 font-bold italic text-2xl mt-4">Prédation : {{ characterStore.character.predation.name }}</h3>
+                <p class="subtitle text-justify">{{ characterStore.character.predation.description }}</p>
             </div>
             <div class="flex flex-col items-center">
                 <p class="attribute_title mt-8">Puissance sang 1</p>
