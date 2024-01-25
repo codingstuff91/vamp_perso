@@ -19,6 +19,7 @@ class CharacterSeeder extends Seeder
             ->for(Predation::factory()->create())
             ->create([
                 'user_id' => User::first()->id,
+                'name' => 'Dracula Von Helsing',
             ]);
     }
 }
