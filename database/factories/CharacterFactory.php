@@ -27,9 +27,6 @@ class CharacterFactory extends Factory
             'apparent_age' => 30,
             'true_age' => 25,
             'embrace_year' => 1981,
-            'ambition' => fake()->sentence(5),
-            'conviction' => fake()->sentence(5),
-            'desire' => fake()->sentence(5),
             'background' => fake()->paragraph(3),
         ];
     }

@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
          User::factory()
              ->for(Chronicle::factory()->create())
              ->create([
-             'name' => 'mattou',
-             'email' => 'mattou2812@gmail.com',
+             'name' => 'test',
+             'email' => 'test@test.com',
          ]);
 
         $this->call([

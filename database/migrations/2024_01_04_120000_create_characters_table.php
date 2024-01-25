@@ -24,9 +24,6 @@ class CreateCharactersTable extends Migration {
             $table->unsignedTinyInteger('appearance')->nullable();
 			$table->unsignedTinyInteger('apparent_age')->nullable();
 			$table->unsignedSmallInteger('embrace_year')->nullable();
-            $table->string('ambition', 50);
-            $table->string('conviction', 50);
-            $table->string('desire', 50);
             $table->unsignedInteger('predation_id');
             $table->foreign('predation_id')->references('id')->on('predations');
             $table->unsignedInteger('compulsion_id')->nullable();

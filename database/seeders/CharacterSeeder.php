@@ -14,10 +14,11 @@ class CharacterSeeder extends Seeder
     public function run(): void
     {
         Character::factory()
-            ->for(User::factory()->create())
             ->for(Chronicle::factory()->create())
             ->for(Clan::factory()->create())
             ->for(Predation::factory()->create())
-            ->create();
+            ->create([
+                'user_id' => User::first()->id,
+            ]);
     }
 }
