@@ -16,11 +16,13 @@ test('The characters index page is rendered correctly', function () {
     $response->assertStatus(200);
 });
 
-test('The user is redirect to the chronicle select page if he has not choosed a chronicle yet', function () {
+test('The user is redirect to the character demo page if he doesnt own a character', function () {
     $user = User::factory()->create();
     $this->actingAs($user);
 
-    $response = $this->get('/characters');
+    $this->seed('CharacterSeeder');
 
-    $response->assertStatus(200);
+    $response = $this->get('/');
+
+    $response->assertRedirect(route('characters.show', Character::first()));
 });
