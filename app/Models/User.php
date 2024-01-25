@@ -34,8 +34,8 @@ class User extends Authenticatable
         return $this->hasMany(Character::class);
     }
 
-    public function chronicle()
+    public function chronicles()
     {
-        return $this->belongsTo(Chronicle::class);
+        return $this->hasMany(Chronicle::class, 'game_master_id');
     }
 }
