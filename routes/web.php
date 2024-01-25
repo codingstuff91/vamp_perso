@@ -7,6 +7,7 @@ use App\Http\Controllers\ChronicleController;
 use App\Http\Controllers\ConceptController;
 use App\Http\Controllers\DescriptionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\CheckHomeMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,7 +19,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->middleware(CheckHomeMiddleware::class);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -36,10 +37,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/chronicles', [ChronicleController::class, 'store'])->name('chronicle.store');
 
     Route::post('descriptions/show', [DescriptionController::class, 'show']);
-});
 
-Route::get('/character/{character}/attributes', [AttributeController::class, "index"]);
-Route::patch('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
-Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
+    Route::get('/character/{character}/attributes', [AttributeController::class, "index"]);
+    Route::patch('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
+    Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
+});
 
 require __DIR__.'/auth.php';
