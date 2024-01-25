@@ -37,7 +37,11 @@ const showingNavigationDropdown = ref(false);
                                 </NavLink>
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('chronicle.index')" :active="route().current('chronicle.index')">
+                                <NavLink
+                                    :href="route('chronicle.index')"
+                                    :active="route().current('chronicle.index')"
+                                    v-if="$page.props.auth.user.role === 'game_master'"
+                                >
                                     Chroniques
                                 </NavLink>
                             </div>
