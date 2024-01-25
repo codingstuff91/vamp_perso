@@ -14,7 +14,7 @@ class ChronicleController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $chronicles = Auth::user()->chronicle ?? Chronicle::all();
+        $chronicles = $user->chronicles;
 
         return Inertia::render('Chronicle/Index', [
             'chronicles' => $chronicles,

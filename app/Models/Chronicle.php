@@ -18,8 +18,8 @@ class Chronicle extends Model
         return $this->hasMany(Character::class);
     }
 
-    public function users(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 }
