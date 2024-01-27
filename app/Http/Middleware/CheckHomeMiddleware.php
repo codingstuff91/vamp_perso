@@ -14,14 +14,24 @@ class CheckHomeMiddleware
     {
         $currentUser = Auth::user();
 
-        if (empty($currentUser->chronicle_id) && $currentUser->role === 'game_master') {
-            return to_route('chronicle.index', Auth::user());
+        if ($this->isGameMasterWithoutAChronicle($currentUser)) {
+            return to_route('chronicle.index');
         }
 
-        if ($currentUser->role !== 'game_master' && empty($currentUser->character)) {
+        if ($this->isPlayerWithCharacter($currentUser)) {
             return to_route('characters.show', Character::first());
         }
 
         return $next($request);
+    }
+
+    public function isGameMasterWithoutAChronicle(?\Illuminate\Contracts\Auth\Authenticatable $currentUser): bool
+    {
+        return $currentUser->role === 'game_master' && empty($currentUser->chronicle_id);
+    }
+
+    public function isPlayerWithCharacter(?\Illuminate\Contracts\Auth\Authenticatable $currentUser): bool
+    {
+        return $currentUser->role === 'player' && ! empty($currentUser->characters);
     }
 }

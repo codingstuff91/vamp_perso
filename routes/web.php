@@ -19,7 +19,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->middleware(['auth', 'checkHome']);
+})->middleware(['auth', 'checkHome'])->name('index');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
