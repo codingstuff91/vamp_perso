@@ -7,7 +7,6 @@ use App\Http\Controllers\ChronicleController;
 use App\Http\Controllers\ConceptController;
 use App\Http\Controllers\DescriptionController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Middleware\CheckHomeMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,9 +20,9 @@ Route::get('/', function () {
     ]);
 })->middleware(['auth', 'checkHome'])->name('index');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/onboarding', function () {
+    return Inertia::render('Onboarding');
+})->middleware(['auth', 'verified'])->name('onboarding');
 
 Route::middleware('auth')->group(function () {
     Route::resource('characters', CharacterController::class);
