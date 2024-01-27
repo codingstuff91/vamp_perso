@@ -97,7 +97,7 @@ const showingNavigationDropdown = ref(false);
                         <div class="-me-2 flex items-center sm:hidden">
                             <button
                                 @click="showingNavigationDropdown = !showingNavigationDropdown"
-                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                                class="inline-flex items-center justify-center p-2 rounded-md text-blood-500 hover:text-blood-500 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
                             >
                                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                     <path
@@ -138,15 +138,24 @@ const showingNavigationDropdown = ref(false);
                     </div>
 
                     <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div class="pt-4 pb-1 border-t border-blood-500">
                         <div class="px-4">
-                            <div class="font-medium text-base text-gray-800">
+                            <div class="flex items-center font-medium text-base text-skin-50">
+                                <img
+                                    src="/img/vampire.png"
+                                    class="rounded-full w-8 h-8 mr-2"
+                                >
                                 {{ $page.props.auth.user.name }}
                             </div>
-                            <div class="font-medium text-sm text-gray-500">{{ $page.props.auth.user.email }}</div>
                         </div>
 
                         <div class="mt-3 space-y-1">
+                            <ResponsiveNavLink
+                                :href="route('characters.index')"
+                                :active="route().current('characters.index')"
+                            >
+                                Personnages
+                            </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('profile.edit')"> Profil </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('logout')" method="post" as="button">
                                 Déconnexion
