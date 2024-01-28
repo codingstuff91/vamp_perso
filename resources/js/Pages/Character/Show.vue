@@ -44,6 +44,14 @@ onMounted(async () => {
                     <h2 class="attribute_title text-2xl leading-tight">{{ character.name }}</h2>
                     <p class="subtitle">{{ character.clan.name }}</p>
                 </div>
+                <div class="hidden flex flex-col lg:block">
+                    <h2 class="header_attribute_title">Fléau de clan</h2>
+                    <h2 class="subtitle">{{ character.clan.bane }}</h2>
+                </div>
+                <div class="hidden flex flex-col lg:block">
+                    <h2 class="header_attribute_title">Compulsion</h2>
+                    <h2 class="subtitle">{{ character.compulsion ? character.compulsion.name : 'Aucune'}}</h2>
+                </div>
                 <div class="flex flex-col">
                     <h2 class="attribute_title text-2xl">{{ character.experience_points }} / {{ character.experience_total }} xp</h2>
                     <p class="subtitle">{{ character.generation }}ème génération</p>
@@ -51,9 +59,9 @@ onMounted(async () => {
             </div>
         </template>
 
-        <div>
+        <div class="w-full">
             <div
-                class="w-full border-b border-red-500 p-4 flex justify-between"
+                class="w-full mx-auto p-4 flex justify-between lg:w-2/3 lg:hidden"
                 v-if="rightMenustore.category == 'attributes'"
             >
                 <div>

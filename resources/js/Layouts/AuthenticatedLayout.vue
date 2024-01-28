@@ -63,7 +63,7 @@ const showingNavigationDropdown = ref(false);
                                             >
                                                 <img
                                                     src="/img/vampire.png"
-                                                    class="rounded-full w-12 h-12 mr-2"
+                                                    class="rounded-full w-8 h-8 mr-2"
                                                 >
                                                 {{ $page.props.auth.user.name }}
 
@@ -166,8 +166,8 @@ const showingNavigationDropdown = ref(false);
             </nav>
 
             <!-- Page Heading -->
-            <header class="bg-slate-900 shadow border-b border-gray-700" v-if="$slots.header">
-                <div class="character_header mx-auto py-6 sm:px-6 lg:px-8">
+            <header class="character_header shadow border-b border-gray-700 w-full" v-if="$slots.header">
+                <div class="py-4 w-full mx-auto sm:px-6 sm:py-6">
                     <slot name="header" />
                 </div>
             </header>
