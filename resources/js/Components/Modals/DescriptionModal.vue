@@ -12,7 +12,7 @@
 
         <h1 class="attribute_category_title pt-8 text-blood-500 text-center">{{ modalStore.details.name }}</h1>
 
-        <p class="subtitle text-justify px-4">{{ modalStore.details.description.text }}</p>
+        <p class="subtitle text-justify px-4" v-html="modalStore.details.description.text"></p>
     </div>
 </template>
 
