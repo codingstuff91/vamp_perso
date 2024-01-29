@@ -167,7 +167,7 @@ const showingNavigationDropdown = ref(false);
 
             <!-- Page Heading -->
             <header class="character_header shadow border-b border-gray-700 w-full" v-if="$slots.header">
-                <div class="py-4 w-full mx-auto sm:px-6 sm:py-6">
+                <div class="py-4 w-full mx-auto px-4 sm:px-6 sm:py-6">
                     <slot name="header" />
                 </div>
             </header>

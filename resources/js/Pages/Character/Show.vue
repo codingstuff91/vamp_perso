@@ -39,7 +39,7 @@ onMounted(async () => {
 
     <AuthenticatedLayout>
         <template #header>
-            <div class="flex justify-between">
+            <div class="flex justify-between mx-auto lg:max-w-7xl">
                 <div class="flex flex-col">
                     <h2 class="attribute_title text-2xl leading-tight">{{ character.name }}</h2>
                     <p class="subtitle">{{ character.clan.name }}</p>
