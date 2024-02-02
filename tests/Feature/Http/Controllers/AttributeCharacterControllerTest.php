@@ -9,8 +9,11 @@ use App\Models\User;
 use App\Models\Attribute;
 
 test('An attribute value is updated correctly', function () {
+    $user = User::factory()->create();
+    $this->actingAs($user);
+
     $character = Character::factory()
-        ->for(User::factory()->create())
+        ->for($user)
         ->for(Chronicle::factory()->create())
         ->for(Clan::factory()->create())
         ->for(Predation::factory())
@@ -24,7 +27,7 @@ test('An attribute value is updated correctly', function () {
         'attribute_value' => 1,
     ]);
 
-    $response = $this->patch("/character/{$character->id}/attribute/{$attribute->id}", [
+    $response = $this->put("/character/{$character->id}/attribute/{$attribute->id}", [
         "newScore" => 2,
     ]);
 

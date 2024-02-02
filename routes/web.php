@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::post('descriptions/show', [DescriptionController::class, 'show']);
 
     Route::get('/character/{character}/attributes', [AttributeController::class, "index"]);
-    Route::patch('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
+    Route::put('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
     Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
 });
 

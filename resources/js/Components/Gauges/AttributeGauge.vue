@@ -48,7 +48,7 @@ const setValue = (index) => {
 
     let newValue = parseInt(index + 1);
 
-    axios.patch(`/character/${props.character_id}/attribute/${props.attribute}`, {
+    axios.put(`/character/${props.character_id}/attribute/${props.attribute}`, {
         newScore: newValue,
     }).then((response) => {
         console.log(response.data);
