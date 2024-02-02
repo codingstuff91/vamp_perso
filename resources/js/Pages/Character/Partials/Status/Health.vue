@@ -34,8 +34,8 @@ const maxHealthPoints = attributesStore.healthAttributes[2].pivot.attribute_valu
             <DynamicGauge
                 :attribute="attributesStore.healthAttributes[1].pivot.attribute_id"
                 :value="attributesStore.healthAttributes[1].pivot.attribute_value"
-                icon="fa-solid fa-fire"
-                color="text-orange-500"
+                icon="fa-solid fa-skull"
+                color="text-blood-500"
                 :max="maxHealthPoints"
             />
         </div>

@@ -24,7 +24,7 @@ const maxHungerLevel = ref(5)
                 <DynamicGauge
                     :attribute="attributesStore.hungerAttributes[0].pivot.attribute_id"
                     :value="attributesStore.hungerAttributes[0].pivot.attribute_value"
-                    icon="fa-solid fa-droplet text-2xl"
+                    icon="fa-solid fa-droplet"
                     color="text-blood-500"
                     :max="maxHungerLevel"
                 />
