@@ -15,7 +15,7 @@ export const useRightMenuStore = defineStore('right_menu',{
         },
         setPanelMenu(category){
             this.category = category;
-            this.open = !this.open;
+            this.open = false;
         }
     }
 })

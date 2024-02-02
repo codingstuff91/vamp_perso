@@ -2,49 +2,45 @@
 import { useRightMenuStore } from "@/Stores/BottomMenuStore.js";
 const menuStore = useRightMenuStore();
 
-const toggleMenu = async () => {
-    await menuStore.toggle();
-}
 </script>
 
 <template>
-    <!-- action button-->
-    <div class="fixed bottom-2 right-2 rounded-full bg-gray-900 w-12 h-12 flex justify-center items-center border border-gray-100 lg:hidden">
-        <i class="fa-solid fa-bars text-red-500 text-xl" @click="toggleMenu"></i>
-    </div>
-
-    <!-- Foldable menu-->
-    <div
-        v-if="menuStore.open"
-        class="bottom_right_menu fixed h-auto w-[70%] bottom-14 right-0 border border-red-500 flex flex-col items-center"
-    >
+    <div>
         <button
-            class="menu_text"
+            class="desktop_menu_buttons"
+            :class="{desktop_menu_active : menuStore.category == 'attributes'}"
             @click="menuStore.setPanelMenu('attributes')"
         >
-            Attributs & Compétences
+            Attributes
         </button>
+
         <button
-            class="menu_text"
+            class="desktop_menu_buttons"
+            :class="{desktop_menu_active : menuStore.category == 'status'}"
             @click="menuStore.setPanelMenu('status')"
         >
             Statut
         </button>
+
         <button
-            class="menu_text"
+            class="desktop_menu_buttons"
+            :class="{desktop_menu_active : menuStore.category == 'disciplines'}"
             @click="menuStore.setPanelMenu('disciplines')"
         >
             Disciplines
         </button>
+
         <button
-            class="menu_text"
+            class="desktop_menu_buttons"
+            :class="{desktop_menu_active : menuStore.category == 'concepts'}"
             @click="menuStore.setPanelMenu('concepts')"
         >
             Concepts
         </button>
 
         <button
-            class="menu_text"
+            class="desktop_menu_buttons"
+            :class="{desktop_menu_active : menuStore.category == 'descriptions'}"
             @click="menuStore.setPanelMenu('descriptions')"
         >
             Descriptions

@@ -77,3 +77,19 @@
 .character_header{
     background: url('https://content.demiplane.com/nexus/vampire/vtm-marble-red.jpg') !important;
 }
+
+.desktop_menu{
+    @apply hidden lg:block lg:flex lg:justify-between;
+    @apply mt-4 pb-4;
+    @apply border-b border-gray-700;
+}
+
+.desktop_menu_buttons{
+    font-family: 'Ubuntu', sans-serif;
+    @apply text-skin-50 text-2xl px-4 py-2 rounded-lg border border-blood-500;
+}
+
+.desktop_menu_active{
+    font-family: 'Ubuntu', sans-serif;
+    @apply text-white text-2xl px-4 py-2 rounded-lg bg-blood-500;
+}

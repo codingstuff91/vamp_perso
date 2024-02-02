@@ -16,6 +16,7 @@ import { useCharacterConceptsStore } from "@/Stores/characterConceptsStore";
 import Disciplines from "@/Pages/Character/Partials/Disciplines.vue";
 import Concepts from "@/Pages/Character/Partials/Concepts.vue";
 import Descriptions from "@/Pages/Character/Partials/Descriptions.vue";
+import DesktopMenu from "@/Pages/Character/Menus/DesktopMenu.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
@@ -74,6 +75,8 @@ onMounted(async () => {
                 </div>
             </div>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <DesktopMenu class="desktop_menu" />
+
                 <div
                     class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'attributes'"
