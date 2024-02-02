@@ -30,23 +30,31 @@ const showingNavigationDropdown = ref(false);
                             </div>
 
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <div class="hidden sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('onboarding')" :active="route().current('onboarding')">
                                     Accueil
                                 </NavLink>
                             </div>
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <div class="hidden sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('characters.index')" :active="route().current('characters.index')">
                                     Personnages
                                 </NavLink>
                             </div>
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <div class="hidden sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
                                     :href="route('chronicle.index')"
                                     :active="route().current('chronicle.index')"
                                     v-if="$page.props.auth.user.role === 'game_master'"
                                 >
                                     Chroniques
+                                </NavLink>
+                            </div>
+                            <div class="hidden sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    href="/admin"
+                                    v-if="$page.props.auth.user.is_admin"
+                                >
+                                    Admin
                                 </NavLink>
                             </div>
                         </div>
