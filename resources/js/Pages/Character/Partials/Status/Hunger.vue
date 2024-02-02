@@ -12,15 +12,14 @@ const maxHungerLevel = ref(5)
 </script>
 
 <template>
-    <div class="mt-4 border-b border-gray-500">
-        <h2
-            class="section_title text-center"
-            @click="$emit('getDescription', 'attribute', attributesStore.hungerAttributes[0].id)"
-        >
-            Soif / Sang
-        </h2>
-
-        <div class="flex flex-col justify-center items-center px-2 py-4 w-full">
+    <div class="mt-4 px-4 grid grid-cols-1 gap-4 w-full lg:grid-cols-2 lg:gap-2">
+        <div class="mx-auto">
+            <h2
+                class="section_title text-center"
+                @click="$emit('getDescription', 'attribute', attributesStore.hungerAttributes[0].id)"
+            >
+                Soif / Sang
+            </h2>
             <div class="flex flex-col items-center">
                 <DynamicGauge
                     :attribute="attributesStore.hungerAttributes[0].pivot.attribute_id"
@@ -30,37 +29,38 @@ const maxHungerLevel = ref(5)
                     :max="maxHungerLevel"
                 />
             </div>
-            <div class="text-center px-2">
+            <div class="text-center">
                 <h3 class="text-blood-500 font-bold italic text-2xl mt-4">Prédation : {{ characterStore.character.predation.name }}</h3>
                 <p class="subtitle text-justify" v-html="characterStore.character.predation.description"></p>
             </div>
-            <div class="flex flex-col items-center">
-                <p class="attribute_title mt-8">Puissance sang 1</p>
-                <div class="mt-4 grid grid-cols-2 gap-2 w-full flex justify-center">
-                    <div>
-                        <h2 class="attribute_title">Coup de sang</h2>
-                        <p class="subtitle">Valeur</p>
-                    </div>
-                    <div>
-                        <h2 class="attribute_title">Bonus aux pouvoirs</h2>
-                        <p class="subtitle">Valeur</p>
-                    </div>
-                    <div>
-                        <h2 class="attribute_title">Pénalité nourrir</h2>
-                        <p class="subtitle">Valeur</p>
-                    </div>
-                    <div>
-                        <h2 class="attribute_title">Soins par tour</h2>
-                        <p class="subtitle">Valeur</p>
-                    </div>
-                    <div>
-                        <h2 class="attribute_title">Test de soif</h2>
-                        <p class="subtitle">Valeur</p>
-                    </div>
-                    <div>
-                        <h2 class="attribute_title">Score de fléau</h2>
-                        <p class="subtitle">Valeur</p>
-                    </div>
+        </div>
+
+        <div class="mx-auto">
+            <p class="section_title text-center">Puissance sang 1</p>
+            <div class="mt-4 grid grid-cols-2 gap-2 w-full flex justify-center lg:grid-cols-3">
+                <div>
+                    <h2 class="attribute_title">Coup de sang</h2>
+                    <p class="subtitle">Valeur</p>
+                </div>
+                <div>
+                    <h2 class="attribute_title">Bonus aux pouvoirs</h2>
+                    <p class="subtitle">Valeur</p>
+                </div>
+                <div>
+                    <h2 class="attribute_title">Pénalité nourrir</h2>
+                    <p class="subtitle">Valeur</p>
+                </div>
+                <div>
+                    <h2 class="attribute_title">Soins par tour</h2>
+                    <p class="subtitle">Valeur</p>
+                </div>
+                <div>
+                    <h2 class="attribute_title">Test de soif</h2>
+                    <p class="subtitle">Valeur</p>
+                </div>
+                <div>
+                    <h2 class="attribute_title">Score de fléau</h2>
+                    <p class="subtitle">Valeur</p>
                 </div>
             </div>
         </div>

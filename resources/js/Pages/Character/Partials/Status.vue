@@ -20,13 +20,15 @@ const showDescription = async (entity, id) => {
             <DescriptionModal v-if="modalStore.open" />
         </transition>
 
-        <Willpower @get-description="showDescription" />
-
-        <Health @get-description="showDescription" />
-
         <Hunger @get-description="showDescription" />
 
-        <Humanity @get-description="showDescription" />
+        <div class="mt-4 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:border-t lg:border-gray-700">
+            <Willpower @get-description="showDescription" />
+
+            <Health @get-description="showDescription" />
+
+            <Humanity @get-description="showDescription" />
+        </div>
     </div>
 </template>
 
