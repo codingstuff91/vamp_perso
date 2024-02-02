@@ -10,7 +10,7 @@ class CreateChroniclesTable extends Migration {
 		Schema::create('chronicles', function(Blueprint $table) {
 			$table->id();
             $table->unsignedInteger('game_master_id')->constrained()->nullable();
-			$table->string('name', 30);
+			$table->string('name', 20);
 			$table->text('details');
             $table->timestamps();
         });

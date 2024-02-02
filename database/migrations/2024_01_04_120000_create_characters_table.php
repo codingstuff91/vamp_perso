@@ -18,7 +18,7 @@ class CreateCharactersTable extends Migration {
             $table->unsignedTinyInteger('experience_points')->default(0);
             $table->unsignedTinyInteger('experience_total')->default(0);
             $table->unsignedTinyInteger('true_age')->nullable();
-            $table->unsignedTinyInteger('appearance')->nullable();
+            $table->text('appearance')->nullable();
 			$table->unsignedTinyInteger('apparent_age')->nullable();
 			$table->unsignedSmallInteger('embrace_year')->nullable();
             $table->unsignedInteger('predation_id')->constrained();
