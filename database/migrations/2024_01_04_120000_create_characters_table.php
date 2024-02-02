@@ -8,14 +8,11 @@ class CreateCharactersTable extends Migration {
 	public function up()
 	{
 		Schema::create('characters', function(Blueprint $table) {
-			$table->increments('id');
-			$table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-			$table->unsignedInteger('chronicle_id');
-            $table->foreign('chronicle_id')->references('id')->on('chronicles');
+			$table->id();
+			$table->unsignedInteger('user_id')->constrained();
+			$table->unsignedInteger('chronicle_id')->constrained();
             $table->string('name', 20);
-            $table->unsignedInteger('clan_id');
-            $table->foreign('clan_id')->references('id')->on('clans');
+            $table->unsignedInteger('clan_id')->constrained();
 			$table->unsignedTinyInteger('generation');
 			$table->string('sire', 20);
             $table->unsignedTinyInteger('experience_points')->default(0);
@@ -24,10 +21,8 @@ class CreateCharactersTable extends Migration {
             $table->unsignedTinyInteger('appearance')->nullable();
 			$table->unsignedTinyInteger('apparent_age')->nullable();
 			$table->unsignedSmallInteger('embrace_year')->nullable();
-            $table->unsignedInteger('predation_id');
-            $table->foreign('predation_id')->references('id')->on('predations');
-            $table->unsignedInteger('compulsion_id')->nullable();
-            $table->foreign('compulsion_id')->references('id')->on('compulsions');
+            $table->unsignedInteger('predation_id')->constrained();
+            $table->unsignedInteger('compulsion_id')->constrained()->nullable();
             $table->text('background')->nullable();
 			$table->timestamps();
 		});

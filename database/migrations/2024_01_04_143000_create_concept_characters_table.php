@@ -12,11 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('concept_character', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('character_id');
-            $table->foreign('character_id')->references('id')->on('characters');
-            $table->unsignedInteger('concept_id');
-            $table->foreign('concept_id')->references('id')->on('concepts');
+            $table->id();
+            $table->unsignedInteger('character_id')->constrained();
+            $table->unsignedInteger('concept_id')->constrained();;
             $table->string('concept_value', 100);
         });
     }

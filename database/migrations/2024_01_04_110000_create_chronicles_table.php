@@ -8,9 +8,8 @@ class CreateChroniclesTable extends Migration {
 	public function up()
 	{
 		Schema::create('chronicles', function(Blueprint $table) {
-			$table->increments('id');
-            $table->unsignedInteger('game_master_id')->nullable();
-            $table->foreign('game_master_id')->references('id')->on('users');
+			$table->id();
+            $table->unsignedInteger('game_master_id')->constrained()->nullable();
 			$table->string('name', 30);
 			$table->text('details');
             $table->timestamps();

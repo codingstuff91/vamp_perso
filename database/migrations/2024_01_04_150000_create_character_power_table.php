@@ -8,11 +8,9 @@ class CreateCharacterPowerTable extends Migration {
 	public function up()
 	{
 		Schema::create('character_power', function(Blueprint $table) {
-			$table->increments('id');
-            $table->unsignedSmallInteger('character_id');
-            $table->foreign('character_id')->references('id')->on('characters');
-            $table->unsignedSmallInteger('power_id');
-            $table->foreign('power_id')->references('id')->on('powers');
+			$table->id();
+            $table->unsignedSmallInteger('character_id')->constrained();
+            $table->unsignedSmallInteger('power_id')->constrained();
 
 		});
 	}
