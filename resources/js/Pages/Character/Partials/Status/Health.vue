@@ -2,6 +2,8 @@
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
 const attributesStore = useCharacterAttributesStore();
+
+const maxHealthPoints = attributesStore.healthAttributes[2].pivot.attribute_value;
 </script>
 
 <template>
@@ -19,7 +21,7 @@ const attributesStore = useCharacterAttributesStore();
                 :value="attributesStore.healthAttributes[0].pivot.attribute_value"
                 icon="fa-solid fa-hand-fist"
                 color="text-blood-500"
-                :max="8"
+                :max="maxHealthPoints"
             />
         </div>
         <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
@@ -34,7 +36,7 @@ const attributesStore = useCharacterAttributesStore();
                 :value="attributesStore.healthAttributes[1].pivot.attribute_value"
                 icon="fa-solid fa-fire"
                 color="text-orange-500"
-                :max="8"
+                :max="maxHealthPoints"
             />
         </div>
     </div>

@@ -3,6 +3,7 @@ import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
 import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
 const attributesStore = useCharacterAttributesStore();
+const maxWillpowerPoints = attributesStore.willPowerAttributes[2].pivot.attribute_value;
 </script>
 
 <template>
@@ -20,7 +21,7 @@ const attributesStore = useCharacterAttributesStore();
                 :value="attributesStore.willPowerAttributes[0].pivot.attribute_value"
                 icon="fa-solid fa-shield"
                 color="text-blood-500"
-                :max="6"
+                :max="maxWillpowerPoints"
             />
         </div>
         <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
@@ -35,7 +36,7 @@ const attributesStore = useCharacterAttributesStore();
                 :value="attributesStore.willPowerAttributes[1].pivot.attribute_value"
                 icon="fa-solid fa-skull"
                 color="text-blood-500"
-                :max="6"
+                :max="maxWillpowerPoints"
             />
         </div>
     </div>
