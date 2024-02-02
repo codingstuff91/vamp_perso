@@ -10,6 +10,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -37,10 +38,12 @@ class DescriptionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('descriptionable_id')
+                TextColumn::make('descriptionable_id')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('descriptionable_type')
+                TextColumn::make('descriptionable.name')
+                    ->searchable(),
+                TextColumn::make('descriptionable_type')
                     ->searchable(),
             ])
             ->filters([
