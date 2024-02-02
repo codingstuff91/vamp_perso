@@ -37,9 +37,11 @@ p{
     font-family: 'Vampiro One', system-ui;
     @apply text-blood-500 text-2xl;
 }
+
 .attribute_title{
     font-family: 'Ubuntu', sans-serif;
-    @apply text-skin-50 font-bold text-xl;
+    @apply text-skin-50 font-bold text-lg;
+    @apply lg:text-2xl;
 }
 
 .bottom_right_menu{

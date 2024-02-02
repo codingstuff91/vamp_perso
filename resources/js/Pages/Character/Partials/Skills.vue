@@ -47,7 +47,7 @@ const showDescription = async (entity, id) => {
             <div class="flex flex-col">
                 <h2 class="column_title">Physiques</h2>
                 <div class="flex flex-col items-start" v-for="(attribute, index) in physical_skills" :key="index">
-                    <p class="mt-4 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
+                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
@@ -57,7 +57,7 @@ const showDescription = async (entity, id) => {
             <div class="flex flex-col items-center">
                 <h2 class="column_title">Sociales</h2>
                 <div class="flex flex-col items-center" v-for="(attribute, index) in social_skills" :key="index">
-                    <p class="mt-4 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
+                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
@@ -67,7 +67,7 @@ const showDescription = async (entity, id) => {
             <div class="flex flex-col items-end">
                 <h2 class="column_title">Mentales</h2>
                 <div class="flex flex-col items-end" v-for="(attribute, index) in mental_skills" :key="index">
-                    <p class="mt-4 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
+                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
