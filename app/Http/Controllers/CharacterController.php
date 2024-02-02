@@ -14,8 +14,6 @@ class CharacterController extends Controller
         $characters = Auth::user()->characters;
         $characters->load('clan');
 
-        dd($characters);
-
         return Inertia::render('Character/Index', [
             'characters' => $characters
         ]);
