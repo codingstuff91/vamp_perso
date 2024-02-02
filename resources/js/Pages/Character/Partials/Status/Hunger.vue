@@ -32,7 +32,7 @@ const maxHungerLevel = ref(5)
             </div>
             <div class="text-center px-2">
                 <h3 class="text-blood-500 font-bold italic text-2xl mt-4">Prédation : {{ characterStore.character.predation.name }}</h3>
-                <p class="subtitle text-justify">{{ characterStore.character.predation.description }}</p>
+                <p class="subtitle text-justify" v-html="characterStore.character.predation.description"></p>
             </div>
             <div class="flex flex-col items-center">
                 <p class="attribute_title mt-8">Puissance sang 1</p>
