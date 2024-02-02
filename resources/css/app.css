@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+p{
+    margin: 0.5rem 0;
+}
+
 .main_title{
     font-family: 'Vampiro One', system-ui;
     @apply text-blood-500 text-4xl;
