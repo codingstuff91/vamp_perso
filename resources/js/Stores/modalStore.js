@@ -14,7 +14,7 @@ export const useModalStore = defineStore('modal',{
             this.open = false;
         },
         async getDescription(entity, id) {
-            const response = await axios.post('http://127.0.0.1:8000/descriptions/show', {
+            const response = await axios.post('/descriptions/show', {
                 entity,
                 id,
             });
