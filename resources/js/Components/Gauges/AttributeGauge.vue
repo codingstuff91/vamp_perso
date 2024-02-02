@@ -2,10 +2,10 @@
     <div class="flex justify-start flex-wrap">
         <div v-for="(item, index) in max" :key="index">
             <template v-if="index <= selectedPoints">
-                <i :class="`mx-1 text-xl ${icon} ${color} lg:text-2xl`" @click="setValue(index)"></i>
+                <i :class="`mx-1 text-2xl ${icon} ${color}`" @click="setValue(index)"></i>
             </template>
             <template v-else>
-                <i :class="`mx-1 text-xl ${icon} text-gray-400 lg:text-2xl`" @click="setValue(index)"></i>
+                <i :class="`mx-1 text-2xl ${icon} text-gray-400`" @click="setValue(index)"></i>
             </template>
         </div>
     </div>
