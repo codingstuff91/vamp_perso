@@ -85,5 +85,6 @@ jobs:
           DB_USER: root
           DB_PASSWORD: secret
         run: |
+          php artisan config:clear
           php artisan key:generate
           vendor/bin/pest
