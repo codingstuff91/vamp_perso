@@ -7,7 +7,7 @@ use App\Models\Clan;
 use App\Models\Predation;
 use App\Models\User;
 
-it('A game master without a chronicle is redirect to chronicle index page', function () {
+it('Redirects a game master who doesnt own a chronicle to the chronicle index page', function () {
     $gameMaster = User::factory()->gameMaster()->create();
     $this->actingAs($gameMaster);
 
@@ -16,7 +16,7 @@ it('A game master without a chronicle is redirect to chronicle index page', func
     $response->assertRedirect(route('chronicle.index'));
 });
 
-it('A player without a character is redirect to the character demo page', function () {
+it('Redirects a player who doesnt own a character to the character demo page', function () {
     $user = User::factory()->player()->create();
     $anotherUser = User::factory()->player()->create();
 
@@ -35,4 +35,23 @@ it('A player without a character is redirect to the character demo page', functi
     $response = $this->get(route('index'));
 
     $response->assertRedirect(route('characters.show', Character::first()->id));
+});
+
+it('Redirects a player who owns a character to his character show page', function () {
+    $user = User::factory()->player()->create();
+    $this->actingAs($user);
+
+    $character = Character::factory()
+        ->for($user)
+        ->for(BloodPotency::factory()->create())
+        ->for(Chronicle::factory()->create())
+        ->for(Clan::factory()->create())
+        ->for(Predation::factory()->create())
+        ->create([
+            'name' => 'Dracula Von Helsing',
+        ]);
+
+    $response = $this->get(route('index'));
+
+    $response->assertRedirect(route('characters.show', $character));
 });
