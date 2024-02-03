@@ -13,6 +13,7 @@ class CreateCharactersTable extends Migration {
 			$table->unsignedInteger('chronicle_id')->constrained();
             $table->string('name', 20);
             $table->unsignedInteger('clan_id')->constrained();
+            $table->unsignedInteger('blood_potency_id')->constrained();
 			$table->unsignedTinyInteger('generation');
 			$table->string('sire', 20);
             $table->unsignedTinyInteger('experience_points')->default(0);

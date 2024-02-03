@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BloodPotency;
 use App\Models\Character;
 use App\Models\Chronicle;
 use App\Models\Clan;
@@ -16,6 +17,7 @@ class CharacterSeeder extends Seeder
         Character::factory()
             ->for(Chronicle::factory()->create())
             ->for(Clan::factory()->create())
+            ->for(BloodPotency::factory()->create())
             ->for(Predation::factory()->create())
             ->create([
                 'user_id' => User::first()->id,
