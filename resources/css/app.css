@@ -92,10 +92,10 @@ p{
 
 .desktop_menu_buttons{
     font-family: 'Ubuntu', sans-serif;
-    @apply text-skin-50 text-2xl px-4 py-2 rounded-lg border border-blood-500;
+    @apply text-skin-50 text-2xl italic font-bold px-4 py-2;
 }
 
 .desktop_menu_active{
     font-family: 'Ubuntu', sans-serif;
-    @apply text-white text-2xl px-4 py-2 rounded-lg bg-blood-500;
+    @apply italic font-bold text-white text-2xl px-4 py-2 rounded-lg bg-blood-500;
 }
