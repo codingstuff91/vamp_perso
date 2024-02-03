@@ -19,7 +19,11 @@ class CheckHomeMiddleware
         }
 
         if ($this->isPlayerWithCharacter($currentUser)) {
-            return to_route('characters.show', Character::first());
+            return to_route('characters.show', $currentUser->characters->first()->id);
+        }
+
+        if ($this->isPlayerWithoutCharacter($currentUser)) {
+            return to_route('characters.show', Character::first()->id);
         }
 
         return $next($request);
@@ -32,6 +36,11 @@ class CheckHomeMiddleware
 
     public function isPlayerWithCharacter(?\Illuminate\Contracts\Auth\Authenticatable $currentUser): bool
     {
-        return $currentUser->role === 'player' && ! empty($currentUser->characters);
+        return $currentUser->role === 'player' && $currentUser->characters()->exists();
+    }
+
+    public function isPlayerWithoutCharacter(?\Illuminate\Contracts\Auth\Authenticatable $currentUser): bool
+    {
+        return $currentUser->role === 'player' && ! $currentUser->characters()->exists();
     }
 }

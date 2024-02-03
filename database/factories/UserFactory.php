@@ -50,4 +50,13 @@ class UserFactory extends Factory
             ];
         });
     }
+
+    public function player()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'role' => 'player',
+            ];
+        });
+    }
 }

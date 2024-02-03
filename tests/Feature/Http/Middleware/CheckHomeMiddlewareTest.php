@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\BloodPotency;
 use App\Models\Character;
 use App\Models\Chronicle;
 use App\Models\Clan;
@@ -16,11 +17,14 @@ it('A game master without a chronicle is redirect to chronicle index page', func
 });
 
 it('A player without a character is redirect to the character demo page', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->player()->create();
+    $anotherUser = User::factory()->player()->create();
+
     $this->actingAs($user);
 
     $character = Character::factory()
-        ->for($user)
+        ->for($anotherUser)
+        ->for(BloodPotency::factory()->create())
         ->for(Chronicle::factory()->create())
         ->for(Clan::factory()->create())
         ->for(Predation::factory()->create())
@@ -31,4 +35,4 @@ it('A player without a character is redirect to the character demo page', functi
     $response = $this->get(route('index'));
 
     $response->assertRedirect(route('characters.show', Character::first()->id));
-})->skip();
+});
