@@ -41,6 +41,8 @@ class CharacterController extends Controller
         $character->loadMissing('predation');
         $character->loadMissing('clan');
         $character->loadMissing('compulsion');
+        $character->loadMissing('bloodPotency');
+
         $disciplines = $character->powers->groupBy('discipline.name');
 
         return Inertia::render('Character/Show', [

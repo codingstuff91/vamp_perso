@@ -9,6 +9,7 @@ const attributesStore = useCharacterAttributesStore();
 const characterStore = useCharacterStore();
 
 const maxHungerLevel = ref(5)
+const bloodPotency = characterStore.character.blood_potency;
 </script>
 
 <template>
@@ -36,31 +37,31 @@ const maxHungerLevel = ref(5)
         </div>
 
         <div class="mx-auto">
-            <p class="section_title text-center">Puissance sang 1</p>
+            <p class="section_title text-center">Puissance sang : <span class="text-skin-50">{{ bloodPotency.level }}</span></p>
             <div class="mt-4 grid grid-cols-2 gap-2 w-full flex justify-center lg:grid-cols-3">
                 <div>
                     <h2 class="attribute_title">Coup de sang</h2>
-                    <p class="subtitle">Valeur</p>
+                    <p class="subtitle">{{ bloodPotency.blood_rise }}</p>
                 </div>
                 <div>
                     <h2 class="attribute_title">Bonus aux pouvoirs</h2>
-                    <p class="subtitle">Valeur</p>
+                    <p class="subtitle">{{ bloodPotency.power_bonus }}</p>
                 </div>
                 <div>
                     <h2 class="attribute_title">Pénalité nourrir</h2>
-                    <p class="subtitle">Valeur</p>
+                    <p class="subtitle">{{ bloodPotency.feeding_penalty }}</p>
                 </div>
                 <div>
                     <h2 class="attribute_title">Soins par tour</h2>
-                    <p class="subtitle">Valeur</p>
+                    <p class="subtitle">{{ bloodPotency.damage_healed_per_turn }}</p>
                 </div>
                 <div>
                     <h2 class="attribute_title">Test de soif</h2>
-                    <p class="subtitle">Valeur</p>
+                    <p class="subtitle">{{ bloodPotency.hunger_test }}</p>
                 </div>
                 <div>
                     <h2 class="attribute_title">Score de fléau</h2>
-                    <p class="subtitle">Valeur</p>
+                    <p class="subtitle">{{ bloodPotency.bane_score }}</p>
                 </div>
             </div>
         </div>
