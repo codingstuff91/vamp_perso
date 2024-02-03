@@ -21,7 +21,7 @@ jobs:
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Set up Laravel environment
-        run: cp .env.testing .env
+        run: cp .env.example .env
 
       - name: Run PEST tests suites
         run: ./vendor/bin/pest
