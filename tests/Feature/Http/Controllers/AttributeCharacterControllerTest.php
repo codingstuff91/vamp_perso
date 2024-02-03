@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\AttributeCharacter;
+use App\Models\BloodPotency;
 use App\Models\Character;
 use App\Models\Chronicle;
 use App\Models\Clan;
@@ -9,15 +10,10 @@ use App\Models\User;
 use App\Models\Attribute;
 
 test('An attribute value is updated correctly', function () {
-    $user = User::factory()->create();
+    $user = createUser();
     $this->actingAs($user);
 
-    $character = Character::factory()
-        ->for($user)
-        ->for(Chronicle::factory()->create())
-        ->for(Clan::factory()->create())
-        ->for(Predation::factory())
-        ->create();
+    $character = createCharacter($user);
 
     $attribute = Attribute::factory()->create();
 

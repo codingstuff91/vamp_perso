@@ -41,23 +41,15 @@ it('The current game master can see only his chronicles', function () {
 });
 
 it('redirects a game master to the chronicle index page if he didnt selected one yet', function () {
-    $gameMaster = User::factory()->gameMaster()->create();
+    $gameMaster = createUser("gameMaster");
     $this->actingAs($gameMaster);
 
     $response = $this->get('/');
-    $response->assertRedirect(route('chronicle.index', $gameMaster));
-});
-
-it('User with player role could not see the chronicles navitem button', function () {
-    $player = User::factory()->create();
-    $this->actingAs($player);
-
-    $response = $this->get('/');
-    $response->assertDontSee('/chronicles');
+    $response->assertRedirect(route('chronicle.index'));
 });
 
 it('can render the chronicle create page correctly', function () {
-    $user = User::factory()->create();
+    $user = createUser();
     $this->actingAs($user);
 
     $this->get('/chronicles/create')

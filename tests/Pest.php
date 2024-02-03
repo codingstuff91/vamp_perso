@@ -1,5 +1,11 @@
 <?php
 
+use App\Models\BloodPotency;
+use App\Models\Character;
+use App\Models\Chronicle;
+use App\Models\Clan;
+use App\Models\Predation;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -41,3 +47,20 @@ expect()->extend('toBeOne', function () {
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
+function createUser(string $role = "player") {
+    return User::factory()->$role()->create();
+}
+
+function createCharacter(User $user = null) {
+    $player = $user ?? User::factory()->create();
+
+    return Character::factory()
+        ->for($player)
+        ->for(BloodPotency::factory()->create())
+        ->for(Chronicle::factory()->create())
+        ->for(Clan::factory()->create())
+        ->for(Predation::factory()->create())
+        ->create([
+            'name' => 'Dracula Von Helsing',
+        ]);
+}

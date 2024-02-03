@@ -12,15 +12,10 @@ use Database\Seeders\ConceptSeeder;
 test('Get the list of concepts of a character', function () {
     $this->withoutExceptionHandling();
 
-    $user = User::factory()->create();
+    $user = createUser();
     $this->actingAs($user);
 
-    $character = Character::factory()
-        ->for(User::factory()->create())
-        ->for(Chronicle::factory()->create())
-        ->for(Clan::factory()->create())
-        ->for(Predation::factory())
-        ->create();
+    $character = createCharacter($user);
 
     $this->seed(ConceptSeeder::class);
     $this->seed(ConceptCharacterSeeder::class);
