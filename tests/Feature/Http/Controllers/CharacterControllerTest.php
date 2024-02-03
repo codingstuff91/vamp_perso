@@ -6,7 +6,7 @@ use App\Models\User;
 use Database\Seeders\CharacterSeeder;
 
 it('The characters index page is rendered correctly', function () {
-    $user = User::factory()->create();
+    $user = createUser();
     $this->actingAs($user);
 
     $response = $this->get('/characters');
@@ -15,7 +15,12 @@ it('The characters index page is rendered correctly', function () {
 });
 
 it('Shows a character correctly', function () {
-    $user = User::factory()->create();
+    $user = createUser();
     $this->actingAs($user);
 
+    $character = createCharacter($user);
+
+    $response = $this->get(route('characters.show', $character));
+
+    $response->assertStatus(200);
 });
