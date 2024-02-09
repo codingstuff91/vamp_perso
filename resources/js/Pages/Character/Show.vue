@@ -121,7 +121,6 @@ onMounted(async () => {
                     <Descriptions :character="character" />
                 </div>
 
-                <BottomRightMenu />
             </div>
         </div>
     </AuthenticatedLayout>
