@@ -8,7 +8,7 @@ const maxWillpowerPoints = attributesStore.willPowerAttributes[2].pivot.attribut
 
 <template>
     <div>
-        <h2 class="section_title text-center mt-4">Volonté</h2>
+        <h2 class="section_title text-center lg:mt-4">Volonté</h2>
         <div class="flex flex-col justify-center items-center px-2 py-4 w-full">
             <h2
                 class="attribute_title"

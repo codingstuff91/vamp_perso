@@ -13,7 +13,7 @@ const bloodPotency = characterStore.character.blood_potency;
 </script>
 
 <template>
-    <div class="mt-8 px-4 grid grid-cols-1 gap-4 w-full lg:grid-cols-2 lg:gap-2">
+    <div class="mt-8 px-4 grid grid-cols-1 gap-4 w-full lg:grid-cols-2 lg:gap-8">
         <div class="mx-auto">
             <h2
                 class="section_title text-center"
