@@ -24,17 +24,12 @@ const showingNavigationDropdown = ref(false);
                                     src="/img/dracula.png"
                                     class="rounded-full w-12 h-12"
                                 >
-                                <Link :href="route('onboarding')">
+                                <Link :href="route('home')">
                                     <h1 class="main_title">Vamp Perso</h1>
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
-                            <div class="hidden sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('onboarding')" :active="route().current('onboarding')">
-                                    Accueil
-                                </NavLink>
-                            </div>
                             <div class="hidden sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('characters.index')" :active="route().current('characters.index')">
                                     Personnages

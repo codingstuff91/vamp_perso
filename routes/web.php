@@ -18,7 +18,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->middleware(['auth', 'checkHome'])->name('index');
+})->middleware(['auth', 'checkHome'])->name('home');
 
 Route::get('/onboarding', function () {
     return Inertia::render('Onboarding');
