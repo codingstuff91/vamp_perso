@@ -17,6 +17,7 @@ import Disciplines from "@/Pages/Character/Partials/Disciplines.vue";
 import Concepts from "@/Pages/Character/Partials/Concepts.vue";
 import Descriptions from "@/Pages/Character/Partials/Descriptions.vue";
 import DesktopMenu from "@/Pages/Character/Menus/DesktopMenu.vue";
+import MobileMenu from "@/Pages/Character/Menus/MobileMenu.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
@@ -61,6 +62,8 @@ onMounted(async () => {
         </template>
 
         <div class="w-full">
+            <MobileMenu />
+
             <div
                 class="w-full mx-auto p-4 flex justify-between lg:w-2/3 lg:hidden"
                 v-if="rightMenustore.category == 'attributes'"
@@ -76,6 +79,7 @@ onMounted(async () => {
             </div>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <DesktopMenu class="desktop_menu" />
+
 
                 <div
                     class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
