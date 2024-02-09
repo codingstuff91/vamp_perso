@@ -6,7 +6,6 @@ import { Head } from '@inertiajs/vue3';
 import Attributes from "@/Pages/Character/Partials/Attributes.vue";
 import Skills from "@/Pages/Character/Partials/Skills.vue";
 import Status from "@/Pages/Character/Partials/Status.vue";
-import BottomRightMenu from "@/Pages/Character/Menus/BottomRightMenu.vue";
 
 import { useCharacterStore } from "@/Stores/characterStore.js";
 import { useRightMenuStore } from "@/Stores/BottomMenuStore.js";
