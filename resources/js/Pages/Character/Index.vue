@@ -14,9 +14,9 @@ defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-            <div class="flex justify-between">
+            <div class="flex justify-center">
                 <div class="flex flex-col">
-                    <h1 class="attribute_title text-2xl leading-tight">Personnages disponibles</h1>
+                    <h1 class="attribute_title text-2xl leading-tight text-center">Personnages disponibles</h1>
                 </div>
             </div>
         </template>
