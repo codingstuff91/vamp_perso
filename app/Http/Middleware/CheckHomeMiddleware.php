@@ -23,7 +23,7 @@ class CheckHomeMiddleware
         }
 
         if ($this->isPlayerWithoutCharacter($currentUser)) {
-            return to_route('characters.show', Character::first()->id);
+            return to_route('characters.index');
         }
 
         return $next($request);

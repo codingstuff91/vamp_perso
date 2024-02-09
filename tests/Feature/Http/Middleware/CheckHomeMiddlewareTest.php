@@ -16,7 +16,7 @@ it('Redirects a game master who doesnt own a chronicle to the chronicle index pa
     $response->assertRedirect(route('chronicle.index'));
 });
 
-it('Redirects a player who doesnt own a character to the character demo page', function () {
+it('Redirects a player who doesnt own a character to the character index page', function () {
     $user = User::factory()->player()->create();
     $anotherUser = User::factory()->player()->create();
 
@@ -32,9 +32,9 @@ it('Redirects a player who doesnt own a character to the character demo page', f
             'name' => 'Dracula Von Helsing',
         ]);
 
-    $response = $this->get(route('index'));
+    $response = $this->get(route('home'));
 
-    $response->assertRedirect(route('characters.show', Character::first()->id));
+    $response->assertRedirect(route('characters.index'));
 });
 
 it('Redirects a player who owns a character to his character show page', function () {
