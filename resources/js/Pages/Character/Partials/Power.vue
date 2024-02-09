@@ -13,11 +13,11 @@ const showDescription = async (entity, id) => {
 </script>
 
 <template>
-    <div class="px-2 py-2 my-2 mx-4 flex flex-col bg-gray-800 border border-red-500 rounded-xl">
-        <div class="flex justify-between w-2/3 mx-auto">
-            <p class="subtitle font-bold" @click="showDescription('power', power.id)">{{ power.name }}</p>
+    <div class="py-2 my-2 mx-2 flex flex-col bg-gray-800 border border-red-500 rounded-xl">
+        <div class="flex flex-col items-center justify-between lg:flex">
             <p class="subtitle">Niveau {{ power.level }}</p>
+            <p class="subtitle font-bold" @click="showDescription('power', power.id)">{{ power.name }}</p>
         </div>
-        <p class="text-skin-50 text-lg text-center">{{ power.dice_pool }}</p>
+        <p class="text-skin-50 text-lg text-center lg:text-2xl">{{ power.dice_pool }}</p>
     </div>
 </template>

@@ -14,7 +14,7 @@ p{
 .subtitle{
     font-family: 'Ubuntu', sans-serif;
     font-style: italic;
-    @apply text-gray-400 text-lg;
+    @apply text-gray-400 text-lg lg:text-2xl;
 }
 
 .section_title{
@@ -40,7 +40,7 @@ p{
 
 .attribute_title{
     font-family: 'Ubuntu', sans-serif;
-    @apply text-skin-50 font-bold text-lg;
+    @apply text-skin-50 font-bold text-xl;
     @apply lg:text-2xl;
 }
 
