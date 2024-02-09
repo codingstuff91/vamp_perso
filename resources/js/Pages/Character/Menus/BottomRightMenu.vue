@@ -9,14 +9,18 @@ const toggleMenu = async () => {
 
 <template>
     <!-- action button-->
-    <div class="fixed bottom-2 right-2 rounded-full bg-gray-900 w-12 h-12 flex justify-center items-center border border-gray-100 lg:hidden">
-        <i class="fa-solid fa-bars text-red-500 text-xl" @click="toggleMenu"></i>
+    <div class="fixed bottom-2 right-2 rounded-full bg-gray-900 w-16 h-16 flex justify-center items-center border border-gray-100 lg:hidden">
+        <img
+            src="/img/sections.png"
+             class="w-16 h-16"
+             @click="toggleMenu"
+        >
     </div>
 
     <!-- Foldable menu-->
     <div
         v-if="menuStore.open"
-        class="bottom_right_menu fixed h-auto w-[70%] bottom-14 right-0 border border-red-500 flex flex-col items-center"
+        class="bottom_right_menu fixed h-auto w-[50%] bottom-20 right-0 border border-red-500 flex flex-col items-center"
     >
         <button
             class="menu_text"
