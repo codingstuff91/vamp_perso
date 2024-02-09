@@ -25,7 +25,7 @@ const showDescription = async (entity, id) => {
         </div>
         <div v-for="(discipline, index) in disciplines" :key="index">
             <h1
-                class="my-2 text-2xl text-white pl-6 mb-2"
+                class="attribute_title my-2 text-2xl text-white pl-6 mb-2"
                 @click="showDescription('discipline', discipline[0].discipline_id)"
             >
                 {{ discipline[0].discipline.name }}
