@@ -108,7 +108,7 @@ p{
 .description-modal h1{
     font-family: 'Vampiro One', system-ui;
     @apply text-skin-50 uppercase font-bold text-3xl lg:text-3xl;
-    @apply pt-8 text-blood-500 text-center;
+    @apply mt-16 text-blood-500 text-center;
 }
 
 .description-modal h3{
@@ -128,5 +128,5 @@ p{
 .description-modal li{
     list-style: square;
     @apply my-2 ml-8;
-    @apply text-blood-500 font-bold;
+    @apply text-gray-400 font-bold;
 }
