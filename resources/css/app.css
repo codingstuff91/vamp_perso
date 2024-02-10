@@ -99,3 +99,34 @@ p{
     font-family: 'Ubuntu', sans-serif;
     @apply italic font-bold text-white text-2xl px-4 py-2 rounded-lg bg-blood-500;
 }
+
+.description-modal{
+    @apply w-full mx-auto;
+    @apply lg:max-w-7xl lg:mx-auto;
+}
+
+.description-modal h1{
+    font-family: 'Vampiro One', system-ui;
+    @apply text-skin-50 uppercase font-bold text-3xl lg:text-3xl;
+    @apply pt-8 text-blood-500 text-center;
+}
+
+.description-modal h3{
+    font-family: 'Ubuntu', sans-serif;
+    @apply text-skin-50 font-bold text-2xl;
+    @apply pt-4 ml-4;
+}
+
+.description-modal p{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: italic;
+    @apply px-2 my-4;
+    @apply text-gray-400 text-lg text-justify;
+    @apply lg:text-xl;
+}
+
+.description-modal li{
+    list-style: square;
+    @apply my-2 ml-8;
+    @apply text-blood-500 font-bold;
+}
