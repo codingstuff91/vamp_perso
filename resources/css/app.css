@@ -107,7 +107,7 @@ p{
 
 .description-modal h1{
     font-family: 'Vampiro One', system-ui;
-    @apply text-skin-50 font-bold text-3xl;
+    @apply text-skin-50 font-bold text-3xl lg:text-3xl lg:uppercase;
     @apply pt-8 text-blood-500 text-center;
 }
 
@@ -120,6 +120,13 @@ p{
 .description-modal p{
     font-family: 'Ubuntu', sans-serif;
     font-style: italic;
-    @apply px-4 my-4;
+    @apply px-2 my-4;
     @apply text-gray-400 text-lg text-justify;
+    @apply lg:text-xl;
+}
+
+.description-modal li{
+    list-style: square;
+    @apply my-2 ml-8;
+    @apply text-blood-500 font-bold;
 }
