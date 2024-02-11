@@ -125,8 +125,15 @@ p{
     @apply lg:text-xl;
 }
 
-.description-modal li{
+.description-modal ul{
     list-style: square;
+    @apply my-2 ml-8;
+    @apply text-gray-400 font-bold;
+}
+
+.description-modal ol{
+    color:red;
+    list-style-type: upper-roman;
     @apply my-2 ml-8;
     @apply text-gray-400 font-bold;
 }
