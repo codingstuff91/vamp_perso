@@ -51,7 +51,7 @@ it('Redirects a player who owns a character to his character show page', functio
             'name' => 'Dracula Von Helsing',
         ]);
 
-    $response = $this->get(route('index'));
+    $response = $this->get(route('home'));
 
     $response->assertRedirect(route('characters.show', $character));
 });
