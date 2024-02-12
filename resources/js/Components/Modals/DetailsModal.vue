@@ -75,7 +75,7 @@ const maxWidthClass = computed(() => {
                     leave-to-class="opacity-0"
                 >
                     <div v-show="show" class="fixed inset-0 transform transition-all" @click="close">
-                        <div class="absolute inset-0 bg-gray-600 opacity-75" />
+                        <div class="absolute inset-0 bg-gray-700 opacity-75" />
                     </div>
                 </Transition>
 
@@ -95,7 +95,7 @@ const maxWidthClass = computed(() => {
 <!--                        <slot v-if="show" />-->
                         <h1>{{ modalStore.details.name }}</h1>
 
-                        <p v-html="modalStore.details.description.text"></p>
+                        <p v-html="modalStore.details?.description?.text"></p>
                     </div>
                 </Transition>
             </div>
