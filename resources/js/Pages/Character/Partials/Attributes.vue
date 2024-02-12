@@ -5,6 +5,7 @@ import { useModalStore } from "@/Stores/modalStore.js";
 const modalStore = useModalStore();
 
 import { computed } from "vue";
+import DetailsModal from "@/Components/Modals/DetailsModal.vue";
 
 const props = defineProps({
     character: Object,
@@ -32,13 +33,22 @@ const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
     await modalStore.setModalStatus();
 }
+
+const closeModal = () => {
+    modalStore.open = false
+}
 </script>
 
 <template>
     <div class="py-2">
-        <transition name="fade">
-            <DescriptionModal v-if="modalStore.open"/>
-        </transition>
+<!--        <transition name="fade">-->
+<!--            <DescriptionModal v-if="modalStore.open"/>-->
+<!--        </transition>-->
+        <DetailsModal
+            :show="modalStore.open"
+            :closeable="true"
+            @close="closeModal"
+        />
 
         <div class="flex justify-center">
             <h1 class="section_title my-4">Attributs</h1>
