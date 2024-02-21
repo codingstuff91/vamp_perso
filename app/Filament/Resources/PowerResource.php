@@ -31,16 +31,8 @@ class PowerResource extends Resource
                 Forms\Components\TextInput::make('level')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('cost')
-                    ->required(),
                 Forms\Components\TextInput::make('dice_pool')
                     ->required(),
-                Forms\Components\Textarea::make('system')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('duration')
-                    ->required()
-                    ->columnSpanFull(),
             ]);
     }
 
