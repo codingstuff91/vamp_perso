@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from "vue";
+import {ref} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
-import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
+import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
+
 const attributesStore = useCharacterAttributesStore();
 
 const maxHumanityLevel = ref(10)
@@ -24,6 +25,7 @@ const maxHumanityLevel = ref(10)
                     icon="fa-solid fa-cross text-3xl"
                     color="text-blood-500"
                     :max="maxHumanityLevel"
+                    :erasable="false"
                 />
             </div>
         </div>
