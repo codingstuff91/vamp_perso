@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Compulsion extends Model
 {
@@ -12,4 +13,9 @@ class Compulsion extends Model
     public $timestamps = false;
 
     protected $guarded = [];
+
+    public function clan(): BelongsTo
+    {
+        return $this->belongsTo(Clan::class);
+    }
 }
