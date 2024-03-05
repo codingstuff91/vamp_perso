@@ -9,6 +9,6 @@ class ClanSeeder extends Seeder
 {
     public function run(): void
     {
-        Clan::factory()->count(12)->create();
+        Clan::factory()->count(7)->create();
     }
 }

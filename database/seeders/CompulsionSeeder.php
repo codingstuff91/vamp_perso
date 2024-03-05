@@ -19,6 +19,6 @@ class CompulsionSeeder extends Seeder
                 ->create();
         }
 
-        Compulsion::factory()->count(6)->create();
+        Compulsion::factory()->count(4)->create();
     }
 }
