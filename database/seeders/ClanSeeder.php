@@ -7,8 +7,21 @@ use Illuminate\Database\Seeder;
 
 class ClanSeeder extends Seeder
 {
+    private const CLANS = [
+        'Brujah',
+        'Gangrel',
+        'Toréador',
+        'Nosferatu',
+        'Tremere',
+        'Ventrue',
+    ];
+
     public function run(): void
     {
-        Clan::factory()->count(7)->create();
+        foreach (self::CLANS as $clan) {
+            Clan::factory()->create([
+                'name' => $clan,
+            ]);
+        }
     }
 }
