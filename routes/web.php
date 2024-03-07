@@ -4,6 +4,7 @@ use App\Http\Controllers\AttributeCharacterUpdateController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\ChronicleController;
+use App\Http\Controllers\CompulsionController;
 use App\Http\Controllers\ConceptController;
 use App\Http\Controllers\DescriptionController;
 use App\Http\Controllers\ProfileController;
@@ -37,9 +38,11 @@ Route::middleware('auth')->group(function () {
 
     Route::post('descriptions/show', [DescriptionController::class, 'show']);
 
-    Route::get('/character/{character}/attributes', [AttributeController::class, "index"]);
+    Route::get('/character/{character}/attributes', [AttributeController::class, 'index']);
     Route::put('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
     Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
+
+    Route::get('compulsions/{character}', [CompulsionController::class, 'index'])->name('compulsions.index');
 });
 
 require __DIR__.'/auth.php';
