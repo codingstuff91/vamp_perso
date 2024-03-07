@@ -2,6 +2,9 @@
 
 use App\Models\Character;
 use App\Models\User;
+use Database\Seeders\CharacterSeeder;
+use Database\Seeders\ClanSeeder;
+use Database\Seeders\CompulsionSeeder;
 
 test('renders the whole compulsions list including the character\'s clan specific compulsion', function () {
     $user = User::factory()->create();
