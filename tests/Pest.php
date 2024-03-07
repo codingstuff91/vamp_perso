@@ -21,6 +21,7 @@ use Tests\TestCase;
 */
 
 uses(TestCase::class, RefreshDatabase::class)->in('Feature');
+uses(TestCase::class, RefreshDatabase::class)->in('Unit');
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +48,13 @@ expect()->extend('toBeOne', function () {
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
-function createUser(string $role = "player") {
+function createUser(string $role = 'player')
+{
     return User::factory()->$role()->create();
 }
 
-function createCharacter(User $user = null) {
+function createCharacter(?User $user = null)
+{
     $player = $user ?? User::factory()->create();
 
     return Character::factory()
