@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
     Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
 
-    Route::get('compulsions/{character}', [CompulsionController::class, 'index'])->name('compulsions.index');
+    Route::get('compulsions/{character}', [CompulsionController::class, 'associate'])->name('compulsions.associate');
 });
 
 require __DIR__.'/auth.php';

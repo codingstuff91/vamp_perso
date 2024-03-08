@@ -5,7 +5,7 @@ namespace App\Actions\Compulsions;
 use App\Models\Character;
 use App\Models\Compulsion;
 
-class GetCompulsionsListAction
+class GetRandomCompulsionAction
 {
     public function execute(Character $character)
     {
@@ -15,6 +15,6 @@ class GetCompulsionsListAction
             ->orWhere('clan_id', null)
             ->get();
 
-        return $compulsions;
+        return $compulsions->random();
     }
 }

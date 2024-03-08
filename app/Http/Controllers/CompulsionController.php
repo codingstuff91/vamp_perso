@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Compulsions\GetCompulsionsListAction;
+use App\Actions\Compulsions\GetRandomCompulsionAction;
+use App\Actions\Compulsions\SetCharacterCompulsionAction;
 use App\Models\Character;
 
 class CompulsionController extends Controller
 {
-    public function index(Character $character)
+    public function associate(Character $character): void
     {
-        $compulsions = app(GetCompulsionsListAction::class)->execute($character);
+        $randomCompulsion = app(GetRandomCompulsionAction::class)->execute($character);
 
-        return $compulsions;
+        app(SetCharacterCompulsionAction::class)->execute($randomCompulsion, $character);
     }
 }
