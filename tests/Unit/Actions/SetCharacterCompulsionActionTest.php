@@ -6,6 +6,7 @@ use App\Models\Compulsion;
 use App\Models\User;
 use Database\Seeders\CharacterSeeder;
 use Database\Seeders\ClanSeeder;
+use Database\Seeders\CompulsionSeeder;
 
 test('give a compulsion to a character', function () {
     $user = User::factory()->create();
