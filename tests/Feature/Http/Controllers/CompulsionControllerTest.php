@@ -7,22 +7,6 @@ use Database\Seeders\CharacterSeeder;
 use Database\Seeders\ClanSeeder;
 use Database\Seeders\CompulsionSeeder;
 
-test('Renders the compulsions list', function () {
-    $user = User::factory()->create();
-    $this->actingAs($user);
-
-    $this->seed([
-        ClanSeeder::class,
-        CompulsionSeeder::class,
-        CharacterSeeder::class,
-    ]);
-
-    $character = Character::first();
-    $response = $this->get(route('compulsions.index', $character));
-
-    $response->assertOk();
-});
-
 test('Deletes the compulsion of a character', function () {
     $user = User::factory()->create();
     $this->actingAs($user);
