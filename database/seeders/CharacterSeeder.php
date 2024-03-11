@@ -16,7 +16,7 @@ class CharacterSeeder extends Seeder
     {
         Character::factory()
             ->for(Chronicle::factory()->create())
-            ->for(Clan::factory()->create())
+            ->for(Clan::first())
             ->for(BloodPotency::factory()->create())
             ->for(Predation::factory()->create())
             ->create([

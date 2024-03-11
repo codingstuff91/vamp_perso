@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PowerResource\Pages;
-use App\Filament\Resources\PowerResource\RelationManagers;
 use App\Models\Power;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PowerResource extends Resource
 {
@@ -31,16 +28,8 @@ class PowerResource extends Resource
                 Forms\Components\TextInput::make('level')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('cost')
-                    ->required(),
                 Forms\Components\TextInput::make('dice_pool')
                     ->required(),
-                Forms\Components\Textarea::make('system')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('duration')
-                    ->required()
-                    ->columnSpanFull(),
             ]);
     }
 
@@ -56,8 +45,6 @@ class PowerResource extends Resource
                 Tables\Columns\TextColumn::make('level')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('cost')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('dice_pool')
                     ->searchable(),
             ])
