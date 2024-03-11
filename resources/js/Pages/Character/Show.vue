@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import {onMounted} from "vue";
+import {onMounted, onUpdated} from "vue";
 import {Head} from '@inertiajs/vue3';
 
 import Attributes from "@/Pages/Character/Partials/Attributes.vue";
@@ -35,8 +35,7 @@ onMounted(async () => {
     await characterStore.setCurrentCharacter(props.character)
     await attributesStore.getAttributes(props.character)
     await conceptsStore.getConcepts(props.character)
-    await compulsionStore.getCompulsions(props.character.id)
-})
+});
 </script>
 
 <template>

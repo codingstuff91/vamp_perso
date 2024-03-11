@@ -15,7 +15,7 @@ class CharacterController extends Controller
         $characters->load('clan');
 
         return Inertia::render('Character/Index', [
-            'characters' => $characters
+            'characters' => $characters,
         ]);
     }
 

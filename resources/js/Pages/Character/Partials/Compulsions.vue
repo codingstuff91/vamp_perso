@@ -2,12 +2,16 @@
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 
-import {ref, onMounted} from 'vue';
+import {ref} from 'vue';
+import {router} from '@inertiajs/vue3';
+
 import {useCharacterStore} from "@/Stores/characterStore.js";
 import {useCompulsionStore} from "@/Stores/CompulsionStore.js";
+import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore.js";
 
 const characterStore = useCharacterStore();
 const compulsionStore = useCompulsionStore();
+const attributesStore = useCharacterAttributesStore();
 
 const displayModal = ref(false);
 
@@ -19,8 +23,12 @@ const closeModal = () => {
     displayModal.value = false;
 }
 
-const setRandomCompulsion = () => {
-    compulsionStore.setRandomCompulsion(characterStore.character.id);
+const setRandomCompulsion = async () => {
+    await compulsionStore.setRandomCompulsion(characterStore.character.id);
+    
+    await router.get(`/characters/${characterStore.character.id}`);
+
+    displayModal.value = false;
 }
 </script>
 
@@ -28,12 +36,11 @@ const setRandomCompulsion = () => {
     <div class="flex flex-col lg:block">
         <h2 class="header_attribute_title">Compulsion</h2>
         <div class="flex items-center">
-            <h2 class="subtitle">
-                {{ characterStore.character.compulsion ? characterStore.character.compulsion.name : 'Aucune' }}</h2>
-            <img src="/img/ajouter.png"
-                 class="ml-4 w-8 h-8"
-                 @click="openModal"
+            <h2
+                class="subtitle"
+                @click="openModal"
             >
+                {{ characterStore.character.compulsion ? characterStore.character.compulsion.name : 'Aucune' }}</h2>
         </div>
     </div>
 
@@ -42,7 +49,6 @@ const setRandomCompulsion = () => {
         :closeable="true"
         @close="closeModal"
     >
-        <h1 class="pt-4 section_title text-blood-500 text-center">Choix de compulsion</h1>
         <div class="mt-4 flex justify-center">
             <SecondaryButton
                 @click="setRandomCompulsion"
@@ -50,6 +56,17 @@ const setRandomCompulsion = () => {
             >
                 Attribuer une compulsion
             </SecondaryButton>
+        </div>
+        <div
+            class="p-4"
+            v-if="characterStore.character.compulsion"
+        >
+            <h2 class="header_attribute_title text-center uppercase">{{ characterStore.character.compulsion.name }}</h2>
+            <p
+                class="subtitle text-justify"
+                v-html="characterStore.character.compulsion.description"
+            >
+            </p>
         </div>
     </Modal>
 </template>
