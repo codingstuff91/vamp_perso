@@ -35,7 +35,7 @@ const deleteCompulsion = async () => {
     await compulsionStore.deleteCompulsion(characterStore.character.id);
 
     await router.get(`/characters/${characterStore.character.id}`);
-    
+
     displayModal.value = false;
 }
 </script>
@@ -57,7 +57,7 @@ const deleteCompulsion = async () => {
         :closeable="true"
         @close="closeModal"
     >
-        <div class="mt-4 flex justify-center">
+        <div class="my-4 flex justify-center">
             <SecondaryButton
                 @click="setRandomCompulsion"
                 v-if="! characterStore.character.compulsion"
