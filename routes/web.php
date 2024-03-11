@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
 
     Route::get('compulsions/{character}', [CompulsionController::class, 'associate'])->name('compulsions.associate');
+    Route::delete('compulsions/{character}', [CompulsionController::class, 'destroy'])->name('compulsions.destroy');
 });
 
 require __DIR__.'/auth.php';

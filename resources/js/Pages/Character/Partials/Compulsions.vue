@@ -25,9 +25,17 @@ const closeModal = () => {
 
 const setRandomCompulsion = async () => {
     await compulsionStore.setRandomCompulsion(characterStore.character.id);
-    
+
     await router.get(`/characters/${characterStore.character.id}`);
 
+    displayModal.value = false;
+}
+
+const deleteCompulsion = async () => {
+    await compulsionStore.deleteCompulsion(characterStore.character.id);
+
+    await router.get(`/characters/${characterStore.character.id}`);
+    
     displayModal.value = false;
 }
 </script>
@@ -58,7 +66,7 @@ const setRandomCompulsion = async () => {
             </SecondaryButton>
         </div>
         <div
-            class="p-4"
+            class="p-4 flex flex-col items-center"
             v-if="characterStore.character.compulsion"
         >
             <h2 class="header_attribute_title text-center uppercase">{{ characterStore.character.compulsion.name }}</h2>
@@ -67,6 +75,13 @@ const setRandomCompulsion = async () => {
                 v-html="characterStore.character.compulsion.description"
             >
             </p>
+
+            <SecondaryButton
+                @click="deleteCompulsion"
+                v-if="characterStore.character.compulsion"
+            >
+                Supprimer la compulsion
+            </SecondaryButton>
         </div>
     </Modal>
 </template>

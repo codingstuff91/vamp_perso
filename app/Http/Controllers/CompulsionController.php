@@ -14,4 +14,10 @@ class CompulsionController extends Controller
 
         app(SetCharacterCompulsionAction::class)->execute($randomCompulsion, $character);
     }
+
+    public function destroy(Character $character)
+    {
+        $character->compulsion_id = null;
+        $character->save();
+    }
 }

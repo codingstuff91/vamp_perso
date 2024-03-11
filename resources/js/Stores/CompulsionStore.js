@@ -14,5 +14,8 @@ export const useCompulsionStore = defineStore('compulsion', {
             const response = await axios.get(`/compulsions/${character}`);
             this.compulsion = response.data;
         },
+        async deleteCompulsion(character) {
+            const response = await axios.delete(`/compulsions/${character}`);
+        },
     }
 })
