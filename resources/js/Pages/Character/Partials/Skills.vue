@@ -1,9 +1,10 @@
 <script setup>
 import AttributeGauge from "@/Components/Gauges/AttributeGauge.vue";
-import { computed } from "vue";
+import {computed} from "vue";
 
 import DescriptionModal from "@/Components/Modals/DescriptionModal.vue";
-import { useModalStore } from "@/Stores/modalStore.js";
+import {useModalStore} from "@/Stores/modalStore.js";
+
 const modalStore = useModalStore();
 
 const props = defineProps({
@@ -47,31 +48,51 @@ const showDescription = async (entity, id) => {
             <div class="flex flex-col">
                 <h2 class="column_title">Physiques</h2>
                 <div class="flex flex-col items-start" v-for="(attribute, index) in physical_skills" :key="index">
-                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
+                    <p
+                        class="mt-8 mb-2 attribute_title"
+                        @click="showDescription('attribute', attribute.id)"
+                    >
+                        {{ attribute.name }}
+                    </p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
+                    <p class="text-skin-50 items-start flex-wrap">
+                        {{ attribute.pivot.specialties }}
+                    </p>
                 </div>
             </div>
             <div class="flex flex-col items-center">
                 <h2 class="column_title">Sociales</h2>
                 <div class="flex flex-col items-center" v-for="(attribute, index) in social_skills" :key="index">
-                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
+                    <p
+                        class="mt-8 mb-2 attribute_title"
+                        @click="showDescription('attribute', attribute.id)"
+                    >
+                        {{ attribute.name }}
+                    </p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
+                    <p class="text-skin-50 items-center flex-wrap">
+                        {{ attribute.pivot.specialties }}
+                    </p>
                 </div>
             </div>
             <div class="flex flex-col items-end">
                 <h2 class="column_title">Mentales</h2>
                 <div class="flex flex-col items-end" v-for="(attribute, index) in mental_skills" :key="index">
-                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
+                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">
+                        {{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
+                    <p class="text-skin-50 items-end">
+                        {{ attribute.pivot.specialties }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -82,6 +103,7 @@ const showDescription = async (entity, id) => {
 .fade-enter-active, .fade-leave-active {
     transition: opacity 0.5s;
 }
+
 .fade-enter, .fade-leave-to {
     opacity: 0;
 }
