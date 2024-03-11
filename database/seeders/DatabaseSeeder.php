@@ -10,17 +10,17 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-         User::factory()
-             ->has(Chronicle::factory(), 'chronicles')
-             ->create([
-             'name' => 'test',
-             'email' => 'test@test.com',
-         ]);
+        User::factory()
+            ->has(Chronicle::factory(), 'chronicles')
+            ->create([
+                'name' => 'test',
+                'email' => 'test@test.com',
+            ]);
 
         $this->call([
             PredationSeeder::class,
-            CompulsionSeeder::class,
             ClanSeeder::class,
+            CompulsionSeeder::class,
             CharacterSeeder::class,
             ConceptSeeder::class,
             AttributeSeeder::class,

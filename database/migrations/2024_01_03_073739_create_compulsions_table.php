@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('compulsions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('clan_id')->constrained()->nullable();
             $table->string('name');
             $table->text('description');
         });
