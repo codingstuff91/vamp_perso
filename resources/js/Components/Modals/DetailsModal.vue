@@ -1,7 +1,8 @@
 <script setup>
-import { computed, onMounted, onUnmounted, watch } from 'vue';
+import {computed, onMounted, onUnmounted, watch} from 'vue';
 
-import { useModalStore } from "@/Stores/modalStore.js";
+import {useModalStore} from "@/Stores/modalStore.js";
+
 const modalStore = useModalStore();
 
 const props = defineProps({
@@ -19,8 +20,6 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['close']);
-
 watch(
     () => props.show,
     () => {
@@ -34,7 +33,7 @@ watch(
 
 const close = () => {
     if (props.closeable) {
-        emit('close');
+        modalStore.close();
     }
 };
 
@@ -75,7 +74,7 @@ const maxWidthClass = computed(() => {
                     leave-to-class="opacity-0"
                 >
                     <div v-show="show" class="fixed inset-0 transform transition-all" @click="close">
-                        <div class="absolute inset-0 bg-gray-700 opacity-75" />
+                        <div class="absolute inset-0 bg-gray-700 opacity-75"/>
                     </div>
                 </Transition>
 
@@ -89,10 +88,10 @@ const maxWidthClass = computed(() => {
                 >
                     <div
                         v-show="show"
-                        class="description-modal bg-darkness-900 rounded-lg overflow-scroll shadow-xl transform transition-all h-[90%] mt-8"
+                        class="description-modal bg-darkness-900 rounded-lg overflow-scroll shadow-xl transform transition-all h-[90%] mt-[168px] px-4"
                         :class="maxWidthClass"
                     >
-<!--                        <slot v-if="show" />-->
+                        <!--                        <slot v-if="show" />-->
                         <h1>{{ modalStore.details.name }}</h1>
 
                         <p v-html="modalStore.details?.description?.text"></p>
