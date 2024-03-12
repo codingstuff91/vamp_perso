@@ -1,8 +1,8 @@
 <script setup>
-import { useCharacterConceptsStore } from "@/Stores/characterConceptsStore.js";
-import { useModalStore } from "@/Stores/modalStore.js";
+import {useCharacterConceptsStore} from "@/Stores/characterConceptsStore.js";
+import {useModalStore} from "@/Stores/modalStore.js";
 
-import DescriptionModal from "@/Components/Modals/DescriptionModal.vue";
+import DetailsModal from "@/Components/Modals/DetailsModal.vue";
 
 const conceptsStore = useCharacterConceptsStore();
 const modalStore = useModalStore();
@@ -13,15 +13,16 @@ const formatTitle = (title) => {
 
 const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
-    await modalStore.setModalStatus();
+    await modalStore.toggle();
 }
 </script>
 
 <template>
     <div class="py-2 px-4">
-        <transition name="fade">
-            <DescriptionModal v-if="modalStore.open" />
-        </transition>
+        <DetailsModal
+            :show="modalStore.open"
+            :closeable="true"
+        />
 
         <h1 class="section_title text-center mt-4">Concepts</h1>
         <div class="flex flex-col items-center">

@@ -2,7 +2,6 @@
 import AttributeGauge from "@/Components/Gauges/AttributeGauge.vue";
 import {computed} from "vue";
 
-import DescriptionModal from "@/Components/Modals/DescriptionModal.vue";
 import {useModalStore} from "@/Stores/modalStore.js";
 import DetailsModal from "@/Components/Modals/DetailsModal.vue";
 

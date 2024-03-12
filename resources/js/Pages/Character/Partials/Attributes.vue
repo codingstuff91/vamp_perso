@@ -1,6 +1,5 @@
 <script setup>
 import AttributeGauge from "@/Components/Gauges/AttributeGauge.vue";
-import DescriptionModal from "@/Components/Modals/DescriptionModal.vue";
 import {useModalStore} from "@/Stores/modalStore.js";
 
 const modalStore = useModalStore();

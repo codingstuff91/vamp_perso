@@ -3,7 +3,6 @@ import Willpower from "@/Pages/Character/Partials/Status/Willpower.vue";
 import Health from "@/Pages/Character/Partials/Status/Health.vue";
 import Humanity from "@/Pages/Character/Partials/Status/Humanity.vue";
 import Hunger from "@/Pages/Character/Partials/Status/Hunger.vue";
-import DescriptionModal from "@/Components/Modals/DescriptionModal.vue";
 
 import {useModalStore} from "@/Stores/modalStore.js";
 import DetailsModal from "@/Components/Modals/DetailsModal.vue";
