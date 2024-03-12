@@ -2,8 +2,8 @@
 import AttributeGauge from "@/Components/Gauges/AttributeGauge.vue";
 import {computed} from "vue";
 
-import DescriptionModal from "@/Components/Modals/DescriptionModal.vue";
 import {useModalStore} from "@/Stores/modalStore.js";
+import DetailsModal from "@/Components/Modals/DetailsModal.vue";
 
 const modalStore = useModalStore();
 
@@ -37,9 +37,10 @@ const showDescription = async (entity, id) => {
 
 <template>
     <div class="py-2 pb-16">
-        <transition name="fade">
-            <DescriptionModal v-if="modalStore.open"/>
-        </transition>
+        <DetailsModal
+            :show="modalStore.open"
+            :closeable="true"
+        />
 
         <div class="flex justify-center">
             <h1 class="section_title my-4">Compétences</h1>
@@ -54,6 +55,7 @@ const showDescription = async (entity, id) => {
                     >
                         {{ attribute.name }}
                     </p>
+
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
@@ -72,6 +74,7 @@ const showDescription = async (entity, id) => {
                     >
                         {{ attribute.name }}
                     </p>
+
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
