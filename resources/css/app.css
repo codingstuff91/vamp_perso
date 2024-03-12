@@ -107,21 +107,21 @@ p{
 
 .description-modal h1{
     font-family: 'Vampiro One', system-ui;
-    @apply text-skin-50 uppercase font-bold text-3xl lg:text-3xl;
-    @apply mt-16 text-blood-500 text-center;
+    @apply text-skin-50 uppercase font-bold text-2xl lg:text-3xl;
+    @apply mt-8 text-blood-500 text-center;
 }
 
 .description-modal h3{
     font-family: 'Ubuntu', sans-serif;
-    @apply text-skin-50 font-bold text-2xl;
+    @apply text-skin-50 font-bold text-xl lg:text-2xl;
     @apply pt-4 ml-4;
 }
 
 .description-modal p{
     font-family: 'Ubuntu', sans-serif;
-    font-style: italic;
+    /*font-style: italic;*/
     @apply px-2 my-4;
-    @apply text-gray-400 text-lg text-justify;
+    @apply text-gray-400 text-sm text-justify;
     @apply lg:text-xl;
 }
 
@@ -134,6 +134,10 @@ p{
 .description-modal ol{
     color:red;
     list-style-type: upper-roman;
-    @apply my-2 ml-8;
+    @apply my-4 ml-8;
     @apply text-gray-400 font-bold;
+}
+
+.description-modal ol li, .description-modal ul li{
+    @apply my-2 ;
 }

@@ -1,9 +1,9 @@
 <script setup>
 import AttributeGauge from "@/Components/Gauges/AttributeGauge.vue";
-import {computed} from "vue";
+import { computed } from "vue";
 
-import DescriptionModal from "@/Components/Modals/DescriptionModal.vue";
 import {useModalStore} from "@/Stores/modalStore.js";
+import DetailsModal from "@/Components/Modals/DetailsModal.vue";
 
 const modalStore = useModalStore();
 
@@ -37,9 +37,10 @@ const showDescription = async (entity, id) => {
 
 <template>
     <div class="py-2 pb-16">
-        <transition name="fade">
-            <DescriptionModal v-if="modalStore.open"/>
-        </transition>
+        <DetailsModal
+            :show="modalStore.open"
+            :closeable="true"
+        />
 
         <div class="flex justify-center">
             <h1 class="section_title my-4">Compétences</h1>
@@ -58,9 +59,6 @@ const showDescription = async (entity, id) => {
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
-                    <p class="text-skin-50 text-md items-end lg:text-xl">
-                        {{ attribute.pivot.specialties }}
-                    </p>
                 </div>
             </div>
             <div class="flex flex-col items-center">
@@ -76,23 +74,16 @@ const showDescription = async (entity, id) => {
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
-                    <p class="text-skin-50 text-md items-end lg:text-xl">
-                        {{ attribute.pivot.specialties }}
-                    </p>
                 </div>
             </div>
             <div class="flex flex-col items-end">
                 <h2 class="column_title">Mentales</h2>
                 <div class="flex flex-col items-end" v-for="(attribute, index) in mental_skills" :key="index">
-                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">
-                        {{ attribute.name }}</p>
+                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
-                    <p class="text-skin-50 text-md items-end lg:text-xl">
-                        {{ attribute.pivot.specialties }}
-                    </p>
                 </div>
             </div>
         </div>
@@ -103,7 +94,6 @@ const showDescription = async (entity, id) => {
 .fade-enter-active, .fade-leave-active {
     transition: opacity 0.5s;
 }
-
 .fade-enter, .fade-leave-to {
     opacity: 0;
 }
