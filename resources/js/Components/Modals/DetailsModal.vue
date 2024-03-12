@@ -10,10 +10,6 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    maxWidth: {
-        type: String,
-        default: '2xl',
-    },
     closeable: {
         type: Boolean,
         default: true,
@@ -49,16 +45,6 @@ onUnmounted(() => {
     document.removeEventListener('keydown', closeOnEscape);
     document.body.style.overflow = null;
 });
-
-const maxWidthClass = computed(() => {
-    return {
-        sm: 'sm:max-w-sm',
-        md: 'sm:max-w-md',
-        lg: 'sm:max-w-lg',
-        xl: 'sm:max-w-xl',
-        '2xl': 'sm:max-w-2xl',
-    }[props.maxWidth];
-});
 </script>
 
 <template>
@@ -88,10 +74,8 @@ const maxWidthClass = computed(() => {
                 >
                     <div
                         v-show="show"
-                        class="description-modal bg-darkness-900 rounded-lg overflow-scroll shadow-xl transform transition-all h-[90%] mt-[168px] px-4"
-                        :class="maxWidthClass"
+                        class="description-modal bg-darkness-900 rounded-lg overflow-scroll shadow-xl transform transition-all h-[90%] mt-[150px] px-4"
                     >
-                        <!--                        <slot v-if="show" />-->
                         <h1>{{ modalStore.details.name }}</h1>
 
                         <p v-html="modalStore.details?.description?.text"></p>
