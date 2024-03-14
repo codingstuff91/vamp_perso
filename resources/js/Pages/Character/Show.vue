@@ -44,20 +44,20 @@ onMounted(async () => {
     <AuthenticatedLayout>
         <template #header>
             <div class="flex justify-between mx-auto lg:max-w-7xl">
-                <div class="flex flex-col">
+                <div class="flex flex-col items-start">
                     <h2 class="attribute_title text-2xl leading-tight">{{ character.name }}</h2>
                     <p class="subtitle">{{ character.clan.name }}</p>
                 </div>
-                <div class="hidden flex flex-col lg:block">
+                <div class="hidden flex flex-col items-start lg:block">
                     <h2 class="header_attribute_title">Fléau de clan</h2>
                     <h2 class="subtitle">{{ character.clan.bane }}</h2>
                 </div>
 
-                <div class="hidden flex flex-col lg:block">
+                <div class="hidden flex flex-col items-end lg:block">
                     <Compulsions/>
                 </div>
 
-                <div class="flex flex-col">
+                <div class="flex flex-col items-end">
                     <h2 class="attribute_title text-2xl">{{ character.experience_points }} /
                         {{ character.experience_total }} xp</h2>
                     <p class="subtitle">{{ character.generation }}ème génération</p>
