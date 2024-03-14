@@ -42,13 +42,13 @@ const deleteCompulsion = async () => {
 
 <template>
     <div class="flex flex-col lg:block">
-        <h2 class="header_attribute_title">Compulsion</h2>
+        <h2 class="attribute_title">Compulsion</h2>
         <div class="flex items-center">
-            <h2
+            <p
                 class="subtitle"
                 @click="openModal"
             >
-                {{ characterStore.character.compulsion ? characterStore.character.compulsion.name : 'Aucune' }}</h2>
+                {{ characterStore.character.compulsion ? characterStore.character.compulsion.name : 'Aucune' }}</p>
         </div>
     </div>
 
