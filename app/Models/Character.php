@@ -25,8 +25,7 @@ class Character extends Model
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class, 'attribute_character', 'character_id')
-            ->withPivot('attribute_value')
-            ->withPivot('specialties');
+            ->withPivot(['attribute_value', 'specialties']);
     }
 
     public function powers()
