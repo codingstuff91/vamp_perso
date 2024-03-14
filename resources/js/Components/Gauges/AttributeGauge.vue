@@ -9,7 +9,7 @@
                 </i>
             </template>
             <template v-else>
-                <i :class="`mx-0.5 text-xl ${icon} text-gray-400 lg:mx-1 lg:text-2xl`"
+                <i :class="`mx-0.5 text-xl ${icon} text-skin-50 lg:mx-1 lg:text-2xl`"
                    @click="setValue(index)"
                 >
                 </i>
@@ -42,7 +42,7 @@ const props = defineProps({
     character_id: Number,
     color: {
         type: String,
-        default: 'text-gray-700',
+        default: 'text-skin-50',
     },
 });
 const setValue = (index) => {
