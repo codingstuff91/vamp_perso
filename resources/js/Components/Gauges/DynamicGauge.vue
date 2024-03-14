@@ -12,7 +12,7 @@
                 <i :class="`mx-1 text-4xl ${icon} ${color} lg:text-4xl`" @click="setValue(index)"></i>
             </template>
             <template v-else>
-                <i :class="`mx-1 text-4xl ${icon} text-skin-50 lg:text-4xl`" @click="setValue(index)"></i>
+                <i :class="`mx-1 text-4xl ${icon} text-gray-400 lg:text-4xl`" @click="setValue(index)"></i>
             </template>
         </div>
     </div>
@@ -48,7 +48,7 @@ const props = defineProps({
     icon: String,
     color: {
         type: String,
-        default: 'text-gray-700',
+        default: 'text-gray-400',
     },
 });
 const setValue = (index) => {
