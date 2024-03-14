@@ -30,13 +30,13 @@ export default {
                     50: '#EEE2DE',
                 },
                 darkness: {
-                    900: '#0f172a',
+                    900: '#0D0B1C',
                 },
                 skin: {
                     50: '#EA906C'
                 },
                 blood: {
-                    500: '#B31312'
+                    500: '#B31315'
                 }
             }
         },
