@@ -1,6 +1,6 @@
 <script setup>
 import AttributeGauge from "@/Components/Gauges/AttributeGauge.vue";
-import { computed } from "vue";
+import {computed} from "vue";
 
 import {useModalStore} from "@/Stores/modalStore.js";
 import DetailsModal from "@/Components/Modals/DetailsModal.vue";
@@ -31,7 +31,7 @@ const mental_skills = computed(() => {
 
 const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
-    await modalStore.setModalStatus();
+    await modalStore.toggle();
 }
 </script>
 
@@ -59,6 +59,9 @@ const showDescription = async (entity, id) => {
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
+                    <p class="mt-2 text-skin-50">
+                        {{ attribute.pivot.specialties }}
+                    </p>
                 </div>
             </div>
             <div class="flex flex-col items-center">
@@ -74,16 +77,23 @@ const showDescription = async (entity, id) => {
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
+                    <p class="mt-2 text-skin-50">
+                        {{ attribute.pivot.specialties }}
+                    </p>
                 </div>
             </div>
             <div class="flex flex-col items-end">
                 <h2 class="column_title">Mentales</h2>
                 <div class="flex flex-col items-end" v-for="(attribute, index) in mental_skills" :key="index">
-                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">{{ attribute.name }}</p>
+                    <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">
+                        {{ attribute.name }}</p>
                     <AttributeGauge
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
+                    <p class="mt-2 text-skin-50">
+                        {{ attribute.pivot.specialties }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -94,6 +104,7 @@ const showDescription = async (entity, id) => {
 .fade-enter-active, .fade-leave-active {
     transition: opacity 0.5s;
 }
+
 .fade-enter, .fade-leave-to {
     opacity: 0;
 }
