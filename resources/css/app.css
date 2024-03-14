@@ -2,64 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-p{
+p {
     margin: 0.5rem 0;
 }
 
-.main_title{
+.main_title {
     font-family: 'Vampiro One', system-ui;
-    @apply text-blood-500 text-4xl;
+    @apply text-blood-500 text-3xl;
 }
 
-.subtitle{
+.subtitle {
     font-family: 'Ubuntu', sans-serif;
     font-style: italic;
-    @apply text-gray-400 text-lg lg:text-2xl;
+    @apply text-gray-400 text-lg;
+    @apply lg:text-2xl;
 }
 
-.section_title{
+.section_title {
     font-family: 'Vampiro One', system-ui;
-    @apply text-blood-500 text-4xl;
+    @apply text-skin-50 text-3xl;
+    @apply lg:text-5xl;
 }
 
-.column_title{
+.column_title {
     font-family: 'Ubuntu', sans-serif;
     font-style: italic;
-    @apply text-gray-400 font-bold text-2xl;
+    @apply text-gray-400 font-bold text-xl;
+    @apply lg:text-3xl;
 }
 
-.header_attribute_title{
+.header_attribute_title {
     font-family: 'Ubuntu', sans-serif;
     @apply text-skin-50 font-bold text-xl;
 }
 
-.attribute_category_title{
+.attribute_category_title {
     font-family: 'Vampiro One', system-ui;
     @apply text-blood-500 text-2xl;
 }
 
-.attribute_title{
+.attribute_title {
     font-family: 'Ubuntu', sans-serif;
     @apply text-skin-50 font-bold text-xl;
-    @apply lg:text-2xl;
+    @apply lg:text-3xl;
 }
 
-.bottom_right_menu{
+.bottom_right_menu {
     background: url('https://content.demiplane.com/nexus/vampire/vtm-marble-red.jpg') !important;
     opacity: 0;
     animation: fadeUp 300ms forwards;
 }
 
-.character_card{
+.character_card {
     background: url('https://content.demiplane.com/nexus/vampire/vtm-marble-red.jpg') !important;
     @apply mx-4 px-4 py-2 rounded-lg border border-red-900;
 
-    h2{
+    h2 {
         font-family: 'Ubuntu', sans-serif;
         @apply text-blood-500 font-bold text-2xl my-2;
     }
 
-    h3{
+    h3 {
         font-family: 'Ubuntu', sans-serif;
         @apply text-skin-50 text-xl my-2;
     }
@@ -71,53 +74,53 @@ p{
     }
 }
 
-.menu_text{
+.menu_text {
     font-family: 'Vampiro One', system-ui;
     @apply text-white text-2xl my-4;
 }
 
-.detail_text{
+.detail_text {
     @apply text-white text-lg text-justify;
 }
 
-.character_header{
+.character_header {
     background: url('https://content.demiplane.com/nexus/vampire/vtm-marble-red.jpg') !important;
 }
 
-.desktop_menu{
+.desktop_menu {
     @apply hidden lg:block lg:flex lg:justify-between;
     @apply mt-4 pb-4;
     @apply border-b border-gray-700;
 }
 
-.desktop_menu_buttons{
+.desktop_menu_buttons {
     font-family: 'Ubuntu', sans-serif;
     @apply text-skin-50 text-2xl italic font-bold px-4 py-2;
 }
 
-.desktop_menu_active{
+.desktop_menu_active {
     font-family: 'Ubuntu', sans-serif;
     @apply italic font-bold text-white text-2xl px-4 py-2 rounded-lg bg-blood-500;
 }
 
-.description-modal{
+.description-modal {
     @apply w-full mx-auto;
     @apply lg:max-w-7xl lg:mx-auto;
 }
 
-.description-modal h1{
+.description-modal h1 {
     font-family: 'Vampiro One', system-ui;
     @apply text-skin-50 uppercase font-bold text-2xl lg:text-3xl;
     @apply mt-8 text-blood-500 text-center;
 }
 
-.description-modal h3{
+.description-modal h3 {
     font-family: 'Ubuntu', sans-serif;
     @apply text-skin-50 font-bold text-xl lg:text-2xl;
     @apply pt-4 ml-4;
 }
 
-.description-modal p{
+.description-modal p {
     font-family: 'Ubuntu', sans-serif;
     /*font-style: italic;*/
     @apply px-2 my-4;
@@ -125,19 +128,19 @@ p{
     @apply lg:text-xl;
 }
 
-.description-modal ul{
+.description-modal ul {
     list-style: square;
     @apply my-2 ml-8;
     @apply text-gray-400 font-bold;
 }
 
-.description-modal ol{
-    color:red;
+.description-modal ol {
+    color: red;
     list-style-type: upper-roman;
     @apply my-4 ml-8;
     @apply text-gray-400 font-bold;
 }
 
-.description-modal ol li, .description-modal ul li{
+.description-modal ol li, .description-modal ul li {
     @apply my-2 ;
 }
