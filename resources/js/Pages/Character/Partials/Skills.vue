@@ -31,7 +31,7 @@ const mental_skills = computed(() => {
 
 const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
-    await modalStore.setModalStatus();
+    await modalStore.toggle();
 }
 </script>
 
