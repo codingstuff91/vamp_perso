@@ -49,7 +49,6 @@ const showDescription = async (entity, id) => {
             <div class="flex flex-col">
                 <h2 class="column_title">Physiques</h2>
                 <div class="flex flex-col items-start" v-for="(attribute, index) in physical_skills" :key="index">
-<<<<<<<<< Temporary merge branch 1
                     <p
                         class="mt-8 mb-2 attribute_title"
                         @click="showDescription('attribute', attribute.id)"
@@ -68,7 +67,6 @@ const showDescription = async (entity, id) => {
             <div class="flex flex-col items-center">
                 <h2 class="column_title">Sociales</h2>
                 <div class="flex flex-col items-center" v-for="(attribute, index) in social_skills" :key="index">
-<<<<<<<<< Temporary merge branch 1
                     <p
                         class="mt-8 mb-2 attribute_title"
                         @click="showDescription('attribute', attribute.id)"
@@ -101,13 +99,3 @@ const showDescription = async (entity, id) => {
         </div>
     </div>
 </template>
-
-<style scoped>
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 0.5s;
-}
-
-.fade-enter, .fade-leave-to {
-    opacity: 0;
-}
-</style>
