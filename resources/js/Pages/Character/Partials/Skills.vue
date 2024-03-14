@@ -31,7 +31,7 @@ const mental_skills = computed(() => {
 
 const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
-    await modalStore.toggle();
+    await modalStore.setModalStatus();
 }
 </script>
 
@@ -49,6 +49,7 @@ const showDescription = async (entity, id) => {
             <div class="flex flex-col">
                 <h2 class="column_title">Physiques</h2>
                 <div class="flex flex-col items-start" v-for="(attribute, index) in physical_skills" :key="index">
+<<<<<<<<< Temporary merge branch 1
                     <p
                         class="mt-8 mb-2 attribute_title"
                         @click="showDescription('attribute', attribute.id)"
@@ -67,6 +68,7 @@ const showDescription = async (entity, id) => {
             <div class="flex flex-col items-center">
                 <h2 class="column_title">Sociales</h2>
                 <div class="flex flex-col items-center" v-for="(attribute, index) in social_skills" :key="index">
+<<<<<<<<< Temporary merge branch 1
                     <p
                         class="mt-8 mb-2 attribute_title"
                         @click="showDescription('attribute', attribute.id)"
