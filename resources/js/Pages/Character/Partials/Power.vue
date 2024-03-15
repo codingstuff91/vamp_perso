@@ -1,14 +1,15 @@
 <script setup>
-import { useModalStore } from "@/Stores/modalStore.js";
+import {useModalStore} from "@/Stores/modalStore.js";
+
 const modalStore = useModalStore();
 
 defineProps({
-    power : Object
+    power: Object
 })
 
 const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
-    await modalStore.setModalStatus();
+    await modalStore.toggle();
 }
 </script>
 

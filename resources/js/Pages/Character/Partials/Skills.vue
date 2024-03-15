@@ -59,7 +59,7 @@ const showDescription = async (entity, id) => {
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
-                    <p class="mt-2 text-skin-50">
+                    <p class="mt-2 text-skin-50 text-sm lg:text-lg">
                         {{ attribute.pivot.specialties }}
                     </p>
                 </div>
@@ -77,7 +77,7 @@ const showDescription = async (entity, id) => {
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
-                    <p class="mt-2 text-skin-50">
+                    <p class="mt-2 text-skin-50 text-sm lg:text-lg">
                         {{ attribute.pivot.specialties }}
                     </p>
                 </div>
@@ -91,7 +91,7 @@ const showDescription = async (entity, id) => {
                         :value="attribute.pivot.attribute_value"
                         :max="5"
                     />
-                    <p class="mt-2 text-skin-50">
+                    <p class="mt-2 text-skin-50 text-sm lg:text-lg">
                         {{ attribute.pivot.specialties }}
                     </p>
                 </div>

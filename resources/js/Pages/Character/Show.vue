@@ -43,31 +43,31 @@ onMounted(async () => {
 
     <AuthenticatedLayout>
         <template #header>
-            <div class="flex justify-between mx-auto lg:max-w-7xl">
-                <div class="flex flex-col">
-                    <h2 class="attribute_title text-2xl leading-tight">{{ character.name }}</h2>
+            <div class="flex justify-between mx-auto lg:max-w-6xl">
+                <div class="flex flex-col items-start">
+                    <h2 class="attribute_title leading-tight">{{ character.name }}</h2>
                     <p class="subtitle">{{ character.clan.name }}</p>
                 </div>
-                <div class="hidden flex flex-col lg:block">
-                    <h2 class="header_attribute_title">Fléau de clan</h2>
-                    <h2 class="subtitle">{{ character.clan.bane }}</h2>
+                <div class="hidden flex flex-col items-start lg:block">
+                    <h2 class="attribute_title">Fléau de clan</h2>
+                    <p class="subtitle">{{ character.clan.bane }}</p>
                 </div>
 
-                <div class="hidden flex flex-col lg:block">
+                <div class="hidden lg:block">
                     <Compulsions/>
                 </div>
 
-                <div class="flex flex-col">
-                    <h2 class="attribute_title text-2xl">{{ character.experience_points }} /
+                <div class="flex flex-col items-end">
+                    <h2 class="attribute_title">{{ character.experience_points }} /
                         {{ character.experience_total }} xp</h2>
                     <p class="subtitle">{{ character.generation }}ème génération</p>
                 </div>
             </div>
         </template>
 
-        <div class="w-full">
+        <div class="w-full lg:max-w-6xl lg:mx-auto">
             <div
-                class="w-full mx-auto p-4 flex justify-between lg:w-2/3 lg:hidden"
+                class="w-full p-4 flex justify-between lg:w-2/3 lg:hidden"
                 v-if="rightMenustore.category == 'attributes'"
             >
                 <div>
@@ -83,7 +83,7 @@ onMounted(async () => {
                 <DesktopMenu class="desktop_menu"/>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'attributes'"
                 >
                     <Attributes :character="character"/>
@@ -92,14 +92,14 @@ onMounted(async () => {
                 </div>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'status'"
                 >
                     <Status/>
                 </div>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'disciplines'"
                 >
                     <Disciplines
@@ -109,14 +109,14 @@ onMounted(async () => {
                 </div>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'concepts'"
                 >
                     <Concepts/>
                 </div>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'descriptions'"
                 >
                     <Descriptions :character="character"/>

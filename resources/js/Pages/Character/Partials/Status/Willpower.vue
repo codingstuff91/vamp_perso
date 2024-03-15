@@ -1,7 +1,8 @@
 <script setup>
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
-import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
+import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
+
 const attributesStore = useCharacterAttributesStore();
 const maxWillpowerPoints = attributesStore.willPowerAttributes[2].pivot.attribute_value;
 </script>
@@ -20,7 +21,6 @@ const maxWillpowerPoints = attributesStore.willPowerAttributes[2].pivot.attribut
                 :attribute="attributesStore.willPowerAttributes[0].pivot.attribute_id"
                 :value="attributesStore.willPowerAttributes[0].pivot.attribute_value"
                 icon="fa-solid fa-shield"
-                color="text-blood-500"
                 :max="maxWillpowerPoints"
             />
         </div>
@@ -35,7 +35,6 @@ const maxWillpowerPoints = attributesStore.willPowerAttributes[2].pivot.attribut
                 :attribute="attributesStore.willPowerAttributes[1].pivot.attribute_id"
                 :value="attributesStore.willPowerAttributes[1].pivot.attribute_value"
                 icon="fa-solid fa-skull"
-                color="text-blood-500"
                 :max="maxWillpowerPoints"
             />
         </div>
