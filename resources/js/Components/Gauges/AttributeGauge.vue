@@ -3,13 +3,13 @@
         <div v-for="(item, index) in max" :key="index">
             <template v-if="index <= selectedPoints">
                 <i
-                    :class="`mx-0.5 text-xl ${icon} ${color} lg:mx-1 lg:text-2xl`"
+                    :class="`mx-0.5 text-xl ${icon} ${color} lg:mx-1 lg:text-3xl`"
                     @click="setValue(index)"
                 >
                 </i>
             </template>
             <template v-else>
-                <i :class="`mx-0.5 text-xl ${icon} text-gray-400 lg:mx-1 lg:text-2xl`"
+                <i :class="`mx-0.5 text-xl ${icon} text-gray-400 lg:mx-1 lg:text-3xl`"
                    @click="setValue(index)"
                 >
                 </i>

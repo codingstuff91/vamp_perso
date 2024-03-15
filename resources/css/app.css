@@ -44,7 +44,7 @@ p {
 .attribute_title {
     font-family: 'Ubuntu', sans-serif;
     @apply text-skin-50 font-bold text-xl;
-    @apply lg:text-2xl;
+    @apply lg:text-3xl;
 }
 
 .bottom_right_menu {
