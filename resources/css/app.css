@@ -68,12 +68,6 @@ p {
     }
 }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-    }
-}
-
 .menu_text {
     font-family: 'Vampiro One', system-ui;
     @apply text-white text-2xl my-4;

@@ -43,7 +43,7 @@ onMounted(async () => {
 
     <AuthenticatedLayout>
         <template #header>
-            <div class="flex justify-between mx-auto lg:max-w-7xl">
+            <div class="flex justify-between mx-auto lg:max-w-6xl">
                 <div class="flex flex-col items-start">
                     <h2 class="attribute_title leading-tight">{{ character.name }}</h2>
                     <p class="subtitle">{{ character.clan.name }}</p>
@@ -65,7 +65,7 @@ onMounted(async () => {
             </div>
         </template>
 
-        <div class="w-full">
+        <div class="w-full lg:max-w-6xl lg:mx-auto">
             <div
                 class="w-full p-4 flex justify-between lg:w-2/3 lg:hidden"
                 v-if="rightMenustore.category == 'attributes'"
