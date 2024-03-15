@@ -1,5 +1,6 @@
 <script setup>
-import { useRightMenuStore } from "@/Stores/BottomMenuStore.js";
+import {useRightMenuStore} from "@/Stores/MobileMenuStore.js";
+
 const menuStore = useRightMenuStore();
 
 const toggleMenu = async () => {
@@ -8,19 +9,23 @@ const toggleMenu = async () => {
 </script>
 
 <template>
-    <!-- action button-->
-    <div class="fixed bottom-2 right-2 rounded-full bg-gray-900 w-16 h-16 flex justify-center items-center border border-gray-100 lg:hidden">
-        <img
-            src="/img/sections.png"
-             class="w-16 h-16"
-             @click="toggleMenu"
+    <div class="flex justify-center lg:hidden">
+        <button
+            class="mobile-menu"
+            @click="toggleMenu"
         >
+            <img
+                src="/img/sections.png"
+                class="w-8 h-8"
+            >
+            <h1 class="ml-2">Rubriques</h1>
+        </button>
     </div>
 
     <!-- Foldable menu-->
     <div
         v-if="menuStore.open"
-        class="bottom_right_menu fixed h-auto w-[50%] bottom-20 right-0 border border-red-500 flex flex-col items-center"
+        class="bottom_right_menu fixed top-[240px] h-auto w-full border border-red-500 flex flex-col items-center"
     >
         <button
             class="menu_text"
