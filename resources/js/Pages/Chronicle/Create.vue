@@ -1,9 +1,9 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, router } from '@inertiajs/vue3';
+import {Head, router} from '@inertiajs/vue3';
 import TextInput from "@/Components/TextInput.vue";
 import InputLabel from "@/Components/InputLabel.vue";
-import { reactive } from "vue";
+import {reactive} from "vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 
 const props = defineProps({
@@ -15,13 +15,13 @@ const form = reactive({
     details: null,
 });
 
-function submitForm () {
+function submitForm() {
     router.post('/chronicles', form);
 }
 </script>
 
 <template>
-    <Head title="Création de chronique" />
+    <Head title="Création de chronique"/>
 
     <AuthenticatedLayout>
         <template #header>
@@ -34,7 +34,7 @@ function submitForm () {
 
         <div class="py-4">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg">
                     <form
                         class="flex flex-col"
                         @submit.prevent="submitForm"

@@ -83,7 +83,7 @@ onMounted(async () => {
                 <DesktopMenu class="desktop_menu"/>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'attributes'"
                 >
                     <Attributes :character="character"/>
@@ -92,14 +92,14 @@ onMounted(async () => {
                 </div>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'status'"
                 >
                     <Status/>
                 </div>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'disciplines'"
                 >
                     <Disciplines
@@ -109,14 +109,14 @@ onMounted(async () => {
                 </div>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'concepts'"
                 >
                     <Concepts/>
                 </div>
 
                 <div
-                    class="bg-slate-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'descriptions'"
                 >
                     <Descriptions :character="character"/>
