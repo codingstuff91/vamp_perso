@@ -1,5 +1,6 @@
 <script setup>
-import { useRightMenuStore } from "@/Stores/BottomMenuStore.js";
+import {useRightMenuStore} from "@/Stores/MobileMenuStore.js";
+
 const menuStore = useRightMenuStore();
 
 </script>

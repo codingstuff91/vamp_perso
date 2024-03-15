@@ -6,11 +6,10 @@ import {Head} from '@inertiajs/vue3';
 import Attributes from "@/Pages/Character/Partials/Attributes.vue";
 import Skills from "@/Pages/Character/Partials/Skills.vue";
 import Status from "@/Pages/Character/Partials/Status.vue";
-import BottomRightMenu from "@/Pages/Character/Menus/BottomRightMenu.vue";
 import Compulsions from "@/Pages/Character/Partials/Compulsions.vue";
 
 import {useCharacterStore} from "@/Stores/characterStore.js";
-import {useRightMenuStore} from "@/Stores/BottomMenuStore.js";
+import {useRightMenuStore} from "@/Stores/MobileMenuStore.js";
 import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
 import {useCharacterConceptsStore} from "@/Stores/characterConceptsStore";
 import {useCompulsionStore} from "@/Stores/CompulsionStore.js";
@@ -67,7 +66,7 @@ onMounted(async () => {
         </template>
 
         <div class="w-full">
-            <MobileMenu />
+            <MobileMenu/>
 
             <div
                 class="w-full p-4 flex justify-between lg:w-2/3 lg:hidden"
