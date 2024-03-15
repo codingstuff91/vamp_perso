@@ -25,8 +25,7 @@ const maxHumanityLevel = ref(10)
                 <DynamicGauge
                     :value="attributesStore.humanityAttributes[0].pivot.attribute_value"
                     :editable="false"
-                    icon="fa-solid fa-cross text-3xl"
-                    color="text-blood-500"
+                    icon="fa-solid fa-cross"
                     :max="maxHumanityLevel"
                     :erasable="false"
                 />

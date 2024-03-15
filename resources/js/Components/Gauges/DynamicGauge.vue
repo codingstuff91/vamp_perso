@@ -9,7 +9,7 @@
         >
         <div v-for="(item, index) in max" :key="index">
             <template v-if="index <= selectedPoints">
-                <i :class="`mx-1 text-4xl ${icon} ${color} lg:text-4xl`" @click="setValue(index)"></i>
+                <i :class="`mx-1 text-4xl ${icon} text-blood-500 lg:text-4xl`" @click="setValue(index)"></i>
             </template>
             <template v-else>
                 <i :class="`mx-1 text-4xl ${icon} text-gray-400 lg:text-4xl`" @click="setValue(index)"></i>
@@ -46,10 +46,6 @@ const props = defineProps({
     max: Number,
     attribute: Number,
     icon: String,
-    color: {
-        type: String,
-        default: 'text-gray-400',
-    },
 });
 const setValue = (index) => {
     if (!props.editable) {
