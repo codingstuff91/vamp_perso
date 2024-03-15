@@ -31,7 +31,7 @@ const bloodPotency = characterStore.character.blood_potency;
                 />
             </div>
             <div class="text-center">
-                <h3 class="text-blood-500 font-bold italic text-2xl mt-4">Prédation :
+                <h3 class="text-blood-500 font-bold italic text-2xl mt-8 lg:text-3xl">Prédation :
                     {{ characterStore.character.predation.name }}</h3>
                 <p class="subtitle text-justify" v-html="characterStore.character.predation.description"></p>
             </div>
@@ -41,7 +41,7 @@ const bloodPotency = characterStore.character.blood_potency;
             <p class="section_title text-center">Puissance sang : <span class="text-skin-50">{{
                     bloodPotency.level
                 }}</span></p>
-            <div class="mt-4 grid grid-cols-2 gap-2 w-full flex justify-center lg:grid-cols-3">
+            <div class="mt-8 grid grid-cols-2 gap-2 w-full flex justify-center lg:grid-cols-3">
                 <div>
                     <h2 class="attribute_title">Coup de sang</h2>
                     <p class="subtitle">{{ bloodPotency.blood_rise }}</p>

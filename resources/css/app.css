@@ -90,11 +90,13 @@ p {
 .desktop_menu_buttons {
     font-family: 'Ubuntu', sans-serif;
     @apply text-skin-50 text-2xl italic font-bold px-4 py-2;
+    @apply lg:text-3xl;
 }
 
 .desktop_menu_active {
     font-family: 'Ubuntu', sans-serif;
     @apply italic font-bold text-white text-2xl px-4 py-2 rounded-lg bg-blood-500;
+    @apply lg:text-3xl;
 }
 
 .description-modal {
