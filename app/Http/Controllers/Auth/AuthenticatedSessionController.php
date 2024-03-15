@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return to_route('onboarding');
+        return to_route('home');
     }
 
     /**

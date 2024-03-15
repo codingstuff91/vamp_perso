@@ -2,17 +2,24 @@
     <div class="flex justify-start flex-wrap">
         <div v-for="(item, index) in max" :key="index">
             <template v-if="index <= selectedPoints">
-                <i :class="`mx-1 text-lg ${icon} ${color}`" @click="setValue(index)"></i>
+                <i
+                    :class="`mx-0.5 text-xl ${icon} ${color} lg:mx-1 lg:text-3xl`"
+                    @click="setValue(index)"
+                >
+                </i>
             </template>
             <template v-else>
-                <i :class="`mx-1 text-lg ${icon} text-gray-400`" @click="setValue(index)"></i>
+                <i :class="`mx-0.5 text-xl ${icon} text-gray-400 lg:mx-1 lg:text-3xl`"
+                   @click="setValue(index)"
+                >
+                </i>
             </template>
         </div>
     </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import {onMounted, ref} from "vue";
 
 let remainingPoints = ref(0);
 let selectedPoints = ref(0);
@@ -33,13 +40,9 @@ const props = defineProps({
     },
     attribute: Number,
     character_id: Number,
-    color: {
-        type: String,
-        default: 'text-gray-700',
-    },
 });
 const setValue = (index) => {
-    if (! props.editable) {
+    if (!props.editable) {
         return false;
     }
 

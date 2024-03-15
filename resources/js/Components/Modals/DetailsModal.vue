@@ -1,22 +1,20 @@
 <script setup>
 import {computed, onMounted, onUnmounted, watch} from 'vue';
 
+import {useModalStore} from "@/Stores/modalStore.js";
+
+const modalStore = useModalStore();
+
 const props = defineProps({
     show: {
         type: Boolean,
         default: false,
-    },
-    maxWidth: {
-        type: String,
-        default: '2xl',
     },
     closeable: {
         type: Boolean,
         default: true,
     },
 });
-
-const emit = defineEmits(['close']);
 
 watch(
     () => props.show,
@@ -31,7 +29,7 @@ watch(
 
 const close = () => {
     if (props.closeable) {
-        emit('close');
+        modalStore.close();
     }
 };
 
@@ -47,22 +45,12 @@ onUnmounted(() => {
     document.removeEventListener('keydown', closeOnEscape);
     document.body.style.overflow = null;
 });
-
-const maxWidthClass = computed(() => {
-    return {
-        sm: 'sm:max-w-sm',
-        md: 'sm:max-w-md',
-        lg: 'sm:max-w-lg',
-        xl: 'sm:max-w-xl',
-        '2xl': 'sm:max-w-2xl',
-    }[props.maxWidth];
-});
 </script>
 
 <template>
     <Teleport to="body">
         <Transition leave-active-class="duration-200">
-            <div v-show="show" class="fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" scroll-region>
+            <div v-show="show" class="fixed inset-0 overflow-y-auto sm:px-0 z-50" scroll-region>
                 <Transition
                     enter-active-class="ease-out duration-300"
                     enter-from-class="opacity-0"
@@ -72,7 +60,7 @@ const maxWidthClass = computed(() => {
                     leave-to-class="opacity-0"
                 >
                     <div v-show="show" class="fixed inset-0 transform transition-all" @click="close">
-                        <div class="absolute inset-0 bg-gray-600 opacity-75"/>
+                        <div class="absolute inset-0 bg-gray-700 opacity-75"/>
                     </div>
                 </Transition>
 
@@ -86,10 +74,11 @@ const maxWidthClass = computed(() => {
                 >
                     <div
                         v-show="show"
-                        class="mb-6 bg-darkness-900 rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto"
-                        :class="maxWidthClass"
+                        class="description-modal"
                     >
-                        <slot v-if="show"/>
+                        <h1>{{ modalStore.details.name }}</h1>
+
+                        <p v-html="modalStore.details?.description?.text"></p>
                     </div>
                 </Transition>
             </div>

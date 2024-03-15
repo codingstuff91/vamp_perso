@@ -1,19 +1,19 @@
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/vue3';
+import {Link} from '@inertiajs/vue3';
 
 const showingNavigationDropdown = ref(false);
 </script>
 
 <template>
     <div>
-        <div class="min-h-screen bg-slate-900">
-            <nav class="bg-slate-900 border-b border-gray-700">
+        <div class="min-h-screen bg-darkness-900">
+            <nav class="bg-darkness-900 border-b border-gray-700">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
@@ -24,19 +24,15 @@ const showingNavigationDropdown = ref(false);
                                     src="/img/dracula.png"
                                     class="rounded-full w-12 h-12"
                                 >
-                                <Link :href="route('onboarding')">
+                                <Link :href="route('home')">
                                     <h1 class="main_title">Vamp Perso</h1>
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('onboarding')" :active="route().current('onboarding')">
-                                    Accueil
-                                </NavLink>
-                            </div>
-                            <div class="hidden sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('characters.index')" :active="route().current('characters.index')">
+                                <NavLink :href="route('characters.index')"
+                                         :active="route().current('characters.index')">
                                     Personnages
                                 </NavLink>
                             </div>
@@ -92,7 +88,7 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
-                                        <DropdownLink :href="route('profile.edit')"> Profil </DropdownLink>
+                                        <DropdownLink :href="route('profile.edit')"> Profil</DropdownLink>
                                         <DropdownLink :href="route('logout')" method="post" as="button">
                                             Déconnexion
                                         </DropdownLink>
@@ -164,7 +160,7 @@ const showingNavigationDropdown = ref(false);
                             >
                                 Personnages
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('profile.edit')"> Profil </ResponsiveNavLink>
+                            <ResponsiveNavLink :href="route('profile.edit')"> Profil</ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('logout')" method="post" as="button">
                                 Déconnexion
                             </ResponsiveNavLink>
@@ -176,13 +172,13 @@ const showingNavigationDropdown = ref(false);
             <!-- Page Heading -->
             <header class="character_header shadow border-b border-gray-700 w-full" v-if="$slots.header">
                 <div class="py-4 w-full mx-auto px-4 sm:px-6 sm:py-6">
-                    <slot name="header" />
+                    <slot name="header"/>
                 </div>
             </header>
 
             <!-- Page Content -->
             <main>
-                <slot />
+                <slot/>
             </main>
         </div>
     </div>

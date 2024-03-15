@@ -1,5 +1,6 @@
-import { defineStore } from "pinia";
-export const useCharacterStore = defineStore('character',{
+import {defineStore} from "pinia";
+
+export const useCharacterStore = defineStore('character', {
     state: () => {
         return {
             character: {},

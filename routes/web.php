@@ -4,6 +4,7 @@ use App\Http\Controllers\AttributeCharacterUpdateController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\ChronicleController;
+use App\Http\Controllers\CompulsionController;
 use App\Http\Controllers\ConceptController;
 use App\Http\Controllers\DescriptionController;
 use App\Http\Controllers\ProfileController;
@@ -18,7 +19,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->middleware(['auth', 'checkHome'])->name('index');
+})->middleware(['auth', 'checkHome'])->name('home');
 
 Route::get('/onboarding', function () {
     return Inertia::render('Onboarding');
@@ -37,9 +38,12 @@ Route::middleware('auth')->group(function () {
 
     Route::post('descriptions/show', [DescriptionController::class, 'show']);
 
-    Route::get('/character/{character}/attributes', [AttributeController::class, "index"]);
+    Route::get('/character/{character}/attributes', [AttributeController::class, 'index']);
     Route::put('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
     Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
+
+    Route::get('compulsions/{character}', [CompulsionController::class, 'associate'])->name('compulsions.associate');
+    Route::delete('compulsions/{character}', [CompulsionController::class, 'destroy'])->name('compulsions.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -1,9 +1,9 @@
 <script setup>
-import { ref } from "vue";
+import {ref} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
-import { useCharacterAttributesStore } from "@/Stores/characterAttributesStore";
-import { useCharacterStore } from "@/Stores/characterStore.js";
+import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
+import {useCharacterStore} from "@/Stores/characterStore.js";
 
 const attributesStore = useCharacterAttributesStore();
 const characterStore = useCharacterStore();
@@ -21,7 +21,7 @@ const bloodPotency = characterStore.character.blood_potency;
             >
                 Soif / Sang
             </h2>
-            <div class="flex flex-col items-center">
+            <div class="mt-2 flex flex-col items-center">
                 <DynamicGauge
                     :attribute="attributesStore.hungerAttributes[0].pivot.attribute_id"
                     :value="attributesStore.hungerAttributes[0].pivot.attribute_value"
@@ -31,14 +31,17 @@ const bloodPotency = characterStore.character.blood_potency;
                 />
             </div>
             <div class="text-center">
-                <h3 class="text-blood-500 font-bold italic text-2xl mt-4">Prédation : {{ characterStore.character.predation.name }}</h3>
+                <h3 class="text-blood-500 font-bold italic text-2xl mt-8 lg:text-3xl">Prédation :
+                    {{ characterStore.character.predation.name }}</h3>
                 <p class="subtitle text-justify" v-html="characterStore.character.predation.description"></p>
             </div>
         </div>
 
         <div class="mx-auto">
-            <p class="section_title text-center">Puissance sang : <span class="text-skin-50">{{ bloodPotency.level }}</span></p>
-            <div class="mt-4 grid grid-cols-2 gap-2 w-full flex justify-center lg:grid-cols-3">
+            <p class="section_title text-center">Puissance sang : <span class="text-skin-50">{{
+                    bloodPotency.level
+                }}</span></p>
+            <div class="mt-8 grid grid-cols-2 gap-2 w-full flex justify-center lg:grid-cols-3">
                 <div>
                     <h2 class="attribute_title">Coup de sang</h2>
                     <p class="subtitle">{{ bloodPotency.blood_rise }}</p>
