@@ -74,7 +74,7 @@ onUnmounted(() => {
                 >
                     <div
                         v-show="show"
-                        class="description-modal bg-darkness-900 rounded-lg overflow-scroll shadow-xl transform transition-all h-[90%] mt-[150px] px-4"
+                        class="description-modal"
                     >
                         <h1>{{ modalStore.details.name }}</h1>
 
