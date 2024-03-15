@@ -24,11 +24,13 @@ const showDescription = async (entity, id) => {
 
         <Hunger @get-description="showDescription"/>
 
-        <div class="mt-8 pt-4 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:border-t lg:border-gray-700">
+        <div class="mt-8 pt-4 grid grid-cols-1 gap-2 lg:grid-cols-2 lg:border-t lg:border-gray-700">
             <Willpower @get-description="showDescription"/>
 
             <Health @get-description="showDescription"/>
+        </div>
 
+        <div class="mt-8">
             <Humanity @get-description="showDescription"/>
         </div>
     </div>
