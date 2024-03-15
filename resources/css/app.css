@@ -20,7 +20,7 @@ p {
 
 .section_title {
     font-family: 'Vampiro One', system-ui;
-    @apply text-skin-50 text-3xl;
+    @apply text-blood-500 text-3xl;
     @apply lg:text-5xl;
 }
 
