@@ -100,7 +100,7 @@ p {
 }
 
 .description-modal {
-    @apply w-full bg-darkness-900 overflow-scroll shadow-xl transform transition-all h-[70%] px-4;
+    @apply w-full bg-darkness-900 overflow-scroll shadow-xl transform transition-all h-[80%] px-4;
     @apply lg:mx-auto lg:border-0 lg:max-w-7xl;
 }
 
