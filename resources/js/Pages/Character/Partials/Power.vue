@@ -27,9 +27,9 @@ const showDescription = async (entity, id) => {
             </h2>
         </div>
         <div class="mt-4 flex flex-col items-center">
-            <img src="/img/dice.png" class="w-8 h-8">
+            <img src="/img/dice.png" class="w-12 h-12">
 
-            <p class="text-skin-50 text-lg font-bold text-center lg:text-2xl">
+            <p class="text-skin-50 text-2xl font-bold text-center lg:text-2xl">
                 {{ power.dice_pool }}
             </p>
         </div>
