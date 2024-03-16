@@ -1,5 +1,6 @@
 <script setup>
 import {useModalStore} from "@/Stores/modalStore.js";
+import Badge from '@/Components/Badge.vue';
 
 const modalStore = useModalStore();
 
@@ -15,10 +16,22 @@ const showDescription = async (entity, id) => {
 
 <template>
     <div class="py-2 my-2 mx-2 flex flex-col bg-gray-800 border border-red-500 rounded-xl">
-        <div class="flex flex-col items-center justify-between lg:flex">
-            <p class="subtitle">Niveau {{ power.level }}</p>
-            <p class="subtitle font-bold" @click="showDescription('power', power.id)">{{ power.name }}</p>
+        <div class="px-4 pt-2 flex justify-between items-center">
+            <Badge :level="power.level"/>
+
+            <h2
+                class="text-2xl text-chalk-50 font-bold"
+                @click="showDescription('power', power.id)"
+            >
+                {{ power.name }}
+            </h2>
         </div>
-        <p class="text-skin-50 text-lg text-center lg:text-2xl">{{ power.dice_pool }}</p>
+        <div class="mt-4 flex flex-col items-center">
+            <img src="/img/dice.png" class="w-8 h-8">
+
+            <p class="text-skin-50 text-lg font-bold text-center lg:text-2xl">
+                {{ power.dice_pool }}
+            </p>
+        </div>
     </div>
 </template>

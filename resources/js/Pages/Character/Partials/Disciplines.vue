@@ -33,7 +33,7 @@ const showDescription = async (entity, id) => {
             >
                 {{ discipline[0].discipline.name }}
             </h1>
-            <div class="grid gap-0 grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-0 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 <Power
                     v-for="(power, index) in discipline"
                     :key="index"
