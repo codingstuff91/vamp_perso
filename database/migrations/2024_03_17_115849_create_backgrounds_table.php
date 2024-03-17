@@ -14,7 +14,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('background_type_id')->constrained();
             $table->tinyInteger('level');
             $table->string('name', 20);
-            $table->text('notes', 200);
+            $table->text('notes', 200)->nullable();
             $table->timestamps();
         });
     }
