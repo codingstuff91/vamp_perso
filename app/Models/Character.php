@@ -58,4 +58,9 @@ class Character extends Model
     {
         return $this->belongsTo(BloodPotency::class);
     }
+
+    public function backgrounds()
+    {
+        return $this->belongsToMany(Background::class, 'background_character', 'character_id');
+    }
 }
