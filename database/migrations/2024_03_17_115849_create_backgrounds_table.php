@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('backgrounds', function (Blueprint $table) {
             $table->id();
             $table->string('category');
-            $table->unsignedSmallInteger('type_id')->constrained();
+            $table->unsignedSmallInteger('background_type_id')->constrained();
             $table->tinyInteger('level');
             $table->string('name', 20);
             $table->text('notes', 200);
