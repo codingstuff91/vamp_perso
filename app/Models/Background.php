@@ -13,6 +13,6 @@ class Background extends Model
 
     public function type()
     {
-        return $this->belongsTo(BackgroundType::class);
+        return $this->belongsTo(BackgroundType::class, 'background_type_id');
     }
 }

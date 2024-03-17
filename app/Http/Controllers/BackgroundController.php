@@ -8,6 +8,6 @@ class BackgroundController extends Controller
 {
     public function index(Character $character)
     {
-        return $character->backgrounds;
+        return $character->backgrounds->groupBy('type.name');
     }
 }
