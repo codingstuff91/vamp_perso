@@ -33,6 +33,14 @@ const menuStore = useRightMenuStore();
 
         <button
             class="desktop_menu_buttons"
+            :class="{desktop_menu_active : menuStore.category == 'backgrounds'}"
+            @click="menuStore.setPanelMenu('backgrounds')"
+        >
+            Backgrounds
+        </button>
+
+        <button
+            class="desktop_menu_buttons"
             :class="{desktop_menu_active : menuStore.category == 'concepts'}"
             @click="menuStore.setPanelMenu('concepts')"
         >

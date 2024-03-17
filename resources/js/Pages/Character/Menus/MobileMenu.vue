@@ -47,6 +47,12 @@ const toggleMenu = async () => {
         </button>
         <button
             class="menu_text"
+            @click="menuStore.setPanelMenu('backgrounds')"
+        >
+            Avantages & Handicaps
+        </button>
+        <button
+            class="menu_text"
             @click="menuStore.setPanelMenu('concepts')"
         >
             Concepts
