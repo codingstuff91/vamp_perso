@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             DisciplineSeeder::class,
             PowerSeeder::class,
             CharacterPowerSeeder::class,
+            BackgroundTypeSeeder::class,
         ]);
 
     }
