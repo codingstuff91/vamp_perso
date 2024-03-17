@@ -7,12 +7,14 @@ import Attributes from "@/Pages/Character/Partials/Attributes.vue";
 import Skills from "@/Pages/Character/Partials/Skills.vue";
 import Status from "@/Pages/Character/Partials/Status.vue";
 import Compulsions from "@/Pages/Character/Partials/Compulsions.vue";
+import Backgrounds from "@/Pages/Character/Partials/Backgrounds.vue";
 
 import {useCharacterStore} from "@/Stores/characterStore.js";
 import {useRightMenuStore} from "@/Stores/MobileMenuStore.js";
 import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
 import {useCharacterConceptsStore} from "@/Stores/characterConceptsStore";
 import {useCompulsionStore} from "@/Stores/CompulsionStore.js";
+import {useBackgroundStore} from "@/Stores/BackgroundStore.js";
 
 import Disciplines from "@/Pages/Character/Partials/Disciplines.vue";
 import Concepts from "@/Pages/Character/Partials/Concepts.vue";
@@ -25,6 +27,7 @@ const characterStore = useCharacterStore();
 const attributesStore = useCharacterAttributesStore();
 const conceptsStore = useCharacterConceptsStore();
 const compulsionStore = useCompulsionStore();
+const backgroundStore = useBackgroundStore();
 
 const props = defineProps({
     character: Object,
@@ -35,6 +38,7 @@ onMounted(async () => {
     await characterStore.setCurrentCharacter(props.character)
     await attributesStore.getAttributes(props.character)
     await conceptsStore.getConcepts(props.character)
+    await backgroundStore.getBackgrounds(props.character)
 });
 </script>
 
@@ -108,6 +112,13 @@ onMounted(async () => {
                         :character="character"
                         :disciplines="disciplines"
                     />
+                </div>
+
+                <div
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
+                    v-if="rightMenustore.category == 'backgrounds'"
+                >
+                    <Backgrounds/>
                 </div>
 
                 <div

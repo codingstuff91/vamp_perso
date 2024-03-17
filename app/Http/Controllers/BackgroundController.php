@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Character;
 
 class BackgroundController extends Controller
 {
-    //
+    public function index(Character $character)
+    {
+        return $character->backgrounds;
+    }
 }
