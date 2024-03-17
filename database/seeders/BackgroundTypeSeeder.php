@@ -13,7 +13,7 @@ class BackgroundTypeSeeder extends Seeder
         'Mentor',
         'Refuge',
         'Renommée',
-        'servants',
+        'Servants',
         'Statut',
         'Troupeau',
     ];
