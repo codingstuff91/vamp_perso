@@ -1,8 +1,10 @@
 <script setup>
-import Power from "@/Pages/Character/Partials/Power.vue";
 import {useModalStore} from "@/Stores/modalStore.js";
+import {useBackgroundStore} from "@/Stores/BackgroundStore.js";
+
 import DetailsModal from "@/Components/Modals/DetailsModal.vue";
 
+const backgroundStore = useBackgroundStore();
 const modalStore = useModalStore();
 
 const showDescription = async (entity, id) => {
@@ -18,8 +20,29 @@ const showDescription = async (entity, id) => {
             :closeable="true"
         />
 
-        <div class="flex justify-center">
-            <h1 class="section_title text-2xl text-red-500 mt-4 mb-4">Backgrounds</h1>
+        <div class="mt-8 grid grid-cols-2 gap-1">
+            <div class="flex flex-col items-center">
+                <h2 class="section_title text-center">Avantages</h2>
+
+                <div class="mt-4"
+                     v-for="(advantage, index) in backgroundStore.advantages"
+                     :key="index"
+                >
+                    <h3 class="attribute_title">{{ advantage.type.name }}</h3>
+                    <p class="subtitle text-center">{{ advantage.name }}</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <h2 class="section_title text-center">Handicaps</h2>
+
+                <div class="mt-4"
+                     v-for="(handicap, index) in backgroundStore.handicaps"
+                     :key="index"
+                >
+                    <h3 class="attribute_title">{{ handicap.type.name }}</h3>
+                    <p class="subtitle text-center">{{ handicap.name }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>

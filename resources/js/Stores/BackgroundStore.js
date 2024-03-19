@@ -11,5 +11,13 @@ export const useBackgroundStore = defineStore('backgrounds', {
             const response = await axios.get(`/character/${character.id}/backgrounds`)
             this.backgrounds = response.data;
         },
-    }
+    },
+    getters: {
+        advantages: (state) => state.backgrounds.filter(element => {
+            return element.category == 'Avantage';
+        }),
+        handicaps: (state) => state.backgrounds.filter(element => {
+            return element.category == 'Handicap';
+        }),
+    },
 })
