@@ -14,10 +14,10 @@ export const useBackgroundStore = defineStore('backgrounds', {
     },
     getters: {
         advantages: (state) => state.backgrounds.filter(element => {
-            return element.category == 'Avantage';
+            return element.category == 'advantage';
         }),
         handicaps: (state) => state.backgrounds.filter(element => {
-            return element.category == 'Handicap';
+            return element.category == 'handicap';
         }),
     },
 })
