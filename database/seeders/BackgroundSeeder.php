@@ -2,16 +2,25 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Background;
+use App\Models\BackgroundType;
 use Illuminate\Database\Seeder;
 
 class BackgroundSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        Background::factory()
+            ->count(2)
+            ->create([
+                'background_type_id' => BackgroundType::first()->id,
+            ]);
+
+        Background::factory()
+            ->count(2)
+            ->handicap()
+            ->create([
+                'background_type_id' => BackgroundType::first()->id,
+            ]);
     }
 }

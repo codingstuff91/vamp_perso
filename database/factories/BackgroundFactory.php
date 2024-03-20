@@ -4,20 +4,23 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Background>
- */
 class BackgroundFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->word,
+            'category' => 'advantage',
+            'level' => 1,
         ];
+    }
+
+    public function handicap()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'category' => 'handicap',
+            ];
+        });
     }
 }
