@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             PredationSeeder::class,
             ClanSeeder::class,
             CompulsionSeeder::class,
+            BackgroundTypeSeeder::class,
+            BackgroundSeeder::class,
             CharacterSeeder::class,
             ConceptSeeder::class,
             AttributeSeeder::class,
