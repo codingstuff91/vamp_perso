@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AttributeCharacterUpdateController;
 use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\BackgroundController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\ChronicleController;
 use App\Http\Controllers\CompulsionController;
@@ -41,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/character/{character}/attributes', [AttributeController::class, 'index']);
     Route::put('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
     Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
+    Route::get('/character/{character}/backgrounds', [BackgroundController::class, 'index'])->name('backgrounds.index');
 
     Route::get('compulsions/{character}', [CompulsionController::class, 'associate'])->name('compulsions.associate');
     Route::delete('compulsions/{character}', [CompulsionController::class, 'destroy'])->name('compulsions.destroy');

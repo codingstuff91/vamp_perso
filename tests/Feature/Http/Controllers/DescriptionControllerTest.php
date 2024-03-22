@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Attribute;
+use App\Models\Background;
+use App\Models\BackgroundType;
 use App\Models\Description;
 use App\Models\Discipline;
 use App\Models\Power;
@@ -15,7 +17,7 @@ test('It gets the description of an attribute', function () {
         ->create();
 
     $response = $this->post('/descriptions/show', [
-        'entity' => "attribute",
+        'entity' => 'attribute',
         'id' => Attribute::first()->id,
     ]);
 
@@ -32,7 +34,7 @@ test('It gets the description of a discipline', function () {
         ->create();
 
     $response = $this->post('/descriptions/show', [
-        'entity' => "discipline",
+        'entity' => 'discipline',
         'id' => Discipline::first()->id,
     ]);
 
@@ -50,10 +52,31 @@ test('It gets the description of a power', function () {
         ->create();
 
     $response = $this->post('/descriptions/show', [
-        'entity' => "power",
+        'entity' => 'power',
         'id' => Power::first()->id,
     ]);
 
     $response->assertStatus(200);
     $response->assertSee($power->description->text);
+});
+
+test('It gets the description of a background', function () {
+    $user = User::factory()->create();
+    $this->actingAs($user);
+
+    $this->seed(BackgroundTypeSeeder::class);
+
+    $this->background = Background::factory()
+        ->has(Description::factory())
+        ->create([
+            'background_type_id' => BackgroundType::first()->id,
+        ]);
+
+    $response = $this->post('/descriptions/show', [
+        'entity' => 'background',
+        'id' => $this->background->id,
+    ]);
+
+    $response->assertStatus(200);
+    $response->assertSee($this->background->description->text);
 });
