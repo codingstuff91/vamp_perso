@@ -28,8 +28,18 @@ const showDescription = async (entity, id) => {
                      v-for="(advantage, index) in backgroundStore.advantages"
                      :key="index"
                 >
-                    <h3 class="attribute_title">{{ advantage.type.name }}</h3>
-                    <p class="subtitle text-center">{{ advantage.name }}</p>
+                    <h3
+                        class="attribute_title"
+                        @click="showDescription('backgroundType', advantage.type.id)"
+                    >
+                        {{ advantage.type.name }}
+                    </h3>
+                    <p
+                        class="subtitle text-center"
+                        @click="showDescription('background', advantage.id)"
+                    >
+                        {{ advantage.name }}
+                    </p>
                 </div>
             </div>
             <div class="flex flex-col items-center">
@@ -39,8 +49,19 @@ const showDescription = async (entity, id) => {
                      v-for="(handicap, index) in backgroundStore.handicaps"
                      :key="index"
                 >
-                    <h3 class="attribute_title">{{ handicap.type.name }}</h3>
-                    <p class="subtitle text-center">{{ handicap.name }}</p>
+                    <h3
+                        class="attribute_title"
+                        @click="showDescription('backgroundType', handicap.type.id)"
+                    >
+                        {{ handicap.type.name }}
+                    </h3>
+
+                    <p
+                        class="subtitle text-center"
+                        @click="showDescription('background', handicap.id)"
+                    >
+                        {{ handicap.name }}
+                    </p>
                 </div>
             </div>
         </div>
