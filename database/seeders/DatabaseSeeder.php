@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             AttributeSeeder::class,
             AttributeCharacterSeeder::class,
             ConceptCharacterSeeder::class,
+            BackgroundCharacterSeeder::class,
             DisciplineSeeder::class,
             PowerSeeder::class,
             CharacterPowerSeeder::class,
