@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Attribute;
 use App\Models\Character;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class AttributeController extends Controller
 {
-    public function index(Character $character): BelongsToMany
+    public function index(Character $character): Collection
     {
-        return $character->attributes();
+        /** @phpstan-ignore-next-line */
+        return $character->attributes;
     }
 
     /**
