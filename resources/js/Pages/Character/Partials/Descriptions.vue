@@ -27,7 +27,7 @@ const props = defineProps({
             <p class="subtitle text-justify">{{ character.appearance }}</p>
 
             <h2 class="my-4 attribute_title">Historique / Background</h2>
-            <p class="subtitle text-justify">{{ character.background }}</p>
+            <p class="subtitle text-justify" v-html="character.background"></p>
         </div>
     </div>
 </template>
