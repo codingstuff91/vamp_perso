@@ -87,7 +87,6 @@ const showDescription = async (entity, id) => {
                 </div>
             </template>
         </Foldable>
-
     </div>
 </template>
 
