@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import {onMounted, onUpdated} from "vue";
+import {onMounted} from "vue";
 import {Head} from '@inertiajs/vue3';
 
 import Attributes from "@/Pages/Character/Partials/Attributes.vue";
@@ -20,7 +20,8 @@ import Disciplines from "@/Pages/Character/Partials/Disciplines.vue";
 import Concepts from "@/Pages/Character/Partials/Concepts.vue";
 import Descriptions from "@/Pages/Character/Partials/Descriptions.vue";
 import DesktopMenu from "@/Pages/Character/Menus/DesktopMenu.vue";
-import MobileMenu from "@/Pages/Character/Menus/MobileMenu.vue";
+// import NewMobileMenu from "@/Pages/Character/Menus/MobileMenu.vue";
+import NewMobileMenu from "@/Pages/Character/Menus/NewMobileMenu.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
@@ -70,11 +71,13 @@ onMounted(async () => {
         </template>
 
         <div class="w-full">
-            <MobileMenu/>
+            <div class="relative">
+                <NewMobileMenu/>
+            </div>
 
             <div
-                class="w-full p-4 flex justify-between lg:w-2/3 lg:hidden"
                 v-if="rightMenustore.category == 'attributes'"
+                class="w-full p-4 flex justify-between lg:w-2/3 lg:hidden"
             >
                 <div>
                     <h2 class="header_attribute_title">Fléau de clan</h2>
@@ -89,8 +92,8 @@ onMounted(async () => {
                 <DesktopMenu class="desktop_menu"/>
 
                 <div
-                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'attributes'"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                 >
                     <Attributes :character="character"/>
 
@@ -98,15 +101,15 @@ onMounted(async () => {
                 </div>
 
                 <div
-                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'status'"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                 >
                     <Status/>
                 </div>
 
                 <div
-                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'disciplines'"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                 >
                     <Disciplines
                         :character="character"
@@ -115,22 +118,22 @@ onMounted(async () => {
                 </div>
 
                 <div
-                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'backgrounds'"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                 >
                     <Backgrounds/>
                 </div>
 
                 <div
-                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'concepts'"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                 >
                     <Concepts/>
                 </div>
 
                 <div
-                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                     v-if="rightMenustore.category == 'descriptions'"
+                    class="bg-darkness-900 overflow-hidden shadow-sm sm:rounded-lg"
                 >
                     <Descriptions :character="character"/>
                 </div>
