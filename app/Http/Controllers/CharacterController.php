@@ -32,6 +32,7 @@ class CharacterController extends Controller
 
         return Inertia::render('Character/Index', [
             'characters' => $chronicleCharacters,
+            'chronicle' => $selectedChronicle->name,
         ]);
     }
 
