@@ -16,10 +16,10 @@ const showDescription = async (entity, id) => {
 </script>
 
 <template>
-    <div class="py-2">
+    <div class="pt-2 pb-8">
         <DetailsModal
-            :show="modalStore.open"
             :closeable="true"
+            :show="modalStore.open"
         />
 
         <Hunger @get-description="showDescription"/>
