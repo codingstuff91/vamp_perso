@@ -22,7 +22,7 @@ const menuStore = useRightMenuStore();
         >
             <img
                 class="w-8 h-8"
-                src="/img/sections.png"
+                src="/img/health.png"
             >
         </button>
         <button
@@ -31,25 +31,25 @@ const menuStore = useRightMenuStore();
         >
             <img
                 class="w-8 h-8"
-                src="/img/sections.png"
+                src="/img/magic.png"
             >
         </button>
         <button
             class="h-full w-16 flex flex-col items-center justify-center"
-            @click="menuStore.setPanelMenu('disciplines')"
+            @click="menuStore.setPanelMenu('concepts')"
         >
             <img
                 class="w-8 h-8"
-                src="/img/sections.png"
+                src="/img/personality.png"
             >
         </button>
         <button
             class="h-full w-16 flex flex-col items-center justify-center"
-            @click="menuStore.setPanelMenu('disciplines')"
+            @click="menuStore.setPanelMenu('descriptions')"
         >
             <img
                 class="w-8 h-8"
-                src="/img/sections.png"
+                src="/img/description.png"
             >
         </button>
     </div>
