@@ -6,7 +6,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="py-2 px-4">
+    <div class="pt-2 pb-24 px-4">
         <h1 class="section_title text-center mt-4">Descriptions</h1>
         <div class="mt-4 flex flex-col items-center">
             <div class="px-8 grid grid-cols-2 gap-2 w-full">
