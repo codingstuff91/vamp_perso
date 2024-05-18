@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
 import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
@@ -11,6 +11,10 @@ const characterStore = useCharacterStore();
 
 const maxHungerLevel = ref(5)
 const bloodPotency = characterStore.character.blood_potency;
+
+const onMounted = () => {
+    console.log("hunger attributes", attributesStore.hungerAttributes[0].pivot.attribute_value);
+}
 </script>
 
 <template>
