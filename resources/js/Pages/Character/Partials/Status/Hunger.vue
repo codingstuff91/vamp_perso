@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
 import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
