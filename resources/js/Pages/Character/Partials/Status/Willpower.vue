@@ -1,10 +1,15 @@
 <script setup>
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
-
+import {onMounted} from "vue";
 import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
 
 const attributesStore = useCharacterAttributesStore();
 const maxWillpowerPoints = attributesStore.willPowerAttributes[2].pivot.attribute_value;
+
+onMounted(() => {
+    console.log("Willpower attributes", maxWillpowerPoints, attributesStore.willPowerAttributes[0].pivot.attribute_value, attributesStore.willPowerAttributes[1].pivot.attribute_value);
+    console.log("Willpower store attributes", attributesStore.willPowerAttributes);
+});
 </script>
 
 <template>
