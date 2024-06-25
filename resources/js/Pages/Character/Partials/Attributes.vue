@@ -41,7 +41,7 @@ const showDescription = async (entity, id) => {
             :closeable="true"
             :show="modalStore.open"
         />
-        
+
         <Foldable>
             <template #header>
                 <h1 class="section_title text-center my-4">Attributs</h1>
@@ -52,7 +52,7 @@ const showDescription = async (entity, id) => {
                         <h2 class="column_title">Physiques</h2>
                         <div v-for="(attribute, index) in physical_attributes" :key="index"
                              class="flex flex-col items-start">
-                            <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">
+                            <p class="my-2 attribute_title" @click="showDescription('attribute', attribute.id)">
                                 {{ attribute.name }}</p>
                             <AttributeGauge
                                 :max="5"
@@ -64,7 +64,7 @@ const showDescription = async (entity, id) => {
                         <h2 class="column_title">Sociaux</h2>
                         <div v-for="(attribute, index) in social_attributes" :key="index"
                              class="flex flex-col items-center">
-                            <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">
+                            <p class="my-2 attribute_title" @click="showDescription('attribute', attribute.id)">
                                 {{ attribute.name }}</p>
                             <AttributeGauge
                                 :max="5"
@@ -76,7 +76,7 @@ const showDescription = async (entity, id) => {
                         <h2 class="column_title">Mentaux</h2>
                         <div v-for="(attribute, index) in mental_attributes" :key="index"
                              class="flex flex-col items-end">
-                            <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">
+                            <p class="my-2 attribute_title" @click="showDescription('attribute', attribute.id)">
                                 {{ attribute.name }}</p>
                             <AttributeGauge
                                 :max="5"
