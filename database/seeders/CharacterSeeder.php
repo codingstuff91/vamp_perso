@@ -20,6 +20,7 @@ class CharacterSeeder extends Seeder
             ->for(BloodPotency::factory()->create())
             ->for(Predation::factory()->create())
             ->create([
+                'experience_points' => 1,
                 'user_id' => User::first()->id,
                 'name' => 'Dracula Von Helsing',
             ]);
