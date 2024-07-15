@@ -7,18 +7,22 @@
             <TextInput
                 v-model="form.experiencePoints"
                 autofocus
-                class="mt-1 block w-full"
+                class="mt-1 w-full"
                 required
                 type="number"
             />
 
-            <PrimaryButton :disabled="form.processing">Confirmer</PrimaryButton>
+            <PrimaryButton
+                :disabled="form.processing"
+                class="w-full"
+            >
+                Confirmer
+            </PrimaryButton>
         </form>
     </div>
 </template>
 
 <script setup>
-
 import {useForm} from "@inertiajs/vue3";
 import TextInput from "@/Components/TextInput.vue";
 import InputLabel from "@/Components/InputLabel.vue";
@@ -32,5 +36,4 @@ const form = useForm({
     characterId: props.character.id,
     experiencePoints: 0,
 });
-
 </script>
