@@ -9,7 +9,7 @@
                 autofocus
                 class="mt-1 block w-full"
                 required
-                type="text"
+                type="number"
             />
 
             <PrimaryButton :disabled="form.processing">Confirmer</PrimaryButton>
