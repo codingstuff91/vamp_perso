@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-gray-500">
-        <h2>{{ character.name }}</h2>
+    <div class="character_card">
+        <h2 class="text-lg">{{ character.name }}</h2>
         <form class="mt-6 space-y-6" @submit.prevent="form.put(route('experience.update', character))">
             <InputLabel value="Points experience"/>
 

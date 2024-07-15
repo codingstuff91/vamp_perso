@@ -25,9 +25,11 @@ defineProps({
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center mx-4 my-4 px-4 py-2 bg-gray-600 rounded-lg">
                     <h1>Attribution des points d'experience</h1>
-
                 </div>
-                <div v-for="character in characters" :key="character.id">
+                <div
+                    v-for="character in characters" :key="character.id"
+                    class="grid grid-cols-4"
+                >
                     <CharacterExperience :character="character"/>
                 </div>
             </div>
