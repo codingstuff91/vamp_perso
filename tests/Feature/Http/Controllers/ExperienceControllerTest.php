@@ -6,8 +6,9 @@ use App\Models\User;
 use function Pest\Laravel\put;
 
 it('The experience index page is rendered correctly', function () {
-    $user = createUser();
-    $this->actingAs($user);
+    $this->seed();
+
+    $this->actingAs(User::first());
 
     $response = $this->get('/experience');
 
