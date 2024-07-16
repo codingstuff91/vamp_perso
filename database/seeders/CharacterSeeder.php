@@ -15,10 +15,10 @@ class CharacterSeeder extends Seeder
     public function run(): void
     {
         Character::factory()
+            ->for(Chronicle::factory()->create())
             ->for(Clan::first())
             ->for(BloodPotency::factory()->create())
             ->for(Predation::factory()->create())
-            ->for(Chronicle::first())
             ->create([
                 'experience_points' => 1,
                 'user_id' => User::first()->id,
