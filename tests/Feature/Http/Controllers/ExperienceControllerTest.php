@@ -3,6 +3,8 @@
 use App\Models\Character;
 use App\Models\User;
 
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\get;
 use function Pest\Laravel\put;
 
 it('The experience index page is rendered correctly', function () {
@@ -25,4 +27,14 @@ it('Updates the experience points of a character', function () {
     ]);
 
     expect(Character::first()->experience_points)->toBe(2);
+});
+
+it('Hides the experience menu for user with player role', function () {
+    $playerRole = User::factory()->player()->create();
+
+    actingAs($playerRole);
+
+    $response = get(route('characters.index'));
+
+    $response->assertDontSee('Experience');
 });

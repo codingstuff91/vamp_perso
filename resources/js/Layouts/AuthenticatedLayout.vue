@@ -36,6 +36,7 @@ const showingNavigationDropdown = ref(false);
                                 </NavLink>
 
                                 <NavLink
+                                    v-if="$page.props.auth.user.role === 'game_master'"
                                     :active="route().current('experience.index')"
                                     :href="route('experience.index')"
                                     class="ml-4"
