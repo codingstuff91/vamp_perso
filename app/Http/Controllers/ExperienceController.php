@@ -12,6 +12,8 @@ class ExperienceController extends Controller
 {
     public function index()
     {
+        abort_if(Auth::user()->role === 'player', 403);
+
         $currentChronicle = Chronicle::find(Auth::user()->chronicle_id);
 
         $chronicleCharacters = $currentChronicle->characters;

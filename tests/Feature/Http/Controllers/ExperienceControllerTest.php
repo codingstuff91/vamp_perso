@@ -17,6 +17,14 @@ it('The experience index page is rendered correctly', function () {
     $response->assertStatus(200);
 });
 
+it('A user with a player role can not access to experience index page', function () {
+    $this->seed();
+
+    $this->actingAs(User::first());
+
+    get(route('experience.index'))->assertForbidden();
+});
+
 it('Updates the experience points of a character', function () {
     $this->seed();
 
