@@ -1,6 +1,5 @@
 <script setup>
 import {ref} from 'vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
@@ -21,8 +20,8 @@ const showingNavigationDropdown = ref(false);
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <img
-                                    src="/img/dracula.png"
                                     class="rounded-full w-12 h-12"
+                                    src="/img/dracula.png"
                                 >
                                 <Link :href="route('home')">
                                     <h1 class="main_title">Vamp Perso</h1>
@@ -31,24 +30,33 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div class="hidden sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink :href="route('characters.index')"
-                                         :active="route().current('characters.index')">
+                                <NavLink :active="route().current('characters.index')"
+                                         :href="route('characters.index')">
                                     Personnages
                                 </NavLink>
                             </div>
                             <div class="hidden sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    :href="route('chronicle.index')"
-                                    :active="route().current('chronicle.index')"
                                     v-if="$page.props.auth.user.role === 'game_master'"
+                                    :active="route().current('experience.index')"
+                                    :href="route('experience.index')"
+                                >
+                                    Experience
+                                </NavLink>
+                            </div>
+                            <div class="hidden sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    v-if="$page.props.auth.user.role === 'game_master'"
+                                    :active="route().current('chronicle.index')"
+                                    :href="route('chronicle.index')"
                                 >
                                     Chroniques
                                 </NavLink>
                             </div>
                             <div class="hidden sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href="/admin"
                                     v-if="$page.props.auth.user.is_admin"
+                                    href="/admin"
                                 >
                                     Admin
                                 </NavLink>
@@ -62,25 +70,25 @@ const showingNavigationDropdown = ref(false);
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
                                             <button
-                                                type="button"
                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-lg leading-4 font-medium rounded-md text-skin-50 bg-darkness-900 hover:text-blood-500 focus:outline-none transition ease-in-out duration-150"
+                                                type="button"
                                             >
                                                 <img
-                                                    src="/img/vampire.png"
                                                     class="rounded-full w-8 h-8 mr-2"
+                                                    src="/img/vampire.png"
                                                 >
                                                 {{ $page.props.auth.user.name }}
 
                                                 <svg
                                                     class="ms-2 -me-0.5 h-4 w-4"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20"
                                                     fill="currentColor"
+                                                    viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg"
                                                 >
                                                     <path
-                                                        fill-rule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                                         clip-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        fill-rule="evenodd"
                                                     />
                                                 </svg>
                                             </button>
@@ -89,7 +97,7 @@ const showingNavigationDropdown = ref(false);
 
                                     <template #content>
                                         <DropdownLink :href="route('profile.edit')"> Profil</DropdownLink>
-                                        <DropdownLink :href="route('logout')" method="post" as="button">
+                                        <DropdownLink :href="route('logout')" as="button" method="post">
                                             Déconnexion
                                         </DropdownLink>
                                     </template>
@@ -100,29 +108,29 @@ const showingNavigationDropdown = ref(false);
                         <!-- Hamburger -->
                         <div class="-me-2 flex items-center sm:hidden">
                             <button
-                                @click="showingNavigationDropdown = !showingNavigationDropdown"
                                 class="inline-flex items-center justify-center p-2 rounded-md text-blood-500 hover:text-blood-500 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                                @click="showingNavigationDropdown = !showingNavigationDropdown"
                             >
-                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path
                                         :class="{
                                             hidden: showingNavigationDropdown,
                                             'inline-flex': !showingNavigationDropdown,
                                         }"
+                                        d="M4 6h16M4 12h16M4 18h16"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M4 6h16M4 12h16M4 18h16"
                                     />
                                     <path
                                         :class="{
                                             hidden: !showingNavigationDropdown,
                                             'inline-flex': showingNavigationDropdown,
                                         }"
+                                        d="M6 18L18 6M6 6l12 12"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"
                                     />
                                 </svg>
                             </button>
@@ -136,7 +144,7 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('onboarding')" :active="route().current('onboarding')">
+                        <ResponsiveNavLink :active="route().current('onboarding')" :href="route('onboarding')">
                             Accueil
                         </ResponsiveNavLink>
                     </div>
@@ -146,8 +154,8 @@ const showingNavigationDropdown = ref(false);
                         <div class="px-4">
                             <div class="flex items-center font-medium text-base text-skin-50">
                                 <img
-                                    src="/img/vampire.png"
                                     class="rounded-full w-8 h-8 mr-2"
+                                    src="/img/vampire.png"
                                 >
                                 {{ $page.props.auth.user.name }}
                             </div>
@@ -155,13 +163,13 @@ const showingNavigationDropdown = ref(false);
 
                         <div class="mt-3 space-y-1">
                             <ResponsiveNavLink
-                                :href="route('characters.index')"
                                 :active="route().current('characters.index')"
+                                :href="route('characters.index')"
                             >
                                 Personnages
                             </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('profile.edit')"> Profil</ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('logout')" method="post" as="button">
+                            <ResponsiveNavLink :href="route('logout')" as="button" method="post">
                                 Déconnexion
                             </ResponsiveNavLink>
                         </div>
@@ -170,7 +178,7 @@ const showingNavigationDropdown = ref(false);
             </nav>
 
             <!-- Page Heading -->
-            <header class="character_header shadow border-b border-gray-700 w-full" v-if="$slots.header">
+            <header v-if="$slots.header" class="character_header shadow border-b border-gray-700 w-full">
                 <div class="py-4 w-full mx-auto px-4 sm:px-6 sm:py-6">
                     <slot name="header"/>
                 </div>

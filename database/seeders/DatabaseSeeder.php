@@ -2,22 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\Chronicle;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::factory()
-            ->has(Chronicle::factory(), 'chronicles')
-            ->create([
-                'name' => 'test',
-                'email' => 'test@test.com',
-            ]);
-
         $this->call([
+            UserSeeder::class,
+            ChronicleSeeder::class,
             PredationSeeder::class,
             ClanSeeder::class,
             CompulsionSeeder::class,
