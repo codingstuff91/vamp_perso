@@ -34,12 +34,12 @@ const showingNavigationDropdown = ref(false);
                                          :href="route('characters.index')">
                                     Personnages
                                 </NavLink>
-
+                            </div>
+                            <div class="hidden sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
                                     v-if="$page.props.auth.user.role === 'game_master'"
                                     :active="route().current('experience.index')"
                                     :href="route('experience.index')"
-                                    class="ml-4"
                                 >
                                     Experience
                                 </NavLink>
