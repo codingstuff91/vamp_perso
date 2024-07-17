@@ -168,6 +168,13 @@ const showingNavigationDropdown = ref(false);
                             >
                                 Personnages
                             </ResponsiveNavLink>
+                            <ResponsiveNavLink
+                                v-if="$page.props.auth.user.role === 'game_master'"
+                                :active="route().current('experience.index')"
+                                :href="route('experience.index')"
+                            >
+                                Experience
+                            </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('profile.edit')"> Profil</ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('logout')" as="button" method="post">
                                 Déconnexion
