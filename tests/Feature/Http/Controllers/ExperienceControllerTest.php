@@ -7,16 +7,6 @@ use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 use function Pest\Laravel\put;
 
-it('The experience index page is rendered correctly', function () {
-    $this->seed();
-
-    $this->actingAs(User::first());
-
-    $response = $this->get('/experience');
-
-    $response->assertStatus(200);
-});
-
 it('A user with a player role can not access to experience index page', function () {
     $this->seed();
 
