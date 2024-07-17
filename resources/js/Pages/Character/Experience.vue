@@ -35,7 +35,7 @@ defineProps({
 
                 <div
                     v-for="character in characters" :key="character.id"
-                    class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4"
+                    class="grid grid-cols-1 gap-4 sm:gap-2 sm:grid-cols-3 lg:gap-4 lg:grid-cols-4"
                 >
                     <CharacterExperience :character="character"/>
                 </div>
