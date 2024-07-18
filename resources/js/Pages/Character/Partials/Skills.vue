@@ -45,7 +45,7 @@ const showDescription = async (entity, id) => {
         <Foldable>
             <template #header>
                 <div class="flex justify-center">
-                    <h1 class="section_title my-4">Compétences</h1>
+                    <h1 class="section_title my-2">Compétences</h1>
                 </div>
             </template>
 

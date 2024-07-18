@@ -44,10 +44,10 @@ const showDescription = async (entity, id) => {
 
         <Foldable>
             <template #header>
-                <h1 class="section_title text-center my-4">Attributs</h1>
+                <h1 class="section_title text-center my-2">Attributs</h1>
             </template>
             <template #content>
-                <div class="grid grid-cols-3 gap-2 flex justify-center px-2 pb-4 w-full">
+                <div class="grid grid-cols-3 gap-2 flex justify-center px-2 pb-2 w-full">
                     <div class="flex flex-col">
                         <h2 class="column_title">Physiques</h2>
                         <div
