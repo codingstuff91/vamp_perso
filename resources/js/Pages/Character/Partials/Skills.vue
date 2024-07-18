@@ -50,9 +50,9 @@ const showDescription = async (entity, id) => {
             </template>
 
             <template #content>
-                <div class="grid grid-cols-3 gap-x-2 justify-center px-2 pb-4 w-full">
+                <div class="grid grid-cols-3 gap-2 flex justify-center px-2 pb-4 w-full">
                     <div class="flex flex-col">
-                        <h2 class="column_title">Physiques</h2>
+                        <h2 class="column_title mb-1">Physiques</h2>
                         <div
                             v-for="(attribute, index) in physical_skills"
                             :key="index"
@@ -70,20 +70,23 @@ const showDescription = async (entity, id) => {
                                 :value="attribute.pivot.attribute_value"
                             />
 
-                            <p class="my-2 text-skin-50 text-sm lg:text-lg">
+                            <p
+                                v-if="attribute.pivot.specialties"
+                                class="my-2 text-skin-50 text-sm lg:text-lg"
+                            >
                                 {{ attribute.pivot.specialties }}
                             </p>
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <h2 class="column_title">Sociales</h2>
+                        <h2 class="column_title mb-1">Sociales</h2>
                         <div
                             v-for="(attribute, index) in social_skills"
                             :key="index"
                             class="flex flex-col items-center"
                         >
                             <p
-                                class="my-2 attribute_title"
+                                class="attribute_title"
                                 @click="showDescription('attribute', attribute.id)"
                             >
                                 {{ attribute.name }}
@@ -94,14 +97,17 @@ const showDescription = async (entity, id) => {
                                 :value="attribute.pivot.attribute_value"
                             />
 
-                            <p class="my-2 text-skin-50 text-sm lg:text-lg">
+                            <p
+                                v-if="attribute.pivot.specialties"
+                                class="text-skin-50 text-sm lg:text-lg"
+                            >
                                 {{ attribute.pivot.specialties }}
                             </p>
                         </div>
                     </div>
 
                     <div class="flex flex-col items-end">
-                        <h2 class="column_title">Mentales</h2>
+                        <h2 class="column_title mb-1">Mentales</h2>
                         <div
                             v-for="(attribute, index) in mental_skills"
                             :key="index"
@@ -119,7 +125,10 @@ const showDescription = async (entity, id) => {
                                 :value="attribute.pivot.attribute_value"
                             />
 
-                            <p class="text-skin-50 text-sm lg:text-lg">
+                            <p
+                                v-if="attribute.pivot.specialties"
+                                class="text-skin-50 text-sm lg:text-lg"
+                            >
                                 {{ attribute.pivot.specialties }}
                             </p>
                         </div>
