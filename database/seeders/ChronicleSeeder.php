@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Chronicle;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class ChronicleSeeder extends Seeder
@@ -12,6 +13,8 @@ class ChronicleSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Chronicle::factory()
+            ->for(User::first(), 'user')
+            ->create();
     }
 }
