@@ -7,11 +7,9 @@ import {router} from '@inertiajs/vue3';
 
 import {useCharacterStore} from "@/Stores/characterStore.js";
 import {useCompulsionStore} from "@/Stores/CompulsionStore.js";
-import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore.js";
 
 const characterStore = useCharacterStore();
 const compulsionStore = useCompulsionStore();
-const attributesStore = useCharacterAttributesStore();
 
 const displayModal = ref(false);
 
@@ -53,23 +51,27 @@ const deleteCompulsion = async () => {
     </div>
 
     <Modal
-        :show="displayModal"
         :closeable="true"
+        :show="displayModal"
         @close="closeModal"
     >
         <div class="my-4 flex justify-center">
             <SecondaryButton
-                @click="setRandomCompulsion"
                 v-if="! characterStore.character.compulsion"
+                @click="setRandomCompulsion"
             >
                 Attribuer une compulsion
             </SecondaryButton>
         </div>
         <div
-            class="p-4 flex flex-col items-center"
             v-if="characterStore.character.compulsion"
+            class="p-4 flex flex-col items-center"
         >
-            <h2 class="header_attribute_title text-center uppercase">{{ characterStore.character.compulsion.name }}</h2>
+            <h2
+                class="header_attribute_title text-center uppercase"
+            >
+                {{ characterStore.character.compulsion.name }}
+            </h2>
             <p
                 class="subtitle text-justify"
                 v-html="characterStore.character.compulsion.description"
@@ -77,8 +79,8 @@ const deleteCompulsion = async () => {
             </p>
 
             <SecondaryButton
-                @click="deleteCompulsion"
                 v-if="characterStore.character.compulsion"
+                @click="deleteCompulsion"
             >
                 Supprimer la compulsion
             </SecondaryButton>
