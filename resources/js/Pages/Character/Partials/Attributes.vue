@@ -50,9 +50,14 @@ const showDescription = async (entity, id) => {
                 <div class="grid grid-cols-3 gap-2 flex justify-center px-2 pb-4 w-full">
                     <div class="flex flex-col">
                         <h2 class="column_title">Physiques</h2>
-                        <div v-for="(attribute, index) in physical_attributes" :key="index"
-                             class="flex flex-col items-start">
-                            <p class="my-2 attribute_title" @click="showDescription('attribute', attribute.id)">
+                        <div
+                            v-for="(attribute, index) in physical_attributes" :key="index"
+                            class="flex flex-col items-start"
+                        >
+                            <p
+                                class="my-2 attribute_title"
+                                @click="showDescription('attribute', attribute.id)"
+                            >
                                 {{ attribute.name }}</p>
                             <AttributeGauge
                                 :max="5"
@@ -62,9 +67,14 @@ const showDescription = async (entity, id) => {
                     </div>
                     <div class="flex flex-col items-center">
                         <h2 class="column_title">Sociaux</h2>
-                        <div v-for="(attribute, index) in social_attributes" :key="index"
-                             class="flex flex-col items-center">
-                            <p class="my-2 attribute_title" @click="showDescription('attribute', attribute.id)">
+                        <div
+                            v-for="(attribute, index) in social_attributes" :key="index"
+                            class="flex flex-col items-center"
+                        >
+                            <p
+                                class="my-2 attribute_title"
+                                @click="showDescription('attribute', attribute.id)"
+                            >
                                 {{ attribute.name }}</p>
                             <AttributeGauge
                                 :max="5"
@@ -74,9 +84,14 @@ const showDescription = async (entity, id) => {
                     </div>
                     <div class="flex flex-col items-end">
                         <h2 class="column_title">Mentaux</h2>
-                        <div v-for="(attribute, index) in mental_attributes" :key="index"
-                             class="flex flex-col items-end">
-                            <p class="my-2 attribute_title" @click="showDescription('attribute', attribute.id)">
+                        <div
+                            v-for="(attribute, index) in mental_attributes" :key="index"
+                            class="flex flex-col items-end"
+                        >
+                            <p
+                                class="my-2 attribute_title"
+                                @click="showDescription('attribute', attribute.id)"
+                            >
                                 {{ attribute.name }}</p>
                             <AttributeGauge
                                 :max="5"
