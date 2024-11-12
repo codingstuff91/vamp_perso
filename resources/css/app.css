@@ -82,7 +82,7 @@ p {
 }
 
 .desktop_menu {
-    @apply hidden lg:block lg:flex lg:justify-between;
+    @apply hidden lg:flex lg:justify-between;
     @apply mt-4 pb-4;
     @apply border-b border-gray-700;
 }
@@ -100,8 +100,8 @@ p {
 }
 
 .description-modal {
-    @apply w-full bg-darkness-900 overflow-scroll shadow-xl transform transition-all h-[80%] px-4;
-    @apply lg:mx-auto lg:border-0 lg:max-w-7xl;
+    @apply w-full bg-darkness-900 overflow-scroll shadow-xl transform transition-all h-full px-4;
+    @apply lg:mx-auto  lg:h-[90%] lg:max-w-[80%];
 }
 
 .description-modal h1 {

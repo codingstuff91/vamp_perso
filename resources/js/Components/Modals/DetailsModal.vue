@@ -1,5 +1,5 @@
 <script setup>
-import {computed, onMounted, onUnmounted, watch} from 'vue';
+import {onMounted, onUnmounted, watch} from 'vue';
 
 import {useModalStore} from "@/Stores/modalStore.js";
 
@@ -50,7 +50,10 @@ onUnmounted(() => {
 <template>
     <Teleport to="body">
         <Transition leave-active-class="duration-200">
-            <div v-show="show" class="fixed inset-0 overflow-y-auto sm:px-0 z-50" scroll-region>
+            <div
+                v-show="show"
+                class="fixed inset-0 overflow-y-auto sm:px-0 z-50"
+            >
                 <Transition
                     enter-active-class="ease-out duration-300"
                     enter-from-class="opacity-0"
@@ -60,7 +63,7 @@ onUnmounted(() => {
                     leave-to-class="opacity-0"
                 >
                     <div v-show="show" class="fixed inset-0 transform transition-all" @click="close">
-                        <div class="absolute inset-0 bg-gray-700 opacity-75"/>
+                        <div class="absolute inset-0 bg-gray-400 opacity-75"/>
                     </div>
                 </Transition>
 
@@ -76,6 +79,13 @@ onUnmounted(() => {
                         v-show="show"
                         class="description-modal"
                     >
+                        <button
+                            class="p-2 bg-blood-500 text-white text-sm rounded-xl absolute top-4 right-4"
+                            @click="close"
+                        >
+                            Fermer
+                        </button>
+
                         <h1>{{ modalStore.details.name }}</h1>
 
                         <p v-html="modalStore.details?.description?.text"></p>
