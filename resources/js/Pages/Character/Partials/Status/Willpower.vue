@@ -1,15 +1,9 @@
 <script setup>
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
-import {onMounted} from "vue";
 import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
 
 const attributesStore = useCharacterAttributesStore();
 const maxWillpowerPoints = attributesStore.willPowerAttributes[2].pivot.attribute_value;
-
-onMounted(() => {
-    console.log("Willpower attributes", maxWillpowerPoints, attributesStore.willPowerAttributes[0].pivot.attribute_value, attributesStore.willPowerAttributes[1].pivot.attribute_value);
-    console.log("Willpower store attributes", attributesStore.willPowerAttributes);
-});
 </script>
 
 <template>
@@ -24,9 +18,9 @@ onMounted(() => {
             </h2>
             <DynamicGauge
                 :attribute="attributesStore.willPowerAttributes[0].pivot.attribute_id"
+                :max="maxWillpowerPoints"
                 :value="attributesStore.willPowerAttributes[0].pivot.attribute_value"
                 icon="fa-solid fa-shield"
-                :max="maxWillpowerPoints"
             />
         </div>
         <div class="flex flex-col justify-center items-center px-2 pb-4 w-full">
@@ -38,9 +32,9 @@ onMounted(() => {
             </h2>
             <DynamicGauge
                 :attribute="attributesStore.willPowerAttributes[1].pivot.attribute_id"
+                :max="maxWillpowerPoints"
                 :value="attributesStore.willPowerAttributes[1].pivot.attribute_value"
                 icon="fa-solid fa-skull"
-                :max="maxWillpowerPoints"
             />
         </div>
     </div>

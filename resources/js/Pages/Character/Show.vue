@@ -77,10 +77,10 @@ onMounted(async () => {
 
             <div
                 v-if="rightMenustore.category == 'attributes'"
-                class="w-full p-4 flex justify-between lg:w-2/3 lg:hidden"
+                class="w-full px-4 pt-2 flex justify-between border-b border-gray-700 lg:w-2/3 lg:hidden"
             >
                 <div>
-                    <h2 class="header_attribute_title">Fléau de clan</h2>
+                    <h2 class="header_attribute_title mb-2">Fléau de clan</h2>
                     <h2 class="subtitle">{{ character.clan.bane }}</h2>
                 </div>
                 <div>
@@ -88,7 +88,6 @@ onMounted(async () => {
                 </div>
             </div>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <CompulsionModal/>
                 <DesktopMenu class="desktop_menu"/>
 
                 <div

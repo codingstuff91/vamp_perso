@@ -37,7 +37,7 @@ const showDescription = async (entity, id) => {
 </script>
 
 <template>
-    <div class="py-2 pb-16">
+    <div class="pb-16">
         <DetailsModal
             :closeable="true"
             :show="modalStore.open"
@@ -45,60 +45,90 @@ const showDescription = async (entity, id) => {
         <Foldable>
             <template #header>
                 <div class="flex justify-center">
-                    <h1 class="section_title my-4">Compétences</h1>
+                    <h1 class="section_title my-2">Compétences</h1>
                 </div>
             </template>
 
             <template #content>
                 <div class="grid grid-cols-3 gap-2 flex justify-center px-2 pb-4 w-full">
                     <div class="flex flex-col">
-                        <h2 class="column_title">Physiques</h2>
-                        <div v-for="(attribute, index) in physical_skills" :key="index"
-                             class="flex flex-col items-start">
+                        <h2 class="column_title mb-1">Physiques</h2>
+                        <div
+                            v-for="(attribute, index) in physical_skills"
+                            :key="index"
+                            class="flex flex-col items-start"
+                        >
                             <p
-                                class="mt-8 mb-2 attribute_title"
+                                class="attribute_title"
                                 @click="showDescription('attribute', attribute.id)"
                             >
                                 {{ attribute.name }}
                             </p>
+
                             <AttributeGauge
                                 :max="5"
                                 :value="attribute.pivot.attribute_value"
                             />
-                            <p class="mt-2 text-skin-50 text-sm lg:text-lg">
+
+                            <p
+                                v-if="attribute.pivot.specialties"
+                                class="my-2 text-skin-50 text-sm lg:text-lg"
+                            >
                                 {{ attribute.pivot.specialties }}
                             </p>
                         </div>
                     </div>
                     <div class="flex flex-col items-center">
-                        <h2 class="column_title">Sociales</h2>
-                        <div v-for="(attribute, index) in social_skills" :key="index"
-                             class="flex flex-col items-center">
+                        <h2 class="column_title mb-1">Sociales</h2>
+                        <div
+                            v-for="(attribute, index) in social_skills"
+                            :key="index"
+                            class="flex flex-col items-center"
+                        >
                             <p
-                                class="mt-8 mb-2 attribute_title"
+                                class="attribute_title"
                                 @click="showDescription('attribute', attribute.id)"
                             >
                                 {{ attribute.name }}
                             </p>
+
                             <AttributeGauge
                                 :max="5"
                                 :value="attribute.pivot.attribute_value"
                             />
-                            <p class="mt-2 text-skin-50 text-sm lg:text-lg">
+
+                            <p
+                                v-if="attribute.pivot.specialties"
+                                class="text-skin-50 text-sm lg:text-lg"
+                            >
                                 {{ attribute.pivot.specialties }}
                             </p>
                         </div>
                     </div>
+
                     <div class="flex flex-col items-end">
-                        <h2 class="column_title">Mentales</h2>
-                        <div v-for="(attribute, index) in mental_skills" :key="index" class="flex flex-col items-end">
-                            <p class="mt-8 mb-2 attribute_title" @click="showDescription('attribute', attribute.id)">
-                                {{ attribute.name }}</p>
+                        <h2 class="column_title mb-1">Mentales</h2>
+                        <div
+                            v-for="(attribute, index) in mental_skills"
+                            :key="index"
+                            class="flex flex-col items-end"
+                        >
+                            <p
+                                class="attribute_title"
+                                @click="showDescription('attribute', attribute.id)"
+                            >
+                                {{ attribute.name }}
+                            </p>
+
                             <AttributeGauge
                                 :max="5"
                                 :value="attribute.pivot.attribute_value"
                             />
-                            <p class="mt-2 text-skin-50 text-sm lg:text-lg">
+
+                            <p
+                                v-if="attribute.pivot.specialties"
+                                class="text-skin-50 text-sm lg:text-lg"
+                            >
                                 {{ attribute.pivot.specialties }}
                             </p>
                         </div>
