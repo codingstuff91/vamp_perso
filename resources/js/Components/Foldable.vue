@@ -1,20 +1,27 @@
 <script setup>
-import {ref} from 'vue';
+import {onMounted, ref} from 'vue';
 
-const isOpen = ref(true);
+const isOpen = ref(false);
 
 const toggle = () => {
     isOpen.value = !isOpen.value;
 }
+
+onMounted(() => {
+    isOpen.value = props.open ?? false;
+})
+
+const props = defineProps({
+    open: Boolean,
+});
 </script>
 
 <template>
     <div class="foldable">
         <div class="flex justify-center items-center gap-x-4" @click="toggle">
             <slot name="header"></slot>
-            <button class="bg-blood-500 h-8 px-2 py-0 rounded-lg text-white">{{
-                    isOpen ? 'Réduire' : 'Agrandir'
-                }}
+            <button class="bg-blood-500 h-8 px-2 py-0 rounded-lg text-white">
+                {{ isOpen ? 'Réduire' : 'Agrandir' }}
             </button>
         </div>
         <transition name="fade">
