@@ -16,7 +16,7 @@ const willPowerAttributes = computed(() => {
     });
 });
 
-const maxWillpowerPoints = willPowerAttributes.value[2];
+const maxWillpowerPoints = willPowerAttributes.value[2].pivot.attribute_value;
 
 const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
