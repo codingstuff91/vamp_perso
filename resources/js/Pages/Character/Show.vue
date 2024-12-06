@@ -88,12 +88,8 @@ const hunger_attributes = computed(() => {
                 class="w-full px-4 pt-2 flex justify-between border-b border-gray-700 lg:w-2/3 lg:hidden"
             >
                 <div>
-                    <h2 class="header_attribute_title mb-2">Soif</h2>
-                    <h2 class="subtitle">{{ hunger_attributes[0].pivot.attribute_value }}</h2>
-                </div>
-                <div>
                     <h2 class="header_attribute_title mb-2">Humanité</h2>
-                    <h2 class="subtitle">{{ character.attributes[44].pivot.attribute_value }}</h2>
+                    <h2 class="subtitle font-extrabold">{{ character.attributes[44].pivot.attribute_value }}</h2>
                 </div>
                 <div>
                     <Compulsions/>
