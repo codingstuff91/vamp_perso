@@ -42,7 +42,7 @@ const showDescription = async (entity, id) => {
             :show="modalStore.open"
         />
 
-        <Foldable>
+        <Foldable :open="true">
             <template #header>
                 <h1 class="section_title text-center my-2">Attributs</h1>
             </template>
