@@ -37,7 +37,7 @@ const showDescription = async (entity, id) => {
 </script>
 
 <template>
-    <div class="pb-16">
+    <div class="py-2">
         <DetailsModal
             :closeable="true"
             :show="modalStore.open"

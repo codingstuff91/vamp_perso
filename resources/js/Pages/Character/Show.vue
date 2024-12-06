@@ -22,6 +22,7 @@ import Descriptions from "@/Pages/Character/Partials/Descriptions.vue";
 import DesktopMenu from "@/Pages/Character/Menus/DesktopMenu.vue";
 // import NewMobileMenu from "@/Pages/Character/Menus/MobileMenu.vue";
 import NewMobileMenu from "@/Pages/Character/Menus/NewMobileMenu.vue";
+import Hunger from "@/Pages/Character/Partials/Status/Hunger.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
@@ -87,7 +88,7 @@ onMounted(async () => {
                     <Compulsions/>
                 </div>
             </div>
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="px-2 max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <DesktopMenu class="desktop_menu"/>
 
                 <div
@@ -97,6 +98,8 @@ onMounted(async () => {
                     <Attributes :character="character"/>
 
                     <Skills :character="character"/>
+
+                    <Hunger :character="character"/>
                 </div>
 
                 <div
