@@ -18,15 +18,6 @@ const menuStore = useRightMenuStore();
         </button>
         <button
             class="h-full w-16 flex flex-col items-center justify-center"
-            @click="menuStore.setPanelMenu('status')"
-        >
-            <img
-                class="w-8 h-8"
-                src="/img/health.png"
-            >
-        </button>
-        <button
-            class="h-full w-16 flex flex-col items-center justify-center"
             @click="menuStore.setPanelMenu('disciplines')"
         >
             <img
