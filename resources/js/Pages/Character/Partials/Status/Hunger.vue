@@ -1,5 +1,5 @@
 <script setup>
-import {computed, onMounted, ref} from "vue";
+import {computed, ref} from "vue";
 
 import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
 import {useCharacterStore} from "@/Stores/characterStore.js";
@@ -22,12 +22,6 @@ const hunger_attributes = computed(() => {
         return attribute.category === 'hunger'
     });
 });
-
-onMounted(() => {
-
-
-    // console.log(props.character);
-})
 </script>
 
 <template>
