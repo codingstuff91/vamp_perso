@@ -23,6 +23,7 @@ import DesktopMenu from "@/Pages/Character/Menus/DesktopMenu.vue";
 // import NewMobileMenu from "@/Pages/Character/Menus/MobileMenu.vue";
 import NewMobileMenu from "@/Pages/Character/Menus/NewMobileMenu.vue";
 import Hunger from "@/Pages/Character/Partials/Status/Hunger.vue";
+import Willpower from "@/Pages/Character/Partials/Status/Willpower.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
@@ -100,6 +101,8 @@ onMounted(async () => {
                     <Skills :character="character"/>
 
                     <Hunger :character="character"/>
+
+                    <Willpower :character="character"/>
                 </div>
 
                 <div
