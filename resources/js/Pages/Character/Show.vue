@@ -95,7 +95,7 @@ const hunger_attributes = computed(() => {
                     <Compulsions/>
                 </div>
             </div>
-            <div class="px-2 max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="px-2 pb-16 max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <DesktopMenu class="desktop_menu"/>
 
                 <div
