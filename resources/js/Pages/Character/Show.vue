@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import {onMounted} from "vue";
+import {computed, onMounted} from "vue";
 import {Head} from '@inertiajs/vue3';
 
 import Attributes from "@/Pages/Character/Partials/Attributes.vue";
@@ -20,8 +20,10 @@ import Disciplines from "@/Pages/Character/Partials/Disciplines.vue";
 import Concepts from "@/Pages/Character/Partials/Concepts.vue";
 import Descriptions from "@/Pages/Character/Partials/Descriptions.vue";
 import DesktopMenu from "@/Pages/Character/Menus/DesktopMenu.vue";
-// import NewMobileMenu from "@/Pages/Character/Menus/MobileMenu.vue";
 import NewMobileMenu from "@/Pages/Character/Menus/NewMobileMenu.vue";
+import Hunger from "@/Pages/Character/Partials/Status/Hunger.vue";
+import Willpower from "@/Pages/Character/Partials/Status/Willpower.vue";
+import Health from "@/Pages/Character/Partials/Status/Health.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
@@ -41,6 +43,12 @@ onMounted(async () => {
     await conceptsStore.getConcepts(props.character)
     await backgroundStore.getBackgrounds(props.character)
 });
+
+const hunger_attributes = computed(() => {
+    return props.character.attributes.filter(attribute => {
+        return attribute.category === 'hunger'
+    });
+});
 </script>
 
 <template>
@@ -54,8 +62,8 @@ onMounted(async () => {
                     <p class="subtitle">{{ character.clan.name }}</p>
                 </div>
                 <div class="hidden flex flex-col items-start lg:block">
-                    <h2 class="attribute_title">Fléau de clan</h2>
-                    <p class="subtitle">{{ character.clan.bane }}</p>
+                    <h2 class="attribute_title">Humanité</h2>
+                    <p class="subtitle">{{ character.attributes[44].pivot.attribute_value }}</p>
                 </div>
 
                 <div class="hidden lg:block">
@@ -80,14 +88,14 @@ onMounted(async () => {
                 class="w-full px-4 pt-2 flex justify-between border-b border-gray-700 lg:w-2/3 lg:hidden"
             >
                 <div>
-                    <h2 class="header_attribute_title mb-2">Fléau de clan</h2>
-                    <h2 class="subtitle">{{ character.clan.bane }}</h2>
+                    <h2 class="header_attribute_title mb-2">Humanité</h2>
+                    <h2 class="subtitle font-extrabold">{{ character.attributes[44].pivot.attribute_value }}</h2>
                 </div>
                 <div>
                     <Compulsions/>
                 </div>
             </div>
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="px-2 pb-16 max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <DesktopMenu class="desktop_menu"/>
 
                 <div
@@ -97,6 +105,12 @@ onMounted(async () => {
                     <Attributes :character="character"/>
 
                     <Skills :character="character"/>
+
+                    <Hunger :character="character"/>
+
+                    <Willpower :character="character"/>
+
+                    <Health :character="character"/>
                 </div>
 
                 <div
