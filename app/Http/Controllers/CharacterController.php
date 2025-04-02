@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Character;
+use App\Models\Chronicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -11,11 +12,27 @@ class CharacterController extends Controller
 {
     public function index()
     {
-        $characters = Auth::user()->characters;
-        $characters->load('clan');
+        if (Auth::user()->role === 'player') {
+            $characters = Auth::user()->characters;
+            $characters->load('clan');
+
+            return Inertia::render('Character/Index', [
+                'characters' => $characters,
+            ]);
+        }
+
+        $selectedChronicle = Chronicle::find(Auth::user()->chronicle_id);
+
+        if (! $selectedChronicle) {
+            return to_route('chronicle.index');
+        }
+
+        $chronicleCharacters = $selectedChronicle->characters;
+        $chronicleCharacters->load('clan');
 
         return Inertia::render('Character/Index', [
-            'characters' => $characters,
+            'characters' => $chronicleCharacters,
+            'chronicle' => $selectedChronicle->name,
         ]);
     }
 

@@ -8,8 +8,11 @@ use App\Http\Controllers\ChronicleController;
 use App\Http\Controllers\CompulsionController;
 use App\Http\Controllers\ConceptController;
 use App\Http\Controllers\DescriptionController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProfileController;
+use App\Mail\UserRegistration;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -43,9 +46,16 @@ Route::middleware('auth')->group(function () {
     Route::put('/character/{character}/attribute/{attribute}', AttributeCharacterUpdateController::class);
     Route::get('/character/{character}/concepts', [ConceptController::class, 'index']);
     Route::get('/character/{character}/backgrounds', [BackgroundController::class, 'index'])->name('backgrounds.index');
+    Route::put('/character/{character}/experience', [ExperienceController::class, 'update'])->name('experience.update');
 
     Route::get('compulsions/{character}', [CompulsionController::class, 'associate'])->name('compulsions.associate');
     Route::delete('compulsions/{character}', [CompulsionController::class, 'destroy'])->name('compulsions.destroy');
+
+    Route::get('experience', [ExperienceController::class, 'index'])->name('experience.index');
+});
+
+Route::get('test_mail', function () {
+    Mail::to('mattou2812@gmail.com')->send(new UserRegistration());
 });
 
 require __DIR__.'/auth.php';

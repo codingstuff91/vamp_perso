@@ -15,8 +15,8 @@ const toggleMenu = async () => {
             @click="toggleMenu"
         >
             <img
-                src="/img/sections.png"
                 class="w-8 h-8"
+                src="/img/sections.png"
             >
             <h1 class="ml-2">Rubriques</h1>
         </button>
@@ -32,12 +32,6 @@ const toggleMenu = async () => {
             @click="menuStore.setPanelMenu('attributes')"
         >
             Attributs & Compétences
-        </button>
-        <button
-            class="menu_text"
-            @click="menuStore.setPanelMenu('status')"
-        >
-            Statut
         </button>
         <button
             class="menu_text"

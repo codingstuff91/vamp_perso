@@ -7,13 +7,27 @@ use App\Models\Clan;
 use App\Models\Predation;
 use App\Models\User;
 
-it('Redirects a game master who doesnt own a chronicle to the chronicle index page', function () {
+it('Redirects a game master who didnt choose a chronicle to the chronicle index page', function () {
     $gameMaster = User::factory()->gameMaster()->create();
     $this->actingAs($gameMaster);
 
     $response = $this->get('/');
 
     $response->assertRedirect(route('chronicle.index'));
+});
+
+it('Redirects a game master who choosed a chronicle to the characters index page', function () {
+    $gameMaster = User::factory()
+        ->gameMaster()
+        ->create([
+            'chronicle_id' => 1,
+        ]);
+
+    $this->actingAs($gameMaster);
+
+    $response = $this->get('/');
+
+    $response->assertRedirect(route('characters.index'));
 });
 
 it('Redirects a player who doesnt own a character to the character index page', function () {

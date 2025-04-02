@@ -6,7 +6,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="py-2 px-4">
+    <div class="pt-2 pb-24 px-4">
         <h1 class="section_title text-center mt-4">Descriptions</h1>
         <div class="mt-4 flex flex-col items-center">
             <div class="px-8 grid grid-cols-2 gap-2 w-full">
@@ -24,10 +24,10 @@ const props = defineProps({
             <p class="subtitle">{{ character.embrace_year }}</p>
 
             <h2 class="my-4 attribute_title">Apparence</h2>
-            <p class="subtitle text-justify">{{ character.appearance }}</p>
+            <p class="subtitle text-justify" v-html="character.appearance"></p>
 
             <h2 class="my-4 attribute_title">Historique / Background</h2>
-            <p class="subtitle text-justify">{{ character.background }}</p>
+            <p class="subtitle text-justify" v-html="character.background"></p>
         </div>
     </div>
 </template>
