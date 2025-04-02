@@ -14,18 +14,13 @@ class ChronicleController extends Controller
     public function index()
     {
         $user = Auth::user();
+
+        /** @phpstan-ignore-next-line */
         $chronicles = $user->chronicles;
 
         return Inertia::render('Chronicle/Index', [
             'chronicles' => $chronicles,
             'user' => $user,
-        ]);
-    }
-
-    public function create(Request $request)
-    {
-        return Inertia::render('Chronicle/Create', [
-            'user' => $request->user(),
         ]);
     }
 
@@ -37,6 +32,13 @@ class ChronicleController extends Controller
         ]);
 
         return to_route('chronicle.index');
+    }
+
+    public function create(Request $request)
+    {
+        return Inertia::render('Chronicle/Create', [
+            'user' => $request->user(),
+        ]);
     }
 
     public function select(Request $request, User $user)

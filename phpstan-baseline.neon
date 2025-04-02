@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable\\:\\:\\$role\\.$#"
+			count: 4
+			path: app/Http/Middleware/CheckHomeMiddleware.php

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Attribute;
 use App\Models\Character;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class AttributeController extends Controller
 {
-    public function index(Character $character)
+    public function index(Character $character): Collection
     {
+        /** @phpstan-ignore-next-line */
         return $character->attributes;
     }
 
