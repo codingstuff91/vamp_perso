@@ -71,8 +71,7 @@ const hunger_attributes = computed(() => {
                 </div>
 
                 <div class="flex flex-col items-end">
-                    <h2 class="attribute_title">{{ character.experience_points }} /
-                        {{ character.experience_total }} xp</h2>
+                    <h2 class="attribute_title">{{ character.experience_points }} xp</h2>
                     <p class="subtitle">{{ character.generation }}ème génération</p>
                 </div>
             </div>
