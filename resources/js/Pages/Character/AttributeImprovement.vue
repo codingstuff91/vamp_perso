@@ -11,8 +11,9 @@ const props = defineProps({
 });
 
 const improveCharacter = () => {
-    axios.put(`/character/${props.character.id}/attribute/${props.attribute.id}`, {
+    axios.put(`/character/${props.character.id}/attribute/${props.attribute.id}/improve`, {
         newScore: props.attribute_value,
+        consumedExperiencePoints: props.required_experience_points,
     }).then(async () => {
         console.log("Amélioration réussie");
         // await attributesStore.getAttributes(props.character);

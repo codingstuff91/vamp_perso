@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Character;
+namespace App\Actions\Attribute;
 
 use App\Models\Attribute;
 use App\Models\Character;

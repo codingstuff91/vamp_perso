@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Character;
 
 use App\Actions\Attribute\ImproveCharacterAttributeAction;
+use App\Actions\Attribute\ImproveCharacterAttributeActionInput;
 use App\Http\Controllers\Controller;
 use App\Models\Attribute;
 use App\Models\AttributeCharacter;

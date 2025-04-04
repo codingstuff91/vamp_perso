@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Http\Controllers\Character\ImproveCharacterAttributeActionInput;
+use App\Actions\Attribute\ImproveCharacterAttributeActionInput;
 use App\Models\AttributeCharacter;
 
 class CharacterAttributeService
