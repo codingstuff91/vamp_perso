@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Controllers\Character;
+
+use App\Http\Controllers\Controller;
+use App\Models\Attribute;
+use App\Models\AttributeCharacter;
+use App\Models\Character;
+use App\Services\CharacterImprovementService;
+use Inertia\Inertia;
+
+class AttributeImprovementController extends Controller
+{
+    public function __construct(public CharacterImprovementService $attributeService)
+    {
+    }
+
+    public function index(Character $character, Attribute $attribute)
+    {
+        $attributeValue = AttributeCharacter::where('character_id', $character->id)
+            ->where('attribute_id', $attribute->id)
+            ->first()
+            ->attribute_value;
+
+        return Inertia::render('Character/AttributeImprovement', [
+            'character' => $character,
+            'attribute' => $attribute,
+            'attribute_value' => $attributeValue,
+            'required_experience_points' => $this->attributeService->getRequiredExperiencePoints($attributeValue + 1, $attribute),
+        ]);
+    }
+}

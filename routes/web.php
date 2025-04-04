@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttributeCharacterUpdateController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\BackgroundController;
+use App\Http\Controllers\Character\AttributeImprovementController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\ChronicleController;
 use App\Http\Controllers\CompulsionController;
@@ -52,6 +53,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('compulsions/{character}', [CompulsionController::class, 'destroy'])->name('compulsions.destroy');
 
     Route::get('experience', [ExperienceController::class, 'index'])->name('experience.index');
+
+    // Character improvements routes
+    Route::get('/character/{character}/attribute/{attribute}/improve', [AttributeImprovementController::class, 'index'])->name('attribute_improve.index');
+
 });
 
 Route::get('test_mail', function () {
