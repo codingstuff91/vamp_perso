@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
 
     // Character improvements routes
     Route::get('/character/{character}/attribute/{attribute}/improve', [AttributeImprovementController::class, 'index'])->name('attribute_improve.index');
+    Route::put('/character/{character}/attribute/{attribute}/improve', [AttributeImprovementController::class, 'update'])->name('attribute_improve.update');
 
 });
 
