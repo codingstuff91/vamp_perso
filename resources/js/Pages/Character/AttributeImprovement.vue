@@ -11,13 +11,14 @@ const props = defineProps({
 });
 
 const improveCharacter = () => {
-    axios.put(`/character/${props.character.id}/attribute/${props.attribute.id}/improve`, {
-        newScore: props.attribute_value,
-        consumedExperiencePoints: props.required_experience_points,
-    }).then(async () => {
-        console.log("Amélioration réussie");
-        // await attributesStore.getAttributes(props.character);
-    });
+    if (confirm('Êtes-vous sûr de vouloir améliorer cet attribut ?')) {
+        axios.put(`/character/${props.character.id}/attribute/${props.attribute.id}/improve`, {
+            newScore: props.attribute_value + 1,
+            consumedExperiencePoints: props.required_experience_points,
+        }).then(() => {
+            window.location.href = `/characters/${props.character.id}`;
+        });
+    }
 }
 
 </script>
