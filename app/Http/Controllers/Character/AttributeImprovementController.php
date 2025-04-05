@@ -27,11 +27,15 @@ class AttributeImprovementController extends Controller
             ->first()
             ->attribute_value;
 
+        $requiredExperiencePoints = $this->attributeService->getRequiredExperiencePoints($attributeValue + 1, $attribute);
+
+        abort_if($requiredExperiencePoints > $character->experience_points, 403, __('Pas assez de points pour améliorer cet attribut.'));
+
         return Inertia::render('Character/AttributeImprovement', [
             'character' => $character,
             'attribute' => $attribute,
             'attribute_value' => $attributeValue,
-            'required_experience_points' => $this->attributeService->getRequiredExperiencePoints($attributeValue + 1, $attribute),
+            'required_experience_points' => $requiredExperiencePoints,
         ]);
     }
 
