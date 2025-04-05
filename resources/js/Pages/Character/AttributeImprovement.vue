@@ -49,10 +49,10 @@ const improveCharacter = () => {
                     <p class="column_title">{{ required_experience_points }} points d'expérience</p>
 
                     <button
-                        class="p-2 mt-4 rounded-lg w-full bg-gray-700 text-chalk-50 text-lg font-bold"
+                        class="p-2 mt-4 rounded-lg w-1/2 bg-blood-500 text-chalk-50 text-lg font-bold"
                         @click="improveCharacter"
                     >
-                        Sélectionner
+                        Valider
                     </button>
                 </div>
             </div>
