@@ -67,6 +67,7 @@ const goToImproveAttributePage = (attribute) => {
                                 </p>
 
                                 <img
+                                    v-if="attribute.pivot.attribute_value < 5"
                                     alt="level-up"
                                     class="w-8 h-8"
                                     src="/img/level.png"
@@ -94,6 +95,7 @@ const goToImproveAttributePage = (attribute) => {
                                 </p>
 
                                 <img
+                                    v-if="attribute.pivot.attribute_value < 5"
                                     alt="level-up"
                                     class="w-8 h-8"
                                     src="/img/level.png"
@@ -121,6 +123,7 @@ const goToImproveAttributePage = (attribute) => {
                                 </p>
 
                                 <img
+                                    v-if="attribute.pivot.attribute_value < 5"
                                     alt="level-up"
                                     class="w-8 h-8"
                                     src="/img/level.png"
