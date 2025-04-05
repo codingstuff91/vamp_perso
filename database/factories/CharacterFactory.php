@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\Predation;
+use App\Models\Character;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Character>
+ * @extends Factory<Character>
  */
 class CharacterFactory extends Factory
 {
@@ -20,8 +20,8 @@ class CharacterFactory extends Factory
         return [
             'name' => fake()->name(),
             'generation' => 12,
-            'experience_points' => 0,
-            'experience_total' => 0,
+            'experience_points' => 10,
+            'experience_total' => 10,
             'sire' => fake()->name(),
             'appearance' => fake()->paragraph(3),
             'apparent_age' => 30,
