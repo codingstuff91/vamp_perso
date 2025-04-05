@@ -33,6 +33,10 @@ const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
     await modalStore.toggle();
 }
+
+const goToImproveAttributePage = (attribute) => {
+    window.location.href = `/character/${props.character.id}/attribute/${attribute.id}/improve`;
+}
 </script>
 
 <template>
@@ -54,11 +58,21 @@ const showDescription = async (entity, id) => {
                             v-for="(attribute, index) in physical_attributes" :key="index"
                             class="flex flex-col items-start"
                         >
-                            <p
-                                class="my-2 attribute_title"
-                                @click="showDescription('attribute', attribute.id)"
-                            >
-                                {{ attribute.name }}</p>
+                            <div class="flex justify-center items-center gap-x-2">
+                                <p
+                                    class="my-2 attribute_title"
+                                    @click="showDescription('attribute', attribute.id)"
+                                >
+                                    {{ attribute.name }}
+                                </p>
+
+                                <img
+                                    alt="level-up"
+                                    class="w-8 h-8"
+                                    src="/img/level.png"
+                                    @click="goToImproveAttributePage(attribute)"
+                                >
+                            </div>
                             <AttributeGauge
                                 :max="5"
                                 :value="attribute.pivot.attribute_value"
@@ -71,11 +85,21 @@ const showDescription = async (entity, id) => {
                             v-for="(attribute, index) in social_attributes" :key="index"
                             class="flex flex-col items-center"
                         >
-                            <p
-                                class="my-2 attribute_title"
-                                @click="showDescription('attribute', attribute.id)"
-                            >
-                                {{ attribute.name }}</p>
+                            <div class="flex justify-center items-center gap-x-2">
+                                <p
+                                    class="my-2 attribute_title"
+                                    @click="showDescription('attribute', attribute.id)"
+                                >
+                                    {{ attribute.name }}
+                                </p>
+
+                                <img
+                                    alt="level-up"
+                                    class="w-8 h-8"
+                                    src="/img/level.png"
+                                    @click="goToImproveAttributePage(attribute)"
+                                >
+                            </div>
                             <AttributeGauge
                                 :max="5"
                                 :value="attribute.pivot.attribute_value"
@@ -88,11 +112,21 @@ const showDescription = async (entity, id) => {
                             v-for="(attribute, index) in mental_attributes" :key="index"
                             class="flex flex-col items-end"
                         >
-                            <p
-                                class="my-2 attribute_title"
-                                @click="showDescription('attribute', attribute.id)"
-                            >
-                                {{ attribute.name }}</p>
+                            <div class="flex justify-center items-center gap-x-2">
+                                <p
+                                    class="my-2 attribute_title"
+                                    @click="showDescription('attribute', attribute.id)"
+                                >
+                                    {{ attribute.name }}
+                                </p>
+
+                                <img
+                                    alt="level-up"
+                                    class="w-8 h-8"
+                                    src="/img/level.png"
+                                    @click="goToImproveAttributePage(attribute)"
+                                >
+                            </div>
                             <AttributeGauge
                                 :max="5"
                                 :value="attribute.pivot.attribute_value"
