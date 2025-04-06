@@ -37,6 +37,11 @@ const showDescription = async (entity, id) => {
 const goToImproveAttributePage = (attribute) => {
     window.location.href = `/character/${props.character.id}/attribute/${attribute.id}/improve`;
 }
+
+const canShowLevelUp = computed(() => {
+    return props.character.user.role === 'game_master';
+});
+
 </script>
 
 <template>
@@ -67,7 +72,7 @@ const goToImproveAttributePage = (attribute) => {
                                 </p>
 
                                 <img
-                                    v-if="attribute.pivot.attribute_value < 5"
+                                    v-if="attribute.pivot.attribute_value < 5 && canShowLevelUp"
                                     alt="level-up"
                                     class="w-8 h-8"
                                     src="/img/level.png"
@@ -95,7 +100,7 @@ const goToImproveAttributePage = (attribute) => {
                                 </p>
 
                                 <img
-                                    v-if="attribute.pivot.attribute_value < 5"
+                                    v-if="attribute.pivot.attribute_value < 5 && canShowLevelUp"
                                     alt="level-up"
                                     class="w-8 h-8"
                                     src="/img/level.png"
@@ -123,7 +128,7 @@ const goToImproveAttributePage = (attribute) => {
                                 </p>
 
                                 <img
-                                    v-if="attribute.pivot.attribute_value < 5"
+                                    v-if="attribute.pivot.attribute_value < 5  && canShowLevelUp"
                                     alt="level-up"
                                     class="w-8 h-8"
                                     src="/img/level.png"
