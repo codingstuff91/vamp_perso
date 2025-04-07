@@ -14,6 +14,7 @@ const modalStore = useModalStore();
 const props = defineProps({
     disciplines: Array,
     characterPowers: Array,
+    characterClan: String,
 });
 
 const powers = ref([]);
@@ -32,7 +33,7 @@ const selectDiscipline = (discipline) => {
         return element.id === discipline.id
     })[0].description;
 
-    selectedDiscipline.value = discipline.id;
+    selectedDiscipline.value = discipline;
 };
 
 const isNewForCharacter = (power) => {
@@ -41,6 +42,17 @@ const isNewForCharacter = (power) => {
         return props.characterPowers.includes(power.id) === false;
     }
 };
+
+const confirmPowerAttribution = (power) => {
+    console.log(props.characterClan.disciplines.available, selectedDiscipline.value.name)
+    const powerBelongsToCharacterClan = props.characterClan.disciplines.available.includes(selectedDiscipline.value.name);
+    const experiencePointsMultiplier = powerBelongsToCharacterClan ? 5 : 7;
+    const requiredExperiencePoints = power.level * experiencePointsMultiplier;
+
+    if (confirm(`Voulez vous dépenser ${requiredExperiencePoints} pts d\'exp pour ajouter cette discipline ?`)) {
+        console.log('choix validé')
+    }
+}
 </script>
 
 <template>
@@ -92,6 +104,8 @@ const isNewForCharacter = (power) => {
                         v-show="isNewForCharacter(power)"
                         :key="power.id"
                         :power="power"
+                        :selectable="true"
+                        @selectPower="confirmPowerAttribution(power)"
                     />
                 </div>
             </div>
