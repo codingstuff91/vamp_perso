@@ -10,6 +10,7 @@ use App\Http\Controllers\CompulsionController;
 use App\Http\Controllers\ConceptController;
 use App\Http\Controllers\DescriptionController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\PowerImprovementController;
 use App\Http\Controllers\ProfileController;
 use App\Mail\UserRegistration;
 use Illuminate\Foundation\Application;
@@ -58,6 +59,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/character/{character}/attribute/{attribute}/improve', [AttributeImprovementController::class, 'index'])->name('attribute_improve.index');
     Route::put('/character/{character}/attribute/{attribute}/improve', [AttributeImprovementController::class, 'update'])->name('attribute_improve.update');
 
+    // Power improvement routes
+    Route::get('/character/{character}/powers', [PowerImprovementController::class, 'index'])->name('power_improve.index');
+    Route::get('/discipline/{discipline}/powers', [PowerImprovementController::class, 'getPowers'])->name('power_improve.getPowers');
 });
 
 Route::get('test_mail', function () {
