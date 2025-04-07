@@ -17,8 +17,8 @@ class ClanFactory extends Factory
             'description' => fake()->paragraph(3),
             'disciplines' => [
                 'available' => [
-                    'animalisme',
-                    'auspex',
+                    'Animalisme',
+                    'Auspex',
                 ],
             ],
             'bane' => fake()->word(),
