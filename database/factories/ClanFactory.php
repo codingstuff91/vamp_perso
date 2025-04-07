@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Clan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Clan>
+ * @extends Factory<Clan>
  */
 class ClanFactory extends Factory
 {
@@ -14,7 +15,12 @@ class ClanFactory extends Factory
         return [
             'name' => fake()->word(),
             'description' => fake()->paragraph(3),
-            'disciplines' => fake()->sentence(3),
+            'disciplines' => [
+                'available' => [
+                    'animalisme',
+                    'auspex',
+                ],
+            ],
             'bane' => fake()->word(),
             'compulsion' => fake()->word(),
         ];
