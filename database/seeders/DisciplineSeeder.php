@@ -11,11 +11,12 @@ class DisciplineSeeder extends Seeder
 {
     public function run(): void
     {
-        foreach(DisciplineEnum::cases() as $discipline) {
+        foreach (DisciplineEnum::cases() as $discipline) {
             Discipline::factory()
                 ->has(Description::factory())
                 ->create([
-                    'name' => $discipline->name
+                    'name' => $discipline->name,
+                    'description' => $discipline->description(),
                 ]);
         }
     }
