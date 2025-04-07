@@ -13,6 +13,7 @@ const modalStore = useModalStore();
 
 const props = defineProps({
     disciplines: Array,
+    characterPowers: Array,
 });
 
 const powers = ref([]);
@@ -32,6 +33,13 @@ const selectDiscipline = (discipline) => {
     })[0].description;
 
     selectedDiscipline.value = discipline.id;
+};
+
+const isNewForCharacter = (power) => {
+    if (powers.value.length) {
+        console.log(props.characterPowers.includes(power.id));
+        return props.characterPowers.includes(power.id) === false;
+    }
 };
 </script>
 
@@ -64,14 +72,14 @@ const selectDiscipline = (discipline) => {
                         class="py-2 px-4 rounded-lg attribute_title"
                         @click="getPowers(discipline)"
                     >
-                        <h2 class="">
+                        <h2>
                             {{ discipline.name }}
                         </h2>
                     </div>
                 </div>
 
                 <div
-                    v-if="disciplineDescription"
+                    v-if="selectedDiscipline"
                     class="my-4 subtitle text-justify"
                 >
                     <h3 class="column_title my-4">Description</h3>
@@ -80,8 +88,9 @@ const selectDiscipline = (discipline) => {
 
                 <div class="grid grid-cols-3 gap-x-4">
                     <Power
-                        v-for="(power, index) in powers"
-                        :key="index"
+                        v-for="power in powers"
+                        v-show="isNewForCharacter(power)"
+                        :key="power.id"
                         :power="power"
                     />
                 </div>

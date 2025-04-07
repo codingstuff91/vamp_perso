@@ -12,6 +12,7 @@ class PowerImprovementController extends Controller
     {
         return Inertia::render('Character/Discipline/Index', [
             'disciplines' => Discipline::all(),
+            'characterPowers' => $character->powers()->get()->pluck('id'),
         ]);
     }
 
