@@ -13,6 +13,7 @@ const modalStore = useModalStore();
 
 const props = defineProps({
     disciplines: Array,
+    character: Object,
     characterPowers: Array,
     characterClan: String,
 });
@@ -38,19 +39,19 @@ const selectDiscipline = (discipline) => {
 
 const isNewForCharacter = (power) => {
     if (powers.value.length) {
-        console.log(props.characterPowers.includes(power.id));
         return props.characterPowers.includes(power.id) === false;
     }
 };
 
 const confirmPowerAttribution = (power) => {
-    console.log(props.characterClan.disciplines.available, selectedDiscipline.value.name)
     const powerBelongsToCharacterClan = props.characterClan.disciplines.available.includes(selectedDiscipline.value.name);
     const experiencePointsMultiplier = powerBelongsToCharacterClan ? 5 : 7;
     const requiredExperiencePoints = power.level * experiencePointsMultiplier;
 
     if (confirm(`Voulez vous dépenser ${requiredExperiencePoints} pts d\'exp pour ajouter cette discipline ?`)) {
-        console.log('choix validé')
+        disciplineStore.associatePower(props.character, power, requiredExperiencePoints)
+
+        alert('Discipline ajoutée !');
     }
 }
 </script>

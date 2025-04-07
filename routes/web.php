@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
 
     // Power improvement routes
     Route::get('/character/{character}/powers', [PowerImprovementController::class, 'index'])->name('power_improve.index');
+    Route::post('/character/{character}/power/{power}', [PowerImprovementController::class, 'store'])->name('power_improve.store');
     Route::get('/discipline/{discipline}/powers', [PowerImprovementController::class, 'getPowers'])->name('power_improve.getPowers');
 });
 

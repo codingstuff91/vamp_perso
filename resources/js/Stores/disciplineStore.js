@@ -11,5 +11,8 @@ export const useDisciplineStore = defineStore('disciplines', {
             const response = await axios.get(`/discipline/${discipline.id}/powers`)
             this.powers = response.data;
         },
+        async associatePower(character, power, requiredExperiencePoints) {
+            await axios.post(`/character/${character.id}/power/${power.id}`, {requiredExperiencePoints})
+        }
     },
 })
