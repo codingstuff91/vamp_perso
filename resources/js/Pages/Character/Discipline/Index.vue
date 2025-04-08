@@ -7,6 +7,7 @@ import {useModalStore} from "@/Stores/modalStore.js";
 import {ref} from "vue";
 import Power from "@/Pages/Character/Partials/Power.vue";
 import DetailsModal from "@/Components/Modals/DetailsModal.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
 
 const disciplineStore = useDisciplineStore();
 const modalStore = useModalStore();
@@ -86,6 +87,12 @@ const confirmPowerAttribution = (power) => {
 
         <div class="pb-4">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <primary-button
+                    class="my-4"
+                    @click="$inertia.get(`/characters/${props.character.id}`)"
+                >
+                    Revenir au personnage
+                </primary-button>
                 <h1 class="text-center section_title my-4">Choisissez une discipline</h1>
 
                 <div class="my-4 flex flex-col items-center gap-y-2">
