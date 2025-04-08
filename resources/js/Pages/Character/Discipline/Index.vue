@@ -16,7 +16,6 @@ const props = defineProps({
     disciplines: Array,
     character: Object,
     characterPowers: Array,
-    clanDisciplines: Array,
 });
 
 const powers = ref([]);
@@ -45,7 +44,9 @@ const isNewForCharacter = (power) => {
 };
 
 const isPowerBelongsToCharacterClan = (power) => {
-    return props.clanDisciplines.includes(power.name);
+    console.log(props.character.clan)
+    return true;
+    // return props.clanDisciplines.includes(power.name);
 };
 
 const confirmPowerAttribution = (power) => {

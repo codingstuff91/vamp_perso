@@ -17,11 +17,12 @@ class PowerImprovementController extends Controller
 
     public function index(Character $character)
     {
+        $character->load('clan');
+
         return Inertia::render('Character/Discipline/Index', [
             'disciplines' => Discipline::all(),
             'characterPowers' => $character->powers()->get()->pluck('id'),
             'character' => $character,
-            'clanDisciplines' => $character->clan->disciplines['available'],
         ]);
     }
 
