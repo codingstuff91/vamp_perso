@@ -24,7 +24,7 @@ const showDescription = async (entity, id) => {
         />
 
         <div
-            v-if="props.character.user.role === 'game_master'"
+            v-if="$page.props.auth.user.role === 'game_master'"
             class="flex justify-center my-4"
         >
             <button
