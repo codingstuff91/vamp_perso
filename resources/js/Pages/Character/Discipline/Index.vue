@@ -43,8 +43,12 @@ const isNewForCharacter = (power) => {
     }
 };
 
+const isPowerBelongsToCharacterClan = (power) => {
+    return props.characterClan.disciplines.available.includes(power.name);
+};
+
 const confirmPowerAttribution = (power) => {
-    const powerBelongsToCharacterClan = props.characterClan.disciplines.available.includes(selectedDiscipline.value.name);
+    const powerBelongsToCharacterClan = isPowerBelongsToCharacterClan(selectedDiscipline.value.name);
     const experiencePointsMultiplier = powerBelongsToCharacterClan ? 5 : 7;
     const requiredExperiencePoints = power.level * experiencePointsMultiplier;
 
@@ -86,10 +90,10 @@ const confirmPowerAttribution = (power) => {
 
                 <div class="my-4 flex flex-col items-center gap-y-2">
                     <h2 class="subtitle">Cout en points d'experience</h2>
-                    <p class="text-blood-500 text-xl font-bold">
+                    <p class="text-skin-50 text-2xl font-bold">
                         Pour une discipline de votre clan : Niveau souhaité x 5
                     </p>
-                    <p class="text-blood-500 text-xl font-bold">
+                    <p class="text-gray-400 text-2xl font-bold">
                         Pour une discipline hors clan : Niveau souhaité x 7
                     </p>
                 </div>
@@ -98,8 +102,11 @@ const confirmPowerAttribution = (power) => {
                     <div
                         v-for="discipline in disciplines"
                         :key="discipline.id"
-                        :class="{'desktop_menu_active' : selectedDiscipline.id === discipline.id}"
-                        class="py-2 px-4 rounded-lg attribute_title cursor-pointer text-center"
+                        :class="{
+                            'bg-blood-500' : selectedDiscipline?.id === discipline.id,
+                            'text-2xl text-skin-50': isPowerBelongsToCharacterClan(discipline)
+                        }"
+                        class="py-2 px-4 rounded-lg font-bold text-gray-400 text-2xl cursor-pointer text-center"
                         @click="getPowers(discipline)"
                     >
                         <h2>
