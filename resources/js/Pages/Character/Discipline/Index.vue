@@ -71,8 +71,11 @@ const confirmPowerAttribution = (power) => {
     <AuthenticatedLayout>
         <template #header>
             <div class="flex justify-center">
-                <div class="flex flex-col">
-                    <h1 class="attribute_title text-2xl leading-tight text-center">Choix nouvelle discipline</h1>
+                <div class="flex flex-col items-center gap-y-2">
+                    <h1 class="attribute_title leading-tight">Choix nouvelle discipline</h1>
+                    <h2 class="text-skin-50 text-2xl font-bold">
+                        Points XP restants : <span class="subtitle">{{ props.character.experience_points }}</span>
+                    </h2>
                 </div>
             </div>
         </template>
@@ -80,6 +83,16 @@ const confirmPowerAttribution = (power) => {
         <div class="pb-4">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <h1 class="text-center section_title my-4">Choisissez une discipline</h1>
+
+                <div class="my-4 flex flex-col items-center gap-y-2">
+                    <h2 class="subtitle">Cout en points d'experience</h2>
+                    <p class="text-blood-500 text-xl font-bold">
+                        Pour une discipline de votre clan : Niveau souhaité x 5
+                    </p>
+                    <p class="text-blood-500 text-xl font-bold">
+                        Pour une discipline hors clan : Niveau souhaité x 7
+                    </p>
+                </div>
 
                 <div class="grid grid-cols-3 gap-4 mt-8">
                     <div
