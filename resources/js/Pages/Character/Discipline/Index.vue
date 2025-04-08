@@ -98,8 +98,8 @@ const confirmPowerAttribution = (power) => {
                     <div
                         v-for="discipline in disciplines"
                         :key="discipline.id"
-                        :class="{'desktop_menu_active' : selectedDiscipline === discipline.id}"
-                        class="py-2 px-4 rounded-lg attribute_title"
+                        :class="{'desktop_menu_active' : selectedDiscipline.id === discipline.id}"
+                        class="py-2 px-4 rounded-lg attribute_title cursor-pointer text-center"
                         @click="getPowers(discipline)"
                     >
                         <h2>
@@ -112,7 +112,7 @@ const confirmPowerAttribution = (power) => {
                     v-if="selectedDiscipline"
                     class="my-4 subtitle text-justify"
                 >
-                    <h3 class="column_title my-4">Description</h3>
+                    <h3 class="column_title my-4 text-center">{{ selectedDiscipline.name }}</h3>
                     {{ disciplineDescription }}
                 </div>
 
