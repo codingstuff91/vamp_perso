@@ -45,7 +45,7 @@ const isNewForCharacter = (power) => {
 };
 
 const isPowerBelongsToCharacterClan = (power) => {
-    return props.characterClan.disciplines.available.includes(power.name);
+    return props.characterClan.disciplines?.available.includes(power.name);
 };
 
 const confirmPowerAttribution = (power) => {
