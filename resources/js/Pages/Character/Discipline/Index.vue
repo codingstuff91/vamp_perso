@@ -55,7 +55,7 @@ const confirmPowerAttribution = (power) => {
     if (confirm(`Voulez vous dépenser ${requiredExperiencePoints} pts d\'exp pour ajouter cette discipline ?`)) {
         disciplineStore.associatePower(props.character, power, requiredExperiencePoints)
             .then(() => {
-                alert('Discipline ajoutée !');
+                window.location.href = `/character/${props.character.id}/powers`;
             })
             .catch((exception) => {
                 alert(exception.response.data.message);
