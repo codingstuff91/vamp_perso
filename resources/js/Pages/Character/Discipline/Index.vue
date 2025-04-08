@@ -16,7 +16,7 @@ const props = defineProps({
     disciplines: Array,
     character: Object,
     characterPowers: Array,
-    characterClan: String,
+    clanDisciplines: Array,
 });
 
 const powers = ref([]);
@@ -45,7 +45,7 @@ const isNewForCharacter = (power) => {
 };
 
 const isPowerBelongsToCharacterClan = (power) => {
-    return props.characterClan.disciplines?.available.includes(power.name);
+    return props.clanDisciplines.includes(power.name);
 };
 
 const confirmPowerAttribution = (power) => {
@@ -127,7 +127,7 @@ const confirmPowerAttribution = (power) => {
                     class="my-4 subtitle text-justify"
                 >
                     <h3 class="column_title my-4 text-center">{{ selectedDiscipline.name }}</h3>
-                    {{ disciplineDescription }}
+                    <p v-html="disciplineDescription"></p>
                 </div>
 
                 <div class="grid grid-cols-3 gap-x-4">

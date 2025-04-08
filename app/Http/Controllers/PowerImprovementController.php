@@ -21,7 +21,7 @@ class PowerImprovementController extends Controller
             'disciplines' => Discipline::all(),
             'characterPowers' => $character->powers()->get()->pluck('id'),
             'character' => $character,
-            'characterClan' => $character->clan,
+            'clanDisciplines' => $character->clan->disciplines['available'],
         ]);
     }
 
