@@ -17,8 +17,6 @@ class PowerImprovementController extends Controller
 
     public function index(Character $character)
     {
-        dd($character->clan);
-
         return Inertia::render('Character/Discipline/Index', [
             'disciplines' => Discipline::all(),
             'characterPowers' => $character->powers()->get()->pluck('id'),
