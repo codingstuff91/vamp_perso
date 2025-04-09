@@ -29,7 +29,7 @@ test('Decrease experience points from a character', function () {
     $user = createUser();
     $this->actingAs($user);
 
-    $character = createCharacter($user);
+    $character = createCharacter($user, experiencePoints: 10);
 
     $attribute = Attribute::factory()->create();
 
@@ -56,7 +56,7 @@ test('Increase attribute value', function () {
     $user = createUser();
     $this->actingAs($user);
 
-    $character = createCharacter($user);
+    $character = createCharacter($user, experiencePoints: 10);
 
     $attribute = Attribute::factory()->create();
 
