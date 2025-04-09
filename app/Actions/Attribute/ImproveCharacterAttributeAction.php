@@ -16,6 +16,8 @@ class ImproveCharacterAttributeAction
     public function execute(
         ImproveCharacterAttributeActionInput $input,
     ): void {
+        $this->experienceService->hasEnoughExperiencePoints($input->character, $input->consumedExperiencePoints);
+
         $this->experienceService->decreasePoints($input->character, $input->consumedExperiencePoints);
 
         $this->characterAttributeService->update($input);

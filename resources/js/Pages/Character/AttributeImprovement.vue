@@ -27,7 +27,14 @@ const improveCharacter = () => {
                 consumedExperiencePoints: props.required_experience_points,
             }).then(() => {
                 window.location.href = `/characters/${props.character.id}`;
-            });
+            })
+                .catch((exception) => {
+                    Swal.fire({
+                        title: "Erreur",
+                        text: exception.response.data.message,
+                        icon: "error"
+                    });
+                });
         }
     });
 }
