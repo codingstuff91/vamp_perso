@@ -8,6 +8,7 @@ import {ref} from "vue";
 import Power from "@/Pages/Character/Partials/Power.vue";
 import DetailsModal from "@/Components/Modals/DetailsModal.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import Swal from "sweetalert2";
 
 const disciplineStore = useDisciplineStore();
 const modalStore = useModalStore();
@@ -58,15 +59,25 @@ const defineExperienceMultiplier = () => {
 const confirmPowerAttribution = (power) => {
     const requiredExperiencePoints = power.level * defineExperienceMultiplier();
 
-    if (confirm(`Voulez vous dépenser ${requiredExperiencePoints} pts d\'exp pour ajouter cette discipline ?`)) {
-        disciplineStore.associatePower(props.character, power, requiredExperiencePoints)
-            .then(() => {
-                window.location.href = `/character/${props.character.id}/powers`;
-            })
-            .catch((exception) => {
-                alert(exception.response.data.message);
-            });
-    }
+    Swal.fire({
+        title: `Voulez vous dépenser ${requiredExperiencePoints} pts d\'exp pour ajouter cette discipline ?`,
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Oui, je suis sûr",
+        cancelButtonText: "Non, je renonce"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            disciplineStore.associatePower(props.character, power, requiredExperiencePoints)
+                .then(() => {
+                    window.location.href = `/character/${props.character.id}/powers`;
+                })
+                .catch((exception) => {
+                    alert(exception.response.data.message);
+                });
+        }
+    });
 }
 </script>
 
