@@ -47,9 +47,13 @@ const improveCharacter = () => {
     <AuthenticatedLayout>
         <template #header>
             <div class="flex justify-center">
-                <div class="flex flex-col">
-                    <h1 class="attribute_title text-2xl leading-tight text-center">Amélioration Attribut /
-                        Compétence</h1>
+                <div class="flex flex-col items-center gap-y-2">
+                    <h1 class="attribute_title text-2xl leading-tight text-center">
+                        Amélioration Attribut / Compétence
+                    </h1>
+                    <h2 class="text-skin-50 text-2xl font-bold">
+                        Points XP restants : <span class="subtitle">{{ props.character.experience_points }}</span>
+                    </h2>
                 </div>
             </div>
         </template>
