@@ -2,6 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import AttributeGauge from "@/Components/Gauges/AttributeGauge.vue";
+import Swal from "sweetalert2";
 
 const props = defineProps({
     character: Object,
@@ -11,14 +12,24 @@ const props = defineProps({
 });
 
 const improveCharacter = () => {
-    if (confirm('Êtes-vous sûr de vouloir améliorer cet attribut ?')) {
-        axios.put(`/character/${props.character.id}/attribute/${props.attribute.id}/improve`, {
-            newScore: props.attribute_value + 1,
-            consumedExperiencePoints: props.required_experience_points,
-        }).then(() => {
-            window.location.href = `/characters/${props.character.id}`;
-        });
-    }
+    Swal.fire({
+        title: 'Êtes-vous sûr de vouloir améliorer cet attribut ?',
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Oui, je suis sûr",
+        cancelButtonText: "Non, je renonce"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axios.put(`/character/${props.character.id}/attribute/${props.attribute.id}/improve`, {
+                newScore: props.attribute_value + 1,
+                consumedExperiencePoints: props.required_experience_points,
+            }).then(() => {
+                window.location.href = `/characters/${props.character.id}`;
+            });
+        }
+    });
 }
 
 </script>
