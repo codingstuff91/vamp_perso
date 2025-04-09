@@ -4,6 +4,8 @@ use App\Models\BloodPotency;
 use App\Models\Character;
 use App\Models\Chronicle;
 use App\Models\Clan;
+use App\Models\Discipline;
+use App\Models\Power;
 use App\Models\Predation;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -53,7 +55,7 @@ function createUser(string $role = 'player')
     return User::factory()->$role()->create();
 }
 
-function createCharacter(?User $user = null)
+function createCharacter(?User $user = null, int $experiencePoints = 0)
 {
     $player = $user ?? User::factory()->create();
 
@@ -65,5 +67,13 @@ function createCharacter(?User $user = null)
         ->for(Predation::factory()->create())
         ->create([
             'name' => 'Dracula Von Helsing',
+            'experience_points' => $experiencePoints,
         ]);
+}
+
+function createPower()
+{
+    return Power::factory()
+        ->for(Discipline::factory())
+        ->create();
 }
