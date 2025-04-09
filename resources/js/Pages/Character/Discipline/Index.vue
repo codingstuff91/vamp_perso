@@ -74,7 +74,11 @@ const confirmPowerAttribution = (power) => {
                     window.location.href = `/character/${props.character.id}/powers`;
                 })
                 .catch((exception) => {
-                    alert(exception.response.data.message);
+                    Swal.fire({
+                        title: "Erreur",
+                        text: exception.response.data.message,
+                        icon: "error"
+                    });
                 });
         }
     });
