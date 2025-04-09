@@ -43,14 +43,20 @@ const isNewForCharacter = (power) => {
     }
 };
 
-const isPowerBelongsToCharacterClan = (power) => {
-    return props.character.clan.disciplines.available.includes(power.name);
+const disciplineKnownByCharacterClan = (discipline) => {
+    return props.character.clan.disciplines.available.includes(discipline.name);
 };
 
+const defineExperienceMultiplier = () => {
+    if (disciplineKnownByCharacterClan(selectedDiscipline.value)) {
+        return 5;
+    }
+
+    return 7;
+}
+
 const confirmPowerAttribution = (power) => {
-    const powerBelongsToCharacterClan = isPowerBelongsToCharacterClan(selectedDiscipline.value.name);
-    const experiencePointsMultiplier = powerBelongsToCharacterClan ? 5 : 7;
-    const requiredExperiencePoints = power.level * experiencePointsMultiplier;
+    const requiredExperiencePoints = power.level * defineExperienceMultiplier();
 
     if (confirm(`Voulez vous dépenser ${requiredExperiencePoints} pts d\'exp pour ajouter cette discipline ?`)) {
         disciplineStore.associatePower(props.character, power, requiredExperiencePoints)
@@ -110,7 +116,7 @@ const confirmPowerAttribution = (power) => {
                         :key="discipline.id"
                         :class="{
                             'bg-blood-500' : selectedDiscipline?.id === discipline.id,
-                            'text-2xl text-skin-50': isPowerBelongsToCharacterClan(discipline)
+                            'text-2xl text-skin-50': disciplineKnownByCharacterClan(discipline)
                         }"
                         class="py-2 px-4 rounded-lg font-bold text-gray-400 text-2xl cursor-pointer text-center"
                         @click="getPowers(discipline)"
