@@ -3,6 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/vue3';
 import AttributeGauge from "@/Components/Gauges/AttributeGauge.vue";
 import Swal from "sweetalert2";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
 
 const props = defineProps({
     character: Object,
@@ -60,6 +61,12 @@ const improveCharacter = () => {
 
         <div class="pb-4">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <primary-button
+                    class="my-4"
+                    @click="$inertia.get(`/characters/${props.character.id}`)"
+                >
+                    Revenir au personnage
+                </primary-button>
                 <h1 class="my-4 text-center section_title">{{ attribute.name }}</h1>
                 <div class="flex flex-col items-center gap-x-4 gap-y-4">
                     <AttributeGauge

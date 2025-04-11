@@ -29,7 +29,7 @@ class AttributeImprovementController extends Controller
 
         $requiredExperiencePoints = $this->attributeService->getRequiredExperiencePoints($attributeValue + 1, $attribute);
 
-        return Inertia::render('Character/AttributeImprovement', [
+        return Inertia::render('Character/Attribute/AttributeImprovement', [
             'character' => $character,
             'attribute' => $attribute,
             'attribute_value' => $attributeValue,
