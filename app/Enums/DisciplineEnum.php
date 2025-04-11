@@ -6,7 +6,7 @@ enum DisciplineEnum
 {
     case Animalisme;
     case Auspex;
-    case Celerity;
+    case Celerité;
     case Domination;
     case Presence;
     case Protéisme;
