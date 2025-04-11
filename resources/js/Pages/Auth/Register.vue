@@ -22,7 +22,7 @@ const submit = () => {
 
 <template>
     <GuestLayout>
-        <Head title="Inscription"/>
+        <Head title="Vamp-Perso - Inscription"/>
 
         <form @submit.prevent="submit">
             <div>

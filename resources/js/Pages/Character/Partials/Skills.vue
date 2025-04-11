@@ -5,8 +5,10 @@ import {computed} from "vue";
 import {useModalStore} from "@/Stores/modalStore.js";
 import DetailsModal from "@/Components/Modals/DetailsModal.vue";
 import Foldable from "@/Components/Foldable.vue";
+import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore.js";
 
 const modalStore = useModalStore();
+const attributeStore = useCharacterAttributesStore();
 
 const props = defineProps({
     character: Object,
@@ -34,6 +36,10 @@ const showDescription = async (entity, id) => {
     await modalStore.getDescription(entity, id);
     await modalStore.toggle();
 }
+
+const goToImproveAttributePage = (attribute) => {
+    window.location.href = `/character/${props.character.id}/attribute/${attribute.id}/improve`;
+}
 </script>
 
 <template>
@@ -58,12 +64,22 @@ const showDescription = async (entity, id) => {
                             :key="index"
                             class="flex flex-col items-start"
                         >
-                            <p
-                                class="attribute_title"
-                                @click="showDescription('attribute', attribute.id)"
-                            >
-                                {{ attribute.name }}
-                            </p>
+                            <div class="flex justify-center items-center gap-x-2">
+                                <p
+                                    class="my-2 attribute_title"
+                                    @click="showDescription('attribute', attribute.id)"
+                                >
+                                    {{ attribute.name }}
+                                </p>
+
+                                <img
+                                    v-if="attribute.pivot.attribute_value < 5 && $page.props.auth.user.role === 'game_master'"
+                                    alt="level-up"
+                                    class="w-8 h-8"
+                                    src="/img/level.png"
+                                    @click="goToImproveAttributePage(attribute)"
+                                >
+                            </div>
 
                             <AttributeGauge
                                 :max="5"
@@ -85,12 +101,22 @@ const showDescription = async (entity, id) => {
                             :key="index"
                             class="flex flex-col items-center"
                         >
-                            <p
-                                class="attribute_title"
-                                @click="showDescription('attribute', attribute.id)"
-                            >
-                                {{ attribute.name }}
-                            </p>
+                            <div class="flex justify-center items-center gap-x-2">
+                                <p
+                                    class="my-2 attribute_title"
+                                    @click="showDescription('attribute', attribute.id)"
+                                >
+                                    {{ attribute.name }}
+                                </p>
+
+                                <img
+                                    v-if="attribute.pivot.attribute_value < 5 && $page.props.auth.user.role === 'game_master'"
+                                    alt="level-up"
+                                    class="w-8 h-8"
+                                    src="/img/level.png"
+                                    @click="goToImproveAttributePage(attribute)"
+                                >
+                            </div>
 
                             <AttributeGauge
                                 :max="5"
@@ -113,12 +139,22 @@ const showDescription = async (entity, id) => {
                             :key="index"
                             class="flex flex-col items-end"
                         >
-                            <p
-                                class="attribute_title"
-                                @click="showDescription('attribute', attribute.id)"
-                            >
-                                {{ attribute.name }}
-                            </p>
+                            <div class="flex justify-center items-center gap-x-2">
+                                <p
+                                    class="my-2 attribute_title"
+                                    @click="showDescription('attribute', attribute.id)"
+                                >
+                                    {{ attribute.name }}
+                                </p>
+
+                                <img
+                                    v-if="attribute.pivot.attribute_value < 5 && $page.props.auth.user.role === 'game_master'"
+                                    alt="level-up"
+                                    class="w-8 h-8"
+                                    src="/img/level.png"
+                                    @click="goToImproveAttributePage(attribute)"
+                                >
+                            </div>
 
                             <AttributeGauge
                                 :max="5"

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('disciplines', 50);
+            $table->json('disciplines');
             $table->string('bane', 50);
             $table->string('compulsion', 40);
         });

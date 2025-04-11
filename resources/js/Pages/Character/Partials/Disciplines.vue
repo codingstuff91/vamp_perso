@@ -23,6 +23,19 @@ const showDescription = async (entity, id) => {
             :show="modalStore.open"
         />
 
+        <div
+            v-if="$page.props.auth.user.role === 'game_master'"
+            class="flex justify-center my-4"
+        >
+            <button
+                class="desktop_menu_active flex items-center gap-4"
+                @click="$inertia.get(`/character/${props.character.id}/powers`)"
+            >
+                <img class="size-8" src="/img/ajouter.png">
+                Ajouter une discipline
+            </button>
+        </div>
+
         <div class="flex justify-center">
             <h1 class="section_title text-2xl text-red-500 mt-4 mb-4">Disciplines</h1>
         </div>
