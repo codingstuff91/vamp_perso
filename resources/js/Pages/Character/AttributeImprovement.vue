@@ -42,7 +42,7 @@ const improveCharacter = () => {
 </script>
 
 <template>
-    <Head title="Attribute Improvement"/>
+    <Head title="Amélioration personnage"/>
 
     <AuthenticatedLayout>
         <template #header>
