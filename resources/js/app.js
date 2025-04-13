@@ -11,7 +11,7 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 const pinia = createPinia();
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'Vamp-Perso';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
