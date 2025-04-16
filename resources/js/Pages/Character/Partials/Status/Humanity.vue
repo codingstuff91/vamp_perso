@@ -1,12 +1,19 @@
 <script setup>
-import {ref} from "vue";
+import {computed} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
 import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
 
 const attributesStore = useCharacterAttributesStore();
 
-const maxHumanityLevel = ref(10)
+const props = defineProps({
+    witheringLevel: Number,
+    humanityScore: Number,
+});
+
+const maxWitheringLevel = computed(() => {
+    return 10 - props.humanityScore
+});
 </script>
 
 <template>
@@ -15,19 +22,15 @@ const maxHumanityLevel = ref(10)
             class="section_title text-center"
             @click="$emit('getDescription', 'attribute', attributesStore.humanityAttributes[0].id)"
         >
-            Humanité :
-            <span class=" text-skin-50">
-                {{ attributesStore.humanityAttributes[0].pivot.attribute_value }}
-            </span>
+            Flétrissures
         </h2>
         <div class="flex justify-center px-2 py-4 w-full">
             <div class="flex flex-col items-center">
                 <DynamicGauge
-                    :value="attributesStore.humanityAttributes[0].pivot.attribute_value"
-                    :editable="false"
-                    icon="fa-solid fa-cross"
-                    :max="maxHumanityLevel"
-                    :erasable="false"
+                    :max="maxWitheringLevel"
+                    :value="witheringLevel"
+                    attribute="45"
+                    icon="fa-solid fa-notes-medical"
                 />
             </div>
         </div>

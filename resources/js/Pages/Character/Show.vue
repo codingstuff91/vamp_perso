@@ -24,6 +24,7 @@ import NewMobileMenu from "@/Pages/Character/Menus/NewMobileMenu.vue";
 import Hunger from "@/Pages/Character/Partials/Status/Hunger.vue";
 import Willpower from "@/Pages/Character/Partials/Status/Willpower.vue";
 import Health from "@/Pages/Character/Partials/Status/Health.vue";
+import Humanity from "@/Pages/Character/Partials/Status/Humanity.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
@@ -116,6 +117,11 @@ const humanity_attributes = computed(() => {
                     <Willpower :character="character"/>
 
                     <Health :character="character"/>
+
+                    <Humanity
+                        :humanityScore="humanity_attributes[0].pivot.attribute_value"
+                        :witheringLevel="humanity_attributes[1].pivot.attribute_value"
+                    />
                 </div>
 
                 <div
