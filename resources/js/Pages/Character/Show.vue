@@ -42,7 +42,6 @@ onMounted(async () => {
     await attributesStore.getAttributes(props.character)
     await conceptsStore.getConcepts(props.character)
     await backgroundStore.getBackgrounds(props.character)
-    console.log('character', props.character.attributes);
 });
 
 const hunger_attributes = computed(() => {
