@@ -5,7 +5,6 @@ import {Head} from '@inertiajs/vue3';
 
 import Attributes from "@/Pages/Character/Partials/Attributes.vue";
 import Skills from "@/Pages/Character/Partials/Skills.vue";
-import Status from "@/Pages/Character/Partials/Status.vue";
 import Compulsions from "@/Pages/Character/Partials/Compulsions.vue";
 import Backgrounds from "@/Pages/Character/Partials/Backgrounds.vue";
 
@@ -24,6 +23,7 @@ import NewMobileMenu from "@/Pages/Character/Menus/NewMobileMenu.vue";
 import Hunger from "@/Pages/Character/Partials/Status/Hunger.vue";
 import Willpower from "@/Pages/Character/Partials/Status/Willpower.vue";
 import Health from "@/Pages/Character/Partials/Status/Health.vue";
+import Withering from "@/Pages/Character/Partials/Status/Withering.vue";
 
 const rightMenustore = useRightMenuStore();
 const characterStore = useCharacterStore();
@@ -94,7 +94,9 @@ const humanity_attributes = computed(() => {
             >
                 <div>
                     <h2 class="header_attribute_title mb-2">Humanité</h2>
-                    <h2 class="subtitle font-extrabold">{{ humanity_attributes[0].pivot.attribute_value }}</h2>
+                    <h2 class="subtitle font-extrabold">
+                        {{ humanity_attributes[0].pivot.attribute_value }}
+                    </h2>
                 </div>
                 <div>
                     <Compulsions/>
@@ -116,6 +118,11 @@ const humanity_attributes = computed(() => {
                     <Willpower :character="character"/>
 
                     <Health :character="character"/>
+
+                    <Withering
+                        :humanityScore="humanity_attributes[0].pivot.attribute_value"
+                        :witheringLevel="humanity_attributes[1].pivot.attribute_value"
+                    />
                 </div>
 
                 <div
