@@ -2,9 +2,10 @@
 import {computed} from "vue";
 import DynamicGauge from "@/Components/Gauges/DynamicGauge.vue";
 
-import {useCharacterAttributesStore} from "@/Stores/characterAttributesStore";
+import DetailsModal from "@/Components/Modals/DetailsModal.vue";
+import {useModalStore} from "@/Stores/modalStore.js";
 
-const attributesStore = useCharacterAttributesStore();
+const modalStore = useModalStore();
 
 const props = defineProps({
     witheringLevel: Number,
@@ -14,13 +15,22 @@ const props = defineProps({
 const maxWitheringLevel = computed(() => {
     return 10 - props.humanityScore
 });
+const showDescription = async (entity, id) => {
+    await modalStore.getDescription(entity, id);
+    await modalStore.toggle();
+}
 </script>
 
 <template>
+    <DetailsModal
+        :closeable="true"
+        :show="modalStore.open"
+    />
+    
     <div class="mt-4 pb-10">
         <h2
             class="section_title text-center"
-            @click="$emit('getDescription', 'attribute', attributesStore.humanityAttributes[0].id)"
+            @click="showDescription('attribute', 45)"
         >
             Flétrissures
         </h2>

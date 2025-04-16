@@ -94,7 +94,9 @@ const humanity_attributes = computed(() => {
             >
                 <div>
                     <h2 class="header_attribute_title mb-2">Humanité</h2>
-                    <h2 class="subtitle font-extrabold">{{ humanity_attributes[0].pivot.attribute_value }}</h2>
+                    <h2 class="subtitle font-extrabold">
+                        {{ humanity_attributes[0].pivot.attribute_value }}
+                    </h2>
                 </div>
                 <div>
                     <Compulsions/>
