@@ -42,11 +42,18 @@ onMounted(async () => {
     await attributesStore.getAttributes(props.character)
     await conceptsStore.getConcepts(props.character)
     await backgroundStore.getBackgrounds(props.character)
+    console.log('character', props.character.attributes);
 });
 
 const hunger_attributes = computed(() => {
     return props.character.attributes.filter(attribute => {
         return attribute.category === 'hunger'
+    });
+});
+
+const humanity_attributes = computed(() => {
+    return props.character.attributes.filter(attribute => {
+        return attribute.category === 'humanity'
     });
 });
 </script>
@@ -63,7 +70,7 @@ const hunger_attributes = computed(() => {
                 </div>
                 <div class="hidden flex flex-col items-start lg:block">
                     <h2 class="attribute_title">Humanité</h2>
-                    <p class="subtitle">{{ character.attributes[44].pivot.attribute_value }}</p>
+                    <p class="subtitle">{{ humanity_attributes[0].pivot.attribute_value }}</p>
                 </div>
 
                 <div class="hidden lg:block">
@@ -88,7 +95,7 @@ const hunger_attributes = computed(() => {
             >
                 <div>
                     <h2 class="header_attribute_title mb-2">Humanité</h2>
-                    <h2 class="subtitle font-extrabold">{{ character.attributes[44].pivot.attribute_value }}</h2>
+                    <h2 class="subtitle font-extrabold">{{ humanity_attributes[0].pivot.attribute_value }}</h2>
                 </div>
                 <div>
                     <Compulsions/>
