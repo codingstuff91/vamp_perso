@@ -59,6 +59,7 @@ class CharacterController extends Controller
         $character->loadMissing('clan');
         $character->loadMissing('compulsion');
         $character->loadMissing('bloodPotency');
+        $character->loadMissing('user');
 
         $disciplines = $character->powers()->groupBy('discipline.name');
 

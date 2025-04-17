@@ -1,11 +1,13 @@
 <script setup>
 import {useModalStore} from "@/Stores/modalStore.js";
 import Badge from '@/Components/Badge.vue';
+import SecondaryButton from "@/Components/SecondaryButton.vue";
 
 const modalStore = useModalStore();
 
-defineProps({
-    power: Object
+const props = defineProps({
+    power: Object,
+    selectable: Boolean
 })
 
 const showDescription = async (entity, id) => {
@@ -27,11 +29,19 @@ const showDescription = async (entity, id) => {
             </h2>
         </div>
         <div class="mt-4 flex flex-col items-center">
-            <img src="/img/dice.png" class="w-12 h-12">
+            <img alt="dice" class="w-12 h-12" src="/img/dice.png">
 
             <p class="text-skin-50 text-2xl font-bold text-center lg:text-2xl">
                 {{ power.dice_pool }}
             </p>
+        </div>
+        <div
+            v-if="props.selectable"
+            class="flex justify-center"
+        >
+            <secondary-button @click="$emit('selectPower')">
+                Selectionner
+            </secondary-button>
         </div>
     </div>
 </template>

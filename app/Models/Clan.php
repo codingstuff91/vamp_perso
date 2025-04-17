@@ -12,4 +12,8 @@ class Clan extends Model
     public $timestamps = false;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'disciplines' => 'array',
+    ];
 }
