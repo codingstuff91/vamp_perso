@@ -61,7 +61,7 @@ class CharacterController extends Controller
         $character->loadMissing('bloodPotency');
         $character->loadMissing('user');
 
-        $disciplines = $character->powers->groupBy('discipline.name');
+        $disciplines = $character->powers()->groupBy('discipline.name');
 
         return Inertia::render('Character/Show', [
             'character' => $character,
